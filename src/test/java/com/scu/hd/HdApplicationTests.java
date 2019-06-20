@@ -11,7 +11,6 @@ public class HdApplicationTests {
 
     @Test
     public void contextLoads() {
-
     }
 
 }
