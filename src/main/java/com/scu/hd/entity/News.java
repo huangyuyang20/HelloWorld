@@ -1,4 +1,4 @@
-package com.scu.hd.Entity;
+package com.scu.hd.entity;
 
 import java.util.Date;
 
