@@ -1,6 +1,5 @@
 package com.scu.hd.entity;
 
-import lombok.Data;
 
 import java.util.Date;
 
