@@ -1,5 +1,9 @@
 package com.scu.hd.Entity;
 
+/**
+ * @author hyy
+ * @date 2019/6/26 17:45
+ */
 public class User {
     private String userId;
     private String userPassword;
@@ -48,3 +52,4 @@ public class User {
                 '}';
     }
 }
+

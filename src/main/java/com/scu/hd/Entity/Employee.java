@@ -2,6 +2,10 @@ package com.scu.hd.Entity;
 
 import java.util.Date;
 
+/**
+ * @author hyy
+ * @date 2019/6/26 17:44
+ */
 public class Employee {
     private String emName;
     private String emId;
