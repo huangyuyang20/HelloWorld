@@ -28,10 +28,13 @@ public class NewsController {
         return newsPageInfo;
     }
 
+
     @RequestMapping("/getNewsByTitleNum")
     public News getNewsByID(int titleNum){
         return newsService.QueryByTitleNum(titleNum);
     }
+
+
 
     @RequestMapping("/getNewsByTime")
     public List<News> getNewsByTime(String time){
