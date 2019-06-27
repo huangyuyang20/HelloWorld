@@ -74,6 +74,7 @@ public class LoginController {
                 resp.setInfo("密码不符合");
             }
         }
+        resp.setInfo("gotoStudentApplication");
         System.out.println(resp);
         return resp;
     }
