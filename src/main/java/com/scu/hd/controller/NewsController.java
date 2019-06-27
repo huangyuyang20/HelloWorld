@@ -34,6 +34,7 @@ public class NewsController {
     }
 
 
+
     @RequestMapping("/getNewsByTime")
     public List<News> getNewsByTime(String time){
         return newsService.QueryByTime(time);
