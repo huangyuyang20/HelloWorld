@@ -21,4 +21,9 @@ public class AskEmployeeController {
         return askEmployeeService.QureyById(employeeId);
     }
 
+    @RequestMapping("getSalaryInformation")
+    public Integer getSalaryInformation(String employeeId){return  askEmployeeService.QureyById(employeeId).getEmSalary();}
+
+    @RequestMapping("getAppraise")
+    public String getAppraise(String employeeId){return askEmployeeService.QureyById(employeeId).getEmAppraise();}
 }

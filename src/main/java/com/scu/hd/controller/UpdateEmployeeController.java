@@ -19,4 +19,11 @@ public class UpdateEmployeeController {
     @RequestMapping("updateAll")
     void updateAll(Employee newemployee){updateEmployeeService.updateEmployee(newemployee);}
 
+    @RequestMapping("updateSalary")
+    void updateSalary(String salary,String id){ updateEmployeeService.updateSalary(salary,id);}
+
+    @RequestMapping("updateAppraise")
+    void updateAppraise(String newAppraise,String id){ updateEmployeeService.updateAppraise(newAppraise, id);
+
+    }
 }

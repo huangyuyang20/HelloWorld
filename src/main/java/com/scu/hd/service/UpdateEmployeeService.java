@@ -10,4 +10,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface UpdateEmployeeService {
     void updateEmployee(Employee newemployee);
+    void updateSalary(String salary,String id);
+    void updateAppraise(String newAppraise,String id);
 }

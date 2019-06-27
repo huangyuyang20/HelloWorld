@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class AskEmployeeServiceImpl implements AskEmployeeService {
     @Autowired
     AskEmployeeDAO askEmployeeDAO;
-    //根据员工id查询员工信息
+
     @Override
     public Employee QureyById(String employeeId){return askEmployeeDAO.QureyById(employeeId);}
 
