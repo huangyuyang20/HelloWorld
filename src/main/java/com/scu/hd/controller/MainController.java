@@ -1,5 +1,7 @@
 package com.scu.hd.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,8 +13,35 @@ import org.springframework.web.bind.annotation.RestController;
  * @describe: []
  * @version:  v1.0
  */
-@RestController
-@RequestMapping("/")
+@Controller
+@RequestMapping()
 public class MainController {
+
+
+    /**
+     * 跳转登录
+     * @return
+     */
+    @GetMapping
+    public String gotoInfo(){
+        return "signin";
+    }
+
+    /**
+     * 跳转注册
+     */
+    @GetMapping("/register")
+    public String gotoRegister(){
+        return "stuAppRegister";
+    }
+
+
+    /**
+     * 跳转完善信息
+     */
+    @GetMapping("/application")
+    public String gotoApplication(){
+        return "stuAppHome";
+    }
 
 }

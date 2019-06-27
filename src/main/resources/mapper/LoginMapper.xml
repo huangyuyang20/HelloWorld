@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.scu.hd.dao.LoginMapper">
+    <resultMap id="BaseResultMap" type="com.scu.hd.entity.User" >
+        <id column="user_id" property="userId" jdbcType="VARCHAR" />
+        <result column="user_password" property="userPassword" jdbcType="VARCHAR" />
+        <result column="user_role" property="userRole" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <insert id="insertUser" parameterType="com.scu.hd.entity.User" >
+        insert into user (user_id, user_password, user_role)
+        values (#{userId}, #{userPassword}, #{userRole})
+    </insert>
+    <insert id="insertStudApplyInformation" parameterType="com.scu.hd.entity.StudApplyInformation" >
+        insert into stu_apply_information (stu_name, stu_id_card)
+        values (#{stuName}, #{stuIdCard})
+    </insert>
+    <select id="selectUserById" resultMap="BaseResultMap" parameterType="string">
+        select * from user where user_id = #{userId}
+    </select>
+</mapper>
