@@ -24,14 +24,20 @@ public interface SchloarShipDAO {
     @Select("select * from scholarship where scholarship_id=#{scholarship_id}")
     public SchloarShip selectScholarshipById(int scholarship_id);
 
+    //根据学年获取奖学金
+    @Select("select scholarship_id as scholarshipId, scho_name as schoName," +
+            "scho_time as schoTime,scho_money as schoMoney,scho_quota as schoQuota," +
+            "scho_start_time as schoStartTime,scho_deadline as schoDeadline from scholarship where scho_time=#{schoTime}")
+    public List<SchloarShip> selectScholarshipBySchoTime(String schoTime);
+
     //获得所有奖学金列表
     @Select("select scholarship_id as scholarshipId, scho_name as schoName,scho_time as schoTime," +
             "scho_money as schoMoney,scho_quota as schoQuota,scho_start_time as schoStartTime,scho_deadline as schoDeadline" +
             " from scholarship")
     public List<SchloarShip> getScholarships();
 
-    //修改奖学金数据，只能够修改金额、人数、截止日期
-    @Update("update scholarship set scho_money = #{schoMoney},scho_quota=#{schoQuota}" +
+    //修改奖学金数据，只能够修改学年金额、人数、截止日期
+    @Update("update scholarship set scho_time=#{schoTime},scho_money = #{schoMoney},scho_quota=#{schoQuota}" +
             ",scho_deadline=#{schoDeadline} where scholarship_id=#{scholarshipId}")
     public int alterScholarship(SchloarShip schloarShip);
 

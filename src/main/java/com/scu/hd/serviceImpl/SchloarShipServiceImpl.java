@@ -52,4 +52,12 @@ public class SchloarShipServiceImpl implements SchloarShipService {
     public int deleteScholarship(int scholarshipId) {
         return schloarShipDAO.deleteScholarship(scholarshipId);
     }
+
+    @Override
+    @Transactional
+    public  List<SchloarShip> selectScholarshipBySchoTime(String schoTime) {
+        return schloarShipDAO.selectScholarshipBySchoTime(schoTime);
+    }
+
+
 }

@@ -19,4 +19,6 @@ public interface SchloarShipService {
     public int alterScholarship(SchloarShip schloarShip);
 
     public int deleteScholarship(int scholarshipId);
+
+    public List<SchloarShip> selectScholarshipBySchoTime(String schoTime);;
 }

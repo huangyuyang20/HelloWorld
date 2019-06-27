@@ -55,6 +55,10 @@ public class SchloarShipController {
         }else return "发生了错误，删除失败，请重试！";
     }
 
+    //根据学年来检索奖学金
+    @RequestMapping("/findScholarBySchoTime")
+    public List<SchloarShip> findScholarBySchoTime(String schoTime){
+        return schloarShipService.selectScholarshipBySchoTime(schoTime);
 
-
+    }
 }
