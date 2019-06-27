@@ -1,6 +1,9 @@
 package com.scu.hd.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 /**
@@ -8,27 +11,29 @@ import java.util.Date;
  * @create 2019-06-26-17:21
  */
 public class SchloarShip {
-    @Override
-    public String toString() {
-        return "SchloarShip{" +
-                "scholarShipId=" + scholarShipId +
-                ", shoName='" + shoName + '\'' +
-                ", schoTime=" + schoTime +
-                ", schoMoney=" + schoMoney +
-                ", schoQuota=" + schoQuota +
-                ", schoStartTime=" + schoStartTime +
-                ", schoDeadline=" + schoDeadline +
-                '}';
-    }
 
-    Integer scholarShipId;
 
-    public SchloarShip() {
-    }
+    int scholarshipId;
 
-    public SchloarShip(Integer scholarShipId, String shoName, Integer schoTime, Integer schoMoney, Integer schoQuota, Date schoStartTime, Date schoDeadline) {
-        this.scholarShipId = scholarShipId;
-        this.shoName = shoName;
+    String schoName;
+
+    String schoTime;
+
+    int schoMoney;
+
+    int schoQuota;
+
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone ="GMT+8")
+    Date schoStartTime;
+
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone ="GMT+8")
+    Date schoDeadline;
+
+    public SchloarShip(int scholarshipId, String schoName, String schoTime, int schoMoney, int schoQuota, Date schoStartTime, Date schoDeadline) {
+        this.scholarshipId = scholarshipId;
+        this.schoName = schoName;
         this.schoTime = schoTime;
         this.schoMoney = schoMoney;
         this.schoQuota = schoQuota;
@@ -36,43 +41,68 @@ public class SchloarShip {
         this.schoDeadline = schoDeadline;
     }
 
-    public Integer getScholarShipId() {
-        return scholarShipId;
+    public SchloarShip(String schoName, String schoTime, int schoMoney, int schoQuota, Date schoStartTime, Date schoDeadline) {
+        this.schoName = schoName;
+        this.schoTime = schoTime;
+        this.schoMoney = schoMoney;
+        this.schoQuota = schoQuota;
+        this.schoStartTime = schoStartTime;
+        this.schoDeadline = schoDeadline;
     }
 
-    public void setScholarShipId(Integer scholarShipId) {
-        this.scholarShipId = scholarShipId;
+    @Override
+    public String toString() {
+        return "SchloarShip{" +
+                "scholarshipId=" + scholarshipId +
+                ", schoName='" + schoName + '\'' +
+                ", schoTime='" + schoTime + '\'' +
+                ", schoMoney=" + schoMoney +
+                ", schoQuota=" + schoQuota +
+                ", schoStartTime=" + schoStartTime +
+                ", schoDeadline=" + schoDeadline +
+                '}';
     }
 
-    public String getShoName() {
-        return shoName;
+    public SchloarShip() {
     }
 
-    public void setShoName(String shoName) {
-        this.shoName = shoName;
+    public int getScholarshipId() {
+        return scholarshipId;
     }
 
-    public Integer getSchoTime() {
+    public void setScholarshipId(int scholarshipId) {
+        this.scholarshipId = scholarshipId;
+    }
+
+    public String getSchoName() {
+        return schoName;
+    }
+
+    public void setSchoName(String schoName) {
+        this.schoName = schoName;
+    }
+
+    public String getSchoTime() {
         return schoTime;
     }
 
-    public void setSchoTime(Integer schoTime) {
+    public void setSchoTime(String schoTime) {
         this.schoTime = schoTime;
     }
 
-    public Integer getSchoMoney() {
+    public int getSchoMoney() {
         return schoMoney;
     }
 
-    public void setSchoMoney(Integer schoMoney) {
+    public void setSchoMoney(int schoMoney) {
         this.schoMoney = schoMoney;
     }
 
-    public Integer getSchoQuota() {
+    public int getSchoQuota() {
         return schoQuota;
     }
 
-    public void setSchoQuota(Integer schoQuota) {
+    public void setSchoQuota(int schoQuota) {
         this.schoQuota = schoQuota;
     }
 
@@ -91,17 +121,4 @@ public class SchloarShip {
     public void setSchoDeadline(Date schoDeadline) {
         this.schoDeadline = schoDeadline;
     }
-
-    String shoName;
-
-    Integer schoTime;
-
-    Integer schoMoney;
-
-    Integer schoQuota;
-
-    Date schoStartTime;
-
-    Date schoDeadline;
-
 }

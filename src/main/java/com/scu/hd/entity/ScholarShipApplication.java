@@ -9,47 +9,72 @@ import java.util.Date;
  */
 
 public class ScholarShipApplication {
-    Integer schoAppId;
 
-    Integer stuId;
+    private int scholarshipId;//奖项编号
 
-    String schoPersonnalStmt;
+    private int stuId;//学生id
 
-    Integer schoApprove;
+    private String schoPersonalstmt;//个人陈述
 
-    Date schoApprovetime;
+    private int schoApprove;//审核状态
 
-    Date schoSubmittime;
+   private Date schoApprovetime;//申请时间
 
-    public Integer getSchoAppId() {
-        return schoAppId;
+   private Date  schoSubmittime;//确认时间
+
+    @Override
+    public String toString() {
+        return "ScholarShipApplication{" +
+                "scholarshipId=" + scholarshipId +
+                ", stuId=" + stuId +
+                ", schoPersonalstmt='" + schoPersonalstmt + '\'' +
+                ", schoApprove=" + schoApprove +
+                ", schoApprovetime=" + schoApprovetime +
+                ", schoSubmittime=" + schoSubmittime +
+                '}';
     }
 
-    public void setSchoAppId(Integer schoAppId) {
-        this.schoAppId = schoAppId;
+    public ScholarShipApplication(int scholarshipId, int stuId, String schoPersonalstmt, int schoApprove, Date schoApprovetime, Date schoSubmittime) {
+        this.scholarshipId = scholarshipId;
+        this.stuId = stuId;
+        this.schoPersonalstmt = schoPersonalstmt;
+        this.schoApprove = schoApprove;
+        this.schoApprovetime = schoApprovetime;
+        this.schoSubmittime = schoSubmittime;
     }
 
-    public Integer getStuId() {
+    public ScholarShipApplication() {
+    }
+
+    public int getScholarshipId() {
+        return scholarshipId;
+    }
+
+    public void setScholarshipId(int scholarshipId) {
+        this.scholarshipId = scholarshipId;
+    }
+
+    public int getStuId() {
         return stuId;
     }
 
-    public void setStuId(Integer stuId) {
+    public void setStuId(int stuId) {
         this.stuId = stuId;
     }
 
-    public String getSchoPersonnalStmt() {
-        return schoPersonnalStmt;
+    public String getSchoPersonalstmt() {
+        return schoPersonalstmt;
     }
 
-    public void setSchoPersonnalStmt(String schoPersonnalStmt) {
-        this.schoPersonnalStmt = schoPersonnalStmt;
+    public void setSchoPersonalstmt(String schoPersonalstmt) {
+        this.schoPersonalstmt = schoPersonalstmt;
     }
 
-    public Integer getSchoApprove() {
+    public int getSchoApprove() {
         return schoApprove;
     }
 
-    public void setSchoApprove(Integer schoApprove) {
+    public void setSchoApprove(int schoApprove) {
         this.schoApprove = schoApprove;
     }
 
@@ -67,29 +92,5 @@ public class ScholarShipApplication {
 
     public void setSchoSubmittime(Date schoSubmittime) {
         this.schoSubmittime = schoSubmittime;
-    }
-
-    public ScholarShipApplication() {
-    }
-
-    public ScholarShipApplication(Integer schoAppId, Integer stuId, String schoPersonnalStmt, Integer schoApprove, Date schoApprovetime, Date schoSubmittime) {
-        this.schoAppId = schoAppId;
-        this.stuId = stuId;
-        this.schoPersonnalStmt = schoPersonnalStmt;
-        this.schoApprove = schoApprove;
-        this.schoApprovetime = schoApprovetime;
-        this.schoSubmittime = schoSubmittime;
-    }
-
-    @Override
-    public String toString() {
-        return "ScholarShipApplication{" +
-                "schoAppId=" + schoAppId +
-                ", stuId=" + stuId +
-                ", schoPersonnalStmt='" + schoPersonnalStmt + '\'' +
-                ", schoApprove=" + schoApprove +
-                ", schoApprovetime=" + schoApprovetime +
-                ", schoSubmittime=" + schoSubmittime +
-                '}';
     }
 }
