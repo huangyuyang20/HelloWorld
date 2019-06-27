@@ -1,14 +1,12 @@
 package com.scu.hd.dao;
 
 import com.scu.hd.entity.ScholarApplicationInformation;
-import com.scu.hd.entity.ScholarShipApplication;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
-import java.util.Date;
 import java.util.List;
 
 /**

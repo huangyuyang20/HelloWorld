@@ -2,17 +2,14 @@ package com.scu.hd;
 
 import com.scu.hd.entity.SchloarShip;
 import com.scu.hd.entity.ScholarApplicationInformation;
-import com.scu.hd.entity.ScholarShipApplication;
 import com.scu.hd.service.SchloarShipService;
 import com.scu.hd.service.ScholarShipApplicationService;
-import com.scu.hd.serviceImpl.SchloarShipServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;

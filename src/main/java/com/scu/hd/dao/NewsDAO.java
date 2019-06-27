@@ -23,4 +23,6 @@ public interface NewsDAO {
 
     @Select("select * from news where time=#{time}")
     List<News> QueryByTime(String time);
+
+
 }

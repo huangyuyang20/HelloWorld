@@ -1,9 +1,7 @@
 package com.scu.hd.service;
 
 import com.scu.hd.entity.ScholarApplicationInformation;
-import com.scu.hd.entity.ScholarShipApplication;
 
-import java.util.Date;
 import java.util.List;
 
 /**

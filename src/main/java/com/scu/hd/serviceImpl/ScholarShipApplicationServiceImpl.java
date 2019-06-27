@@ -2,12 +2,10 @@ package com.scu.hd.serviceImpl;
 
 import com.scu.hd.dao.ScholarShipApplicationDAO;
 import com.scu.hd.entity.ScholarApplicationInformation;
-import com.scu.hd.entity.ScholarShipApplication;
 import com.scu.hd.service.ScholarShipApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 
 /**

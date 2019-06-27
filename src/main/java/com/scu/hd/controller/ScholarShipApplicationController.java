@@ -1,7 +1,6 @@
 package com.scu.hd.controller;
 
 import com.scu.hd.entity.ScholarApplicationInformation;
-import com.scu.hd.entity.ScholarShipApplication;
 import com.scu.hd.service.ScholarShipApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
