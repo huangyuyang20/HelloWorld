@@ -5,6 +5,8 @@ import java.util.Date;
 
 /**
  * @author zhong songzhi
+ *
+ * 身份证 + 类型
  * @create 2019-06-26-17:39
  */
 public class Student {
