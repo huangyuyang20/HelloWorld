@@ -33,6 +33,7 @@ public class NewsController {
         return newsService.QueryByTitleNum(titleNum);
     }
 
+
     @RequestMapping("/getNewsByTime")
     public List<News> getNewsByTime(String time){
         return newsService.QueryByTime(time);
