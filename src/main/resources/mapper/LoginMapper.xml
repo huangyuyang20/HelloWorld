@@ -6,20 +6,29 @@
 
 <mapper namespace="com.scu.hd.dao.LoginMapper">
     <resultMap id="BaseResultMap" type="com.scu.hd.entity.User" >
-        <id column="user_id" property="userId" jdbcType="VARCHAR" />
-        <result column="user_password" property="userPassword" jdbcType="VARCHAR" />
+        <id column="user_id" property="username" jdbcType="VARCHAR" />
+        <result column="user_password" property="password" jdbcType="VARCHAR" />
         <result column="user_role" property="userRole" jdbcType="VARCHAR" />
+    </resultMap>
+    <resultMap id="StudApplyInformationMap" type="com.scu.hd.entity.StudApplyInformation">
+        <id column="user_id" property="userId" jdbcType="VARCHAR" />
+        <result column="stu_apply_id" property="stuApplyId" jdbcType="INTEGER" />
+        <result column="stu_id_card" property="stuIdCard" jdbcType="VARCHAR" />
     </resultMap>
 
     <insert id="insertUser" parameterType="com.scu.hd.entity.User" >
         insert into user (user_id, user_password, user_role)
-        values (#{userId}, #{userPassword}, #{userRole})
+        values (#{username}, #{password}, #{userRole})
     </insert>
     <insert id="insertStudApplyInformation" parameterType="com.scu.hd.entity.StudApplyInformation" >
-        insert into stu_apply_information (stu_name, stu_id_card)
-        values (#{stuName}, #{stuIdCard})
+        insert into stu_apply_information (stu_name, stu_id_card, user_id)
+        values (#{stuName}, #{stuIdCard}, #{username})
     </insert>
     <select id="selectUserById" resultMap="BaseResultMap" parameterType="string">
-        select * from user where user_id = #{userId}
+        select * from user where user_id = #{username}
+    </select>
+
+    <select id="selectStudApplyInformationById" resultMap="StudApplyInformationMap" parameterType="string">
+        select * from stu_apply_information where user_id = #{userId}
     </select>
 </mapper>

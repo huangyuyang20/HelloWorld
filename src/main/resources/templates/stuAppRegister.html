@@ -1,7 +1,11 @@
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
     <title>Students Application-SCU</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
@@ -253,6 +257,9 @@
 <script src="js/app.js"></script>
 <script>
     function sign_up(){
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+
         var username = $('#username')[0].value;
         var name = $('#name')[0].value;
         var password = $('#password')[0].value;
@@ -262,8 +269,8 @@
         }
         else{
             var user = {
-                userId: username,     //账号
-                userPassword: password,     //密码
+                username: username,     //账号
+                password: password,     //密码
                 userRole: "ROLE_STUDENT"
             };
             var student = {
@@ -280,6 +287,9 @@
                 dataType:"json",
                 contentType: "application/json;charset=UTF-8",
                 data:JSON.stringify(model),
+                beforeSend: function(request) {
+                    request.setRequestHeader(header, token); // 添加  CSRF Token
+                },
                 success:function(data){
                     console.log(data);
                     if(data.status === "fail"){

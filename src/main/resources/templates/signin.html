@@ -1,8 +1,11 @@
-<html>
-
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
     <title>Amaze UI Admin index Examples</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
@@ -53,11 +56,14 @@
 <script src="js/app.js"></script>
 <script>
     function sign_in(){
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+
         var username = $('#username')[0].value;
         //alert("username"+userName.length);
         var password = $('#password')[0].value;
         //alert("password"+passWord.length);
-        if(username.length == 0||password.length == 0){
+        if(username.length === 0||password.length === 0){
             alert("请填写完整用户名和密码!");
         }
         else {
@@ -65,17 +71,20 @@
                 type: 'POST',
                 url: '/login',
                 data: {
-                    'userId':username,
-                    'userPassword':password
+                    'username':username,
+                    'password':password
                 },
                 async : false,
+                beforeSend: function(request) {
+                    request.setRequestHeader(header, token); // 添加  CSRF Token
+                },
                 success: function (data) {
                     console.log("成功");
                     if (data.status === "fail") {
                         alert(data.msg);
                     } else {
                         sessionStorage.setItem('stu_app_name', JSON.stringify(data));
-                        if (data.status === "success") {
+                        if (data.info === "gotoStudentApplication") {
                             window.location.href = "/application";
                         } else {
                             var json= JSON.stringify(data);

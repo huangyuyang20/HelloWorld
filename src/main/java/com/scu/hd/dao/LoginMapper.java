@@ -13,4 +13,6 @@ public interface LoginMapper {
     public User selectUserById(String userId);
 
     public void insertStudApplyInformation(StudApplyInformation studApplyInformation);
+
+    public StudApplyInformation selectStudApplyInformationById(String userId);
 }

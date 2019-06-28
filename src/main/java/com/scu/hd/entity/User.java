@@ -1,28 +1,40 @@
 package com.scu.hd.entity;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.List;
+
 /**
  * @author hyy
  * @date 2019/6/26 17:45
  */
-public class User {
-    private String userId;
-    private String userPassword;
+public class User implements UserDetails, Serializable {
+    private static final long serialVersionUID = 1L;
+
+    private String username;
+    private String password;
     private String userRole;
+    private List<Authority> authorities;
 
-    public String getUserId() {
-        return userId;
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", userRole='" + userRole + '\'' +
+                ", authorities=" + authorities +
+                '}';
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getUserPassword() {
-        return userPassword;
-    }
-
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getUserRole() {
@@ -33,23 +45,43 @@ public class User {
         this.userRole = userRole;
     }
 
-    public User(String userId, String userPassword, String userRole) {
-        this.userId = userId;
-        this.userPassword = userPassword;
-        this.userRole = userRole;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return authorities;
     }
 
-    public User() {
+    public void setAuthorities(List<Authority> authorities) {
+        this.authorities = authorities;
     }
-
 
     @Override
-    public String toString() {
-        return "User{" +
-                "userId='" + userId + '\'' +
-                ", userPassword='" + userPassword + '\'' +
-                ", userRole='" + userRole + '\'' +
-                '}';
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }
 

@@ -17,6 +17,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping()
 public class MainController {
 
+    @GetMapping("/student/application")
+    public String application(){
+        return "stuAppHome";
+    }
+
+    @GetMapping("/admins")
+    public String test(){
+        return "stuAppHome";
+    }
+
+    /**
+     * 默认跳转
+     */
+    @GetMapping("/login")
+    public String turn(){
+        return "signin";
+    }
 
     /**
      * 跳转登录

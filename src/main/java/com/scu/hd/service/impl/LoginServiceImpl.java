@@ -1,6 +1,7 @@
 package com.scu.hd.service.impl;
 
 import com.scu.hd.dao.LoginMapper;
+import com.scu.hd.entity.StudApplyInformation;
 import com.scu.hd.entity.User;
 import com.scu.hd.entity.UserStudApplyInformationOV;
 import com.scu.hd.service.LoginService;
@@ -24,6 +25,18 @@ public class LoginServiceImpl implements LoginService {
         log.info(String.format("插入数据: %s %s", user.getUser(), user.getStudApplyInformation()));
         loginMapper.insertUser(user.getUser());
         loginMapper.insertStudApplyInformation(user.getStudApplyInformation());
+    }
+
+    @Override
+    public void insertStudApplyInformation(StudApplyInformation studApplyInformation) {
+        loginMapper.insertStudApplyInformation(studApplyInformation);
+    }
+
+
+    @Override
+    public StudApplyInformation selectStudApplyInformationById(String userId) {
+        System.out.println(userId);
+        return loginMapper.selectStudApplyInformationById(userId);
     }
 
     @Override
