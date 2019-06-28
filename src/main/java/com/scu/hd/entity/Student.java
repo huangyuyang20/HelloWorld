@@ -1,5 +1,6 @@
-package com.scu.hd.entity;
+package com.scu.hd.Entity;
 
+import lombok.Data;
 
 import java.util.Date;
 
@@ -134,25 +135,6 @@ public class Student {
 
     public String getStuPassword() {
         return stuPassword;
-    }
-
-    public Student() {
-    }
-
-    public Student(Integer stuId, String stuName, String stuCollege, String stuMajor, Date stuBirthDate, String stuBirthPlace, String stuPhone, Integer stuGender, String stuEmail, Integer stuAccount, Double stuGpa, String stuStatus, String stuPassword) {
-        this.stuId = stuId;
-        this.stuName = stuName;
-        this.stuCollege = stuCollege;
-        this.stuMajor = stuMajor;
-        this.stuBirthDate = stuBirthDate;
-        this.stuBirthPlace = stuBirthPlace;
-        this.stuPhone = stuPhone;
-        this.stuGender = stuGender;
-        this.stuEmail = stuEmail;
-        this.stuAccount = stuAccount;
-        this.stuGpa = stuGpa;
-        this.stuStatus = stuStatus;
-        this.stuPassword = stuPassword;
     }
 
     public void setStuPassword(String stuPassword) {
