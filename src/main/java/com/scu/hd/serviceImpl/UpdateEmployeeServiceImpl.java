@@ -16,18 +16,18 @@ public class UpdateEmployeeServiceImpl implements UpdateEmployeeService {
     UpdateEmployeeDao updateEmployeeDao;
 
     @Override
-    public void updateEmployee(Employee newemployee){
-        updateEmployeeDao.updateEmployee(newemployee);
+    public void updateEmployee(Employee employee){
+        updateEmployeeDao.updateEmployee(employee);
     }
 
     @Override
-    public void updateSalary(String salary,String id){
-        updateEmployeeDao.updateSalary(salary,id);
+    public void updateSalary(Integer emSalary,String emId){
+        updateEmployeeDao.updateSalary(emSalary,emId);
     }
 
     @Override
-    public void updateAppraise(String newAppraise,String id){
-        updateEmployeeDao.updateAppraise(newAppraise,id);
+    public void updateAppraise(String emAppraise,String emId){
+        updateEmployeeDao.updateAppraise(emAppraise,emId);
     }
 
 }

@@ -17,13 +17,13 @@ public class UpdateEmployeeController {
     UpdateEmployeeService updateEmployeeService;
 
     @RequestMapping("updateAll")
-    void updateAll(Employee newemployee){updateEmployeeService.updateEmployee(newemployee);}
+    void updateAll(Employee employee){updateEmployeeService.updateEmployee(employee);}
 
     @RequestMapping("updateSalary")
-    void updateSalary(String salary,String id){ updateEmployeeService.updateSalary(salary,id);}
+    void updateSalary(Integer emSalary,String emId){ updateEmployeeService.updateSalary(emSalary,emId);}
 
     @RequestMapping("updateAppraise")
-    void updateAppraise(String newAppraise,String id){ updateEmployeeService.updateAppraise(newAppraise, id);
+    void updateAppraise(String emAppraise,String emId){ updateEmployeeService.updateAppraise(emAppraise, emId);
 
     }
 }
