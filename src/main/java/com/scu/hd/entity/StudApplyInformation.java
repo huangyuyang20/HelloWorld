@@ -160,10 +160,12 @@ public class StudApplyInformation {
     @Override
     public String toString() {
         return "StudApplyInformation{" +
-                "stuName='" + stuName + '\'' +
+                "userId='" + userId + '\'' +
+                ", stuName='" + stuName + '\'' +
                 ", stuBirthday=" + stuBirthday +
                 ", stuBirthplace='" + stuBirthplace + '\'' +
                 ", stuEmail='" + stuEmail + '\'' +
+                ", stuGender='" + stuGender + '\'' +
                 ", stuMajor='" + stuMajor + '\'' +
                 ", stuPhone='" + stuPhone + '\'' +
                 ", stuIdCard='" + stuIdCard + '\'' +

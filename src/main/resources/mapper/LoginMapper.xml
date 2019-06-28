@@ -20,9 +20,10 @@
         insert into user (user_id, user_password, user_role)
         values (#{username}, #{password}, #{userRole})
     </insert>
+
     <insert id="insertStudApplyInformation" parameterType="com.scu.hd.entity.StudApplyInformation" >
-        insert into stu_apply_information (stu_name, stu_id_card, user_id)
-        values (#{stuName}, #{stuIdCard}, #{username})
+        insert into stu_apply_information (stu_name,stu_id_card,user_id)
+        values (#{stuName}, #{stuIdCard}, #{userId})
     </insert>
     <select id="selectUserById" resultMap="BaseResultMap" parameterType="string">
         select * from user where user_id = #{username}
@@ -31,4 +32,23 @@
     <select id="selectStudApplyInformationById" resultMap="StudApplyInformationMap" parameterType="string">
         select * from stu_apply_information where user_id = #{userId}
     </select>
+    
+    <update id="updateStudApplyInformation" parameterType="com.scu.hd.entity.StudApplyInformation" >
+        update stu_apply_information set  stu_name = #{stuName},
+                                          stu_birthday = #{stuBirthday},
+                                          stu_birthplace = #{stuBirthplace},
+                                          stu_email = #{stuEmail},
+                                          stu_major = #{stuMajor},
+                                          stu_phone = #{stuPhone},
+                                          stu_id_card = #{stuIdCard},
+                                          stu_introduction = #{stuIntroduction},
+                                          stu_grade = #{stuGrade},
+                                          stu_level1manager = #{stuLevel1manager},
+                                          stu_level2manager = #{stuLevel2manager},
+                                          stu_level3manager = #{stuLevel3manager},
+                                          stu_selfcheck = #{stuSelfcheck},
+                                          stu_nation = #{stuNation},
+                                          stu_image = #{stuImage}
+        where stu_apply_id = #{stuApplyId}
+    </update>
 </mapper>

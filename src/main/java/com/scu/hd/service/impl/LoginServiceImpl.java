@@ -24,6 +24,7 @@ public class LoginServiceImpl implements LoginService {
     public void insertUserStudentOV(UserStudApplyInformationOV user) {
         log.info(String.format("插入数据: %s %s", user.getUser(), user.getStudApplyInformation()));
         loginMapper.insertUser(user.getUser());
+        System.out.println(" " + user.getStudApplyInformation().getStuName() + " " + user.getStudApplyInformation().getStuIdCard() + " " + user.getStudApplyInformation().getUserId());
         loginMapper.insertStudApplyInformation(user.getStudApplyInformation());
     }
 
@@ -35,8 +36,12 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public StudApplyInformation selectStudApplyInformationById(String userId) {
-        System.out.println(userId);
         return loginMapper.selectStudApplyInformationById(userId);
+    }
+
+    @Override
+    public void updateStudApplyInformation(StudApplyInformation studApplyInformation) {
+        loginMapper.updateStudApplyInformation(studApplyInformation);
     }
 
     @Override

@@ -39,6 +39,7 @@ public class LoginController {
     public void md5(UserStudApplyInformationOV user){
         String encode = passwordEncoder.encode(user.getUser().getPassword());
         user.getUser().setPassword(encode);
+        user.getStudApplyInformation().setUserId(user.getUser().getUsername());
     }
     /**
      * 学生注册功能

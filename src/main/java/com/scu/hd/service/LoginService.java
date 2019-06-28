@@ -14,6 +14,8 @@ public interface LoginService {
 
     public StudApplyInformation selectStudApplyInformationById(String userId);
 
+    public void updateStudApplyInformation(StudApplyInformation studApplyInformation);
+
     /**
      * 查询user
      */

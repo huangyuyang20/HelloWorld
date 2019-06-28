@@ -33,6 +33,14 @@ public class ApplicationController {
     public AppResponse editApplicationInfo(@RequestBody StudApplyInformation information){
         System.out.println(information);
         AppResponse resp = new AppResponse();
+        try{
+            information.setStuBirthday(null);
+            loginService.updateStudApplyInformation(information);
+        } catch (Exception e){
+            resp.setCode(2);
+            resp.setStatus("fail");
+            resp.setInfo("插入失败");
+        }
         return resp;
     }
 

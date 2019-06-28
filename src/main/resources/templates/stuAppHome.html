@@ -231,7 +231,8 @@
                 request.setRequestHeader(header, token); // 添加  CSRF Token
             },
             success:function(data){
-                alert(data);
+                $('#id').text(data.studApplyInformation.stuApplyId);
+                $('#name').text(data.studApplyInformation.stuName);
             },
             error:function(){
                 alert("发生错误");

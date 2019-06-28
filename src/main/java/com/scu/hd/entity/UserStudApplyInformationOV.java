@@ -12,7 +12,9 @@ public class UserStudApplyInformationOV {
     
     private User user;
     private StudApplyInformation studApplyInformation;
+    public UserStudApplyInformationOV(){
 
+    }
     public UserStudApplyInformationOV(User user, StudApplyInformation studApplyInformation){
         this.user = user;
         this.studApplyInformation = studApplyInformation;
