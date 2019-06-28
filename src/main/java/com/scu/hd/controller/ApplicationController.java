@@ -55,7 +55,7 @@ public class ApplicationController {
 
         User principal = (User)authentication.getPrincipal();
         StudApplyInformation studApplyInformation = loginService.selectStudApplyInformationById(principal.getUsername());
-        System.out.println(studApplyInformation);
+        System.out.println("=="+studApplyInformation);
 
         return new UserStudApplyInformationOV(principal, studApplyInformation);
     }

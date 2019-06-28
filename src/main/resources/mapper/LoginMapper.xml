@@ -12,6 +12,7 @@
     </resultMap>
     <resultMap id="StudApplyInformationMap" type="com.scu.hd.entity.StudApplyInformation">
         <id column="user_id" property="userId" jdbcType="VARCHAR" />
+        <result column="stu_name" property="stuName" jdbcType="VARCHAR" />
         <result column="stu_apply_id" property="stuApplyId" jdbcType="INTEGER" />
         <result column="stu_id_card" property="stuIdCard" jdbcType="VARCHAR" />
     </resultMap>

@@ -80,17 +80,22 @@
                 },
                 success: function (data) {
                     console.log("成功");
-                    if (data.status === "fail") {
-                        alert(data.msg);
-                    } else {
-                        sessionStorage.setItem('stu_app_name', JSON.stringify(data));
-                        if (data.info === "gotoStudentApplication") {
-                            window.location.href = "/application";
-                        } else {
-                            var json= JSON.stringify(data);
-                            alert(json);
-                        }
+                    if (data.status === "success") {
+                        window.location.href = "/student/application";
                     }
+                    console.log(data.status);
+                    // if (data.status === "fail") {
+                    //     alert(data);
+                    // } else {
+                    //     sessionStorage.setItem('stu_app_name', JSON.stringify(data));
+                    //     if (data.info === "gotoStudentApplication") {
+                    //         window.location.href = "/student/application";
+                    //     } else {
+                    //         var json= JSON.stringify(data);
+                    //         alert(json);
+                    //     }
+                    // }
+
                 },
                 error: function(data){
                     console.log("失败");

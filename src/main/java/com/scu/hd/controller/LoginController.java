@@ -61,6 +61,7 @@ public class LoginController {
             resp.setStatus("fail");
             resp.setInfo("失败原因: ....");
         }
+        System.out.println(resp);
         return resp;
     }
 
@@ -88,7 +89,7 @@ public class LoginController {
             }
         }
         resp.setInfo("gotoStudentApplication");
-        System.out.println(resp);
+        System.out.println("======"+resp);
         return resp;
     }
 }
