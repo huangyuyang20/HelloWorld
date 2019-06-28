@@ -23,8 +23,10 @@ public class NewsController {
 
     @RequestMapping("/getNews")
     public PageInfo<News> pagehelpergetnews(int pageNum, int pageSize){
+        System.out.println("======");
         PageHelper.startPage(pageNum,pageSize);
         PageInfo<News> newsPageInfo = new PageInfo<>(newsService.getNews());
+        System.out.println(newsPageInfo.getList());
         return newsPageInfo;
     }
 
