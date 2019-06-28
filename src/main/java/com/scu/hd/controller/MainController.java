@@ -16,6 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 @RequestMapping()
 public class MainController {
+    @GetMapping("/index")
+    public String home(){
+        return "home";
+    }
 
     @GetMapping("/student/application")
     public String application(){
