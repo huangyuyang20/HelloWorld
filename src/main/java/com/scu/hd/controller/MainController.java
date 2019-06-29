@@ -65,4 +65,9 @@ public class MainController {
         return "stuAppHome";
     }
 
+    @GetMapping("/News/newsDetail/*")
+    public String gotoNews(){
+        return "newsDetail";
+    }
+
 }
