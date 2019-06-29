@@ -243,8 +243,8 @@
         //alert(obj.id);
         var id = obj.id;
         //var s = document.getElementById("news");
-
-        location.href= "/News/newsDetail"+"/"+id;
+        localStorage.setItem('urlId',id);
+        location.href= "/News/newsDetail";
 
     }
 

@@ -65,8 +65,9 @@ public class MainController {
         return "stuAppHome";
     }
 
-    @GetMapping("/News/newsDetail/*")
+    @GetMapping("/News/newsDetail")
     public String gotoNews(){
+        System.out.println("==");
         return "newsDetail";
     }
 

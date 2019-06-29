@@ -79,15 +79,17 @@
     var token = $("meta[name='_csrf']").attr("content");
     var header = $("meta[name='_csrf_header']").attr("content");
 
-    var loc = location.href;
+    // var loc = location.href;
     //alert(loc)
-    var n1 = loc.length;//地址的总长度
-    var n2 = loc.indexOf("/");//取得=号的位置
-    var id = decodeURI(loc.substr(n2+1, n1-n2));//从=号后面的内容
+    // var n1 = loc.length;//地址的总长度
+    // var n2 = loc.indexOf("?");//取得=号的位置
+    // var id = decodeURI(loc.substr(n2+1, n1-n2));//从=号后面的内容
+
+    var id = localStorage.getItem('urlId');
     alert(id);
 
     $.ajax({
-        url: 'News/getNewsByTitleNum',
+        url: '/News/newsDetail/'+id,
         type:'POST',
         detaType:'json',
         data:{
