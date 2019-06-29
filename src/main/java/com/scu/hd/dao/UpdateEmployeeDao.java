@@ -25,6 +25,6 @@ public interface UpdateEmployeeDao {
     @Update("update employee set em_salary = #{emSalary} where em_id = #{emId}")
     void updateSalary(@Param("emSalary") Integer emSalary,@Param("emId") String emId);
     //更新考评
-    @Update("update employee set em_appraise={emAppraise} where em_id = #{emId}")
+    @Update("update employee set em_appraise= #{emAppraise} where em_id = #{emId}")
     void updateAppraise(@Param("emAppraise")String emAppraise,@Param("emId")String emId);
 }
