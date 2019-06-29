@@ -162,8 +162,6 @@
             </div>
             <div class="tpl-block">
                 <ul class="tpl-task-list tpl-task-remind" id="news_list">
-
-
                     <!-- 新闻显示 -->
                 </ul>
             </div>
@@ -185,8 +183,8 @@
 
     $(document).ready(function () {
         $.ajax({
-            url: '/News/getNews',//URL是巨坑！！！
-            type: 'POST',//请求方式
+            url: '/News/getNews',
+            type: 'POST',
             dataType: 'json',
             data: {
                 "pageNum":1,
@@ -200,16 +198,19 @@
                 //如果请求成功，返回数据。
                 if (data.status == "fail") {
                     alert(data.msg);
-                } else if (data.status == "success") {
+                }
+                else {
+                    alert(data.status);
                     var json= JSON.stringify(data);
                     alert(json);
                     var html ="";
-                    for (var i = 0; i < data.data.pageSize; i++)
+                    for (var i = 0; i < data.pageSize; i++)
                     {
-                        var title = data.data.list[i].title;
-                        var author = data.data.list[i].author;
-                        var time = data.data.list[i].time;
-                        var id = data.data.list[i].titlenum;
+
+                        var title = data.list[i].title;
+                        var author = data.list[i].author;
+                        var time = data.list[i].time;
+                        var id = data.list[i].titlenum;
                         html="                    <li>\n" +
                             "                        <div class=\"cosB\">\n" +
                             "                            "+time+"\n" +
@@ -228,6 +229,7 @@
                         $("#news_list").append(html);
                     }
                 }
+
             },
             error: function (XMLHttpRequest, textStatus) {
                 alert(XMLHttpRequest.status);
@@ -241,7 +243,8 @@
         //alert(obj.id);
         var id = obj.id;
         //var s = document.getElementById("news");
-        location.href="newsDetail"+"/"+id;
+
+        location.href= "/News/newsDetail"+"/"+id;
 
     }
 

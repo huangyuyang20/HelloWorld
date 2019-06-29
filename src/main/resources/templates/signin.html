@@ -80,18 +80,9 @@
                 },
                 success: function (data) {
                     console.log("成功");
+                    sessionStorage.setItem('appInfo', JSON.stringify(data));
                     window.location.href = "/index";
-                    // if (data.status === "fail") {
-                    //     alert(data);
-                    // } else {
-                    //     sessionStorage.setItem('stu_app_name', JSON.stringify(data));
-                    //     if (data.info === "gotoStudentApplication") {
-                    //         window.location.href = "/student/application";
-                    //     } else {
-                    //         var json= JSON.stringify(data);
-                    //         alert(json);
-                    //     }
-                    // }
+
 
                 },
                 error: function(data){

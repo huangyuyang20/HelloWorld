@@ -241,36 +241,38 @@
     });
 </script>
 <script>
-    // $(document).ready(function () {
-    //     //取出session并显示
-    //     var stu_app_name = sessionStorage.getItem('stu_app_name');
-    //     //console.log();
-    //     stu_app_name = JSON.parse(stu_app_name);
-    //     //document.getElementById("user_center").innerText=stu_app_name.data.username;
-    //
-    //     ajax({
-    //         //当登陆后请求用户已经填写的数据
-    //         type : "POST",
-    //         url : '/',
-    //         dataType :'json',
-    //         data:{},
-    //         async:false,
-    //         success:function (data) {
-    //             document.getElementById("id").innerText=data.id;
-    //             document.getElementById("name").innerText=data.name;
-    //             //document.getElementById("gender").innerText=data.gender;
-    //             document.getElementById("email").innerText=data.email;
-    //             document.getElementById("id_no").innerText = data.id_no;
-    //             document.getElementById("phone").innerText = data.phone;
-    //             $("birthdate").datepicker('setDate',date.birthdate);
-    //             document.getElementById("birthdate").innerText =data.birthdate;
-    //             document.getElementById("undergraduate").innerText = data.undergraduate;
-    //             document.getElementById("address").innerText = data.address;
-    //             document.getElementById("major").innerText = data.major;
-    //             document.getElementById("user_intro").innerText = data.user_intro;
-    //         }
-    //     })
-    // });
+    $(document).ready(function () {
+        //取出session并显示
+        var appInfo = sessionStorage.getItem('appInfo');
+
+        appInfo= JSON.parse(appInfo);
+        document.getElementById("user_center").innerText=appInfo.username;
+
+        ajax({
+            //当登陆后请求用户已经填写的数据
+            type : "POST",
+            url : '/student/application/init',
+            dataType :'json',
+            data:{
+                //?
+            },
+            async:false,
+            success:function (data) {
+                document.getElementById("id").innerText=data.id;
+                document.getElementById("name").innerText=data.name;
+                //document.getElementById("gender").innerText=data.gender;
+                document.getElementById("email").innerText=data.email;
+                document.getElementById("id_no").innerText = data.id_no;
+                document.getElementById("phone").innerText = data.phone;
+                $("birthdate").datepicker('setDate',date.birthdate);
+                document.getElementById("birthdate").innerText =data.birthdate;
+                document.getElementById("undergraduate").innerText = data.undergraduate;
+                document.getElementById("address").innerText = data.address;
+                document.getElementById("major").innerText = data.major;
+                document.getElementById("user_intro").innerText = data.user_intro;
+            }
+        })
+    });
 
     function save() {
         var token = $("meta[name='_csrf']").attr("content");
