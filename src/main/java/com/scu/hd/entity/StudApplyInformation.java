@@ -1,8 +1,6 @@
 package com.scu.hd.entity;
 
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.util.Date;
 
 /**
@@ -12,8 +10,7 @@ import java.util.Date;
 
 public class StudApplyInformation {
     private String stuName;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date stuBirthday;//Date
+    private Date stuBirthday;
     private String stuBirthplace;
     private String stuEmail;
     private String stuMajor;
@@ -33,7 +30,32 @@ public class StudApplyInformation {
     public StudApplyInformation() {
     }
 
+    public StudApplyInformation(String stuName, Date stuBirthday, String stuBirthplace, String stuEmail, String stuMajor, String stuPhone, String stuIdCard, String stuIntroduction, int stuGrade, int stuLevel1manager, int stuLevel2manager, int stuLevel3manager, int stuSelfcheck, String stuNation, String stuImage, int stuApplyId, String userId) {
+        this.stuName = stuName;
+        this.stuBirthday = stuBirthday;
+        this.stuBirthplace = stuBirthplace;
+        this.stuEmail = stuEmail;
+        this.stuMajor = stuMajor;
+        this.stuPhone = stuPhone;
+        this.stuIdCard = stuIdCard;
+        this.stuIntroduction = stuIntroduction;
+        this.stuGrade = stuGrade;
+        this.stuLevel1manager = stuLevel1manager;
+        this.stuLevel2manager = stuLevel2manager;
+        this.stuLevel3manager = stuLevel3manager;
+        this.stuSelfcheck = stuSelfcheck;
+        this.stuNation = stuNation;
+        this.stuImage = stuImage;
+        this.stuApplyId = stuApplyId;
+        this.userId = userId;
+    }
 
+    public StudApplyInformation(String stuName, String stuIdCard, int stuApplyId, String userId) {
+        this.stuName = stuName;
+        this.stuIdCard = stuIdCard;
+        this.stuApplyId = stuApplyId;
+        this.userId = userId;
+    }
 
     @Override
     public String toString() {

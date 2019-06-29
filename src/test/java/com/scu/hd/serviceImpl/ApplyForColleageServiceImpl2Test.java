@@ -29,28 +29,10 @@ public class ApplyForColleageServiceImpl2Test {
     public void manager1GetInformation(){
         List<StudApplyInformation> myInformation = applyForColleageService.manager1GetInformation();
 
-        System.out.println(myInformation.size());
-        for (StudApplyInformation studApplyInformation : myInformation){
-            System.out.println(studApplyInformation);
+        for(StudApplyInformation myApplyInformation : myInformation){
+            System.out.println(myApplyInformation);
         }
 
-        List<Object> list = new ArrayList<>();
-        System.out.println(list.size());
-        list.add(null);
-        System.out.println(list.size());
-
-        try {
-            Iterator<StudApplyInformation> it = myInformation.iterator();
-            if (it.hasNext()){
-                StudApplyInformation next = it.next();
-                System.out.println(next);
-                Assert.assertEquals(next.getStuApplyId(),1);
-            }
-
-
-        } catch (NullPointerException e){
-            System.out.println("==============");
-        }
 
 
 
