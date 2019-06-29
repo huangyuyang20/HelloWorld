@@ -100,18 +100,19 @@
             request.setRequestHeader(header, token); // 添加  CSRF Token
         },
         success:function (data) {
-
+            if (null != data) {
                 var title = data.title;
                 var author = data.author;
                 var txt = data.txt;
                 var time = data.time;
                 var id = data.titleNum;
 
-                document.getElementById("title").innerText=title;
-                document.getElementById("author").innerText=author;
-                document.getElementById("txt").innerText=txt;
-                document.getElementById("time").innerText=timeFormat(time);
+                document.getElementById("title").innerText = title;
+                document.getElementById("author").innerText = author;
+                document.getElementById("txt").innerText = txt;
+                document.getElementById("time").innerText = timeFormat(time);
                 document.getElementById("id").innerText = id;
+            }
         },
         error:function (XMLHttpRequest, textStatus, errorThrown) {
             alert(XMLHttpRequest.status);
