@@ -47,7 +47,37 @@
     <select id="selectStudApplyInformationById" resultMap="StudApplyInformationMap" parameterType="string">
         select * from stu_apply_information where user_id = #{userId}
     </select>
-    
+
+    <select id="selectStudApplyInformation" resultMap="StudApplyInformationMap" >
+        select * from stu_apply_information
+    </select>
+
+    <select id="manager1GetInformation" resultMap="StudApplyInformationMap" >
+        select * from stu_apply_information
+    </select>
+
+    <select id="manager2GetInformation" resultMap="StudApplyInformationMap" >
+        select * from stu_apply_information where stu_level1manager = 1
+    </select>
+
+    <select id="manager3GetInformation" resultMap="StudApplyInformationMap" >
+        select * from stu_apply_information where stu_level2manager = 1
+    </select>
+
+    <select id="studentGetInformation" resultMap="StudApplyInformationMap" >
+        select * from stu_apply_information where stu_level3manager = 1
+    </select>
+
+    <select id="getMyApplyInformation" resultMap="StudApplyInformationMap" parameterType="string" >
+        select * from stu_apply_information where user_id = #{userId}
+    </select>
+
+    <select id="finalOutcome" resultMap="StudApplyInformationMap" >
+        select * from stu_apply_information where stu_selfcheck = 1
+    </select>
+
+
+
     <update id="updateStudApplyInformation" parameterType="com.scu.hd.entity.StudApplyInformation" >
         update stu_apply_information set  stu_name = #{stuName},
                                           stu_birthday = #{stuBirthday},
