@@ -20,7 +20,8 @@ public class StuApplicationInformationTest {
 
     @Test
     public void test(){
-        List<StudApplyInformation> informations = loginMapper.selectStudApplyInformation();
+        List<StudApplyInformation> informations = loginMapper.
         System.out.println(informations);
+
     }
 }
