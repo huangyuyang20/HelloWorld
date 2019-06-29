@@ -6,6 +6,8 @@ import com.scu.hd.service.AskEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author zhong songzhi
  * @create 2019-06-27-15:28
@@ -14,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class AskEmployeeServiceImpl implements AskEmployeeService {
     @Autowired
     AskEmployeeDAO askEmployeeDAO;
-    //根据员工id查询员工信息
+
     @Override
     public Employee QureyById(String employeeId){return askEmployeeDAO.QureyById(employeeId);}
 

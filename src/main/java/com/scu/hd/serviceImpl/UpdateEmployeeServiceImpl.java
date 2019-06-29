@@ -14,9 +14,20 @@ import org.springframework.stereotype.Service;
 public class UpdateEmployeeServiceImpl implements UpdateEmployeeService {
     @Autowired
     UpdateEmployeeDao updateEmployeeDao;
-    //更新职工信息
+
     @Override
-    public void updateEmployee(Employee newemployee){
-        updateEmployeeDao.updateEmployee(newemployee);
+    public void updateEmployee(Employee employee){
+        updateEmployeeDao.updateEmployee(employee);
     }
+
+    @Override
+    public void updateSalary(Integer emSalary,String emId){
+        updateEmployeeDao.updateSalary(emSalary,emId);
+    }
+
+    @Override
+    public void updateAppraise(String emAppraise,String emId){
+        updateEmployeeDao.updateAppraise(emAppraise,emId);
+    }
+
 }

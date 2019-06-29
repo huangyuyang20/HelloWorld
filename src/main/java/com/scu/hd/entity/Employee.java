@@ -14,11 +14,47 @@ public class Employee {
     private Date emBirthday;
     private String emBirthplace;
     private String emPhone;
+    private String emEmail;
     private String emIdCard;
     private String emImage;
     private String emNation;
     private String emDepartment;
     private String emPosition;
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "emName='" + emName + '\'' +
+                ", emId='" + emId + '\'' +
+                ", emSalary=" + emSalary +
+                ", emAppraise='" + emAppraise + '\'' +
+                ", emBirthday=" + emBirthday +
+                ", emBirthplace='" + emBirthplace + '\'' +
+                ", emPhone='" + emPhone + '\'' +
+                ", emEmail='" + emEmail + '\'' +
+                ", emIdCard='" + emIdCard + '\'' +
+                ", emImage='" + emImage + '\'' +
+                ", emNation='" + emNation + '\'' +
+                ", emDepartment='" + emDepartment + '\'' +
+                ", emPosition='" + emPosition + '\'' +
+                '}';
+    }
+
+    public Employee(String emName, String emId, int emSalary, String emAppraise, Date emBirthday, String emBirthplace, String emPhone, String emEmail, String emIdCard, String emImage, String emNation, String emDepartment, String emPosition) {
+        this.emName = emName;
+        this.emId = emId;
+        this.emSalary = emSalary;
+        this.emAppraise = emAppraise;
+        this.emBirthday = emBirthday;
+        this.emBirthplace = emBirthplace;
+        this.emPhone = emPhone;
+        this.emEmail = emEmail;
+        this.emIdCard = emIdCard;
+        this.emImage = emImage;
+        this.emNation = emNation;
+        this.emDepartment = emDepartment;
+        this.emPosition = emPosition;
+    }
 
     public String getEmName() {
         return emName;
@@ -76,6 +112,14 @@ public class Employee {
         this.emPhone = emPhone;
     }
 
+    public String getEmEmail() {
+        return emEmail;
+    }
+
+    public void setEmEmail(String emEmail) {
+        this.emEmail = emEmail;
+    }
+
     public String getEmIdCard() {
         return emIdCard;
     }
@@ -114,41 +158,5 @@ public class Employee {
 
     public void setEmPosition(String emPosition) {
         this.emPosition = emPosition;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "emName='" + emName + '\'' +
-                ", emId='" + emId + '\'' +
-                ", emSalary=" + emSalary +
-                ", emAppraise='" + emAppraise + '\'' +
-                ", emBirthday=" + emBirthday +
-                ", emBirthplace='" + emBirthplace + '\'' +
-                ", emPhone='" + emPhone + '\'' +
-                ", emIdCard='" + emIdCard + '\'' +
-                ", emImage='" + emImage + '\'' +
-                ", emNation='" + emNation + '\'' +
-                ", emDepartment='" + emDepartment + '\'' +
-                ", emPosition='" + emPosition + '\'' +
-                '}';
-    }
-
-    public Employee(String emName, String emId, int emSalary, String emAppraise, Date emBirthday, String emBirthplace, String emPhone, String emIdCard, String emImage, String emNation, String emDepartment, String emPosition) {
-        this.emName = emName;
-        this.emId = emId;
-        this.emSalary = emSalary;
-        this.emAppraise = emAppraise;
-        this.emBirthday = emBirthday;
-        this.emBirthplace = emBirthplace;
-        this.emPhone = emPhone;
-        this.emIdCard = emIdCard;
-        this.emImage = emImage;
-        this.emNation = emNation;
-        this.emDepartment = emDepartment;
-        this.emPosition = emPosition;
-    }
-
-    public Employee() {
     }
 }
