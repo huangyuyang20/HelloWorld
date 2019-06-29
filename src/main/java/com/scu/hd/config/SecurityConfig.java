@@ -62,6 +62,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login/**").permitAll()
                 .antMatchers("/admins/**").hasRole("ADMIN") // 需要相应的角色才能访问
                 .antMatchers("/student/**").hasRole("STUDENT")
+                .antMatchers("/askEmployee/**").hasRole("EMPLOYEE")
+                .antMatchers("/updateEmployee/**").hasRole("ADMIN")
+                .antMatchers("/check/**").hasRole("LEVEL1")
+                .antMatchers("/check/**").hasRole("LEVEL2")
+                .antMatchers("/check/**").hasRole("LEVEL3")
                 .and()
 
                 .formLogin()                    //基于 post + Form 表单登录验证

@@ -22,6 +22,14 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * @author:   wbx
+ * @email:    wbx123450@163.com
+ * @date:     2019/6/29-15:15
+ * @module:   [申请模块]
+ * @describe: []
+ * @version:  v1.0
+ */
 @RestController
 @RequestMapping("/student")
 public class ApplicationController {
