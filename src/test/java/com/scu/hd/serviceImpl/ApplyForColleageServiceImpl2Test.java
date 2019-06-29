@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -24,9 +26,34 @@ public class ApplyForColleageServiceImpl2Test {
     ApplyForColleageServiceImpl applyForColleageService;
 
     @Test
-    public void manager1GetInformation() {
+    public void manager1GetInformation(){
         List<StudApplyInformation> myInformation = applyForColleageService.manager1GetInformation();
-        Assert.assertEquals(myInformation.get(0).getStuApplyId(),1);
+
+        System.out.println(myInformation.size());
+        for (StudApplyInformation studApplyInformation : myInformation){
+            System.out.println(studApplyInformation);
+        }
+
+        List<Object> list = new ArrayList<>();
+        System.out.println(list.size());
+        list.add(null);
+        System.out.println(list.size());
+
+        try {
+            Iterator<StudApplyInformation> it = myInformation.iterator();
+            if (it.hasNext()){
+                StudApplyInformation next = it.next();
+                System.out.println(next);
+                Assert.assertEquals(next.getStuApplyId(),1);
+            }
+
+
+        } catch (NullPointerException e){
+            System.out.println("==============");
+        }
+
+
+
     }
 
     @Test
