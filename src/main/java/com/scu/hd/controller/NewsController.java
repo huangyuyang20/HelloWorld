@@ -22,16 +22,15 @@ public class NewsController {
 
     @RequestMapping("/getNews")
     public PageInfo<News> pagehelpergetnews(int pageNum, int pageSize){
-        System.out.println("======");
         PageHelper.startPage(pageNum,pageSize);
         PageInfo<News> newsPageInfo = new PageInfo<>(newsService.getNews());
         System.out.println(newsPageInfo.getList());
         return newsPageInfo;
     }
 
-    @RequestMapping("/getNews/{id}")
-    public News getNews(@PathVariable int titlenum){
-        return newsService.QueryByTitleNum(titlenum);
+    @RequestMapping("/newsDetail/{id}")
+    public News getNews(@PathVariable int id){
+        return newsService.QueryByTitleNum(id);
     }
 
 
