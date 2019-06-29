@@ -5,9 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.scu.hd.entity.News;
 import com.scu.hd.serviceImpl.NewsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +27,11 @@ public class NewsController {
         PageInfo<News> newsPageInfo = new PageInfo<>(newsService.getNews());
         System.out.println(newsPageInfo.getList());
         return newsPageInfo;
+    }
+
+    @RequestMapping("/getNews/{id}")
+    public News getNews(@PathVariable int titlenum){
+        return newsService.QueryByTitleNum(titlenum);
     }
 
 

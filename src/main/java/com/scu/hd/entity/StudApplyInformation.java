@@ -7,6 +7,24 @@ import java.util.Date;
  * @date 2019/6/26 19:03
  */
 public class StudApplyInformation {
+    private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getStuGender() {
+        return stuGender;
+    }
+
+    public void setStuGender(String stuGender) {
+        this.stuGender = stuGender;
+    }
+
     private String stuName;
     private Date stuBirthday;
     private String stuBirthplace;
