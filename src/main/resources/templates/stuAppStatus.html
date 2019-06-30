@@ -88,43 +88,15 @@
                     </div>
                 </div>
             </div>
-            <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
-                <div class="dashboard-stat red">
-                    <div class="visual">
-                        <i class="am-icon-bar-chart-o"></i>
-                    </div>
-                    <div class="details">
-                        <div class="number"> PASS </div>
-                        <div class="desc"> 初审 </div>
-                    </div>
-
-                </div>
+            <div id="status1">
             </div>
-            <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
-                <div class="dashboard-stat green">
-                    <div class="visual">
-                        <i class="am-icon-apple"></i>
-                    </div>
-                    <div class="details">
-                        <div class="number"> PASS </div>
-                        <div class="desc"> 复审 </div>
-                    </div>
-                </div>
+            <div id="status2">
             </div>
-            <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
-                <div class="dashboard-stat purple">
-                    <div class="visual">
-                        <i class="am-icon-android"></i>
-                    </div>
-                    <div class="details">
-                        <div class="number"> PASS </div>
-                        <div class="desc"> 终审 </div>
-                    </div>
-                </div>
+            <div id="status3">
             </div>
         </div>
     </div>
-    <div class="tpl-content-wrapper" id = "admission-confirm">r
+    <div class="tpl-content-wrapper" id = "admission-confim">
     </div>
 
 </div>
@@ -142,11 +114,11 @@
         appInfo= JSON.parse(appInfo);
 
         $.ajax({
-            url: 'student/application/status',
+            url: '/applyForColleage/getSelfState',
             type: 'POST',
-            dataType: 'json',
+            dataType: 'text',
             data: {
-                "id": appInfo.body
+                "userId": appInfo.body
             },
             async: false,//是否异步请求
             beforeSend: function(request) {
@@ -154,19 +126,61 @@
             },
             success: function (data) {
                 //如果请求成功，返回数据。
-                if (data.status == "fail") {
+                if (data.status === "fail") {
                     alert(data.msg);
                 }
                 else {
                     var json= JSON.stringify(data);
                     alert(json);
-                    document.getElementById("id_no").innerText=data;
+                    // document.getElementById("id_no").innerText=data;
                     // document.getElementById("major").innerText=?
 
+                    if (data > 1){
+                        var htm1 = "<div class=\"am-u-lg-3 am-u-md-6 am-u-sm-12\" >\n" +
+                            "                <div class=\"dashboard-stat red\">\n" +
+                            "                    <div class=\"visual\">\n" +
+                            "                        <i class=\"am-icon-bar-chart-o\"></i>\n" +
+                            "                    </div>\n" +
+                            "                    <div class=\"details\">\n" +
+                            "                        <div class=\"number\"> PASS </div>\n" +
+                            "                        <div class=\"desc\"> 初审 </div>\n" +
+                            "                    </div>\n" +
+                            "\n" +
+                            "                </div>\n" +
+                            "            </div>";
+                        $('#status1').append(htm1);
+                    }
+                    if (data > 2){
+                        var htm2 = "<div class=\"am-u-lg-3 am-u-md-6 am-u-sm-12\" >\n" +
+                            "                <div class=\"dashboard-stat green\">\n" +
+                            "                    <div class=\"visual\">\n" +
+                            "                        <i class=\"am-icon-apple\"></i>\n" +
+                            "                    </div>\n" +
+                            "                    <div class=\"details\">\n" +
+                            "                        <div class=\"number\"> PASS </div>\n" +
+                            "                        <div class=\"desc\"> 复审 </div>\n" +
+                            "                    </div>\n" +
+                            "                </div>\n" +
+                            "            </div>";
+                        $('#status2').append(htm2);
+                    }
+                    if (data > 3){
+                        var htm3 = "<div class=\"am-u-lg-3 am-u-md-6 am-u-sm-12\">\n" +
+                            "                <div class=\"dashboard-stat purple\">\n" +
+                            "                    <div class=\"visual\">\n" +
+                            "                        <i class=\"am-icon-android\"></i>\n" +
+                            "                    </div>\n" +
+                            "                    <div class=\"details\">\n" +
+                            "                        <div class=\"number\"> PASS </div>\n" +
+                            "                        <div class=\"desc\"> 终审 </div>\n" +
+                            "                    </div>\n" +
+                            "                </div>\n" +
+                            "            </div>";
+                        $('#status3').append(htm3);
+                    }
 
-                    if(true){
-                        html="";
-                        html="<div class=\"tpl-content-page-title\">\n" +
+                    if(data == 4){
+                        var html="<div class=\"tpl-content-page-title\">\n" +
                             "            Admission Confirmation  录取信息确认\n" +
                             "        </div>\n" +
                             "        <div class=\"tpl-portlet-components\">\n" +
@@ -224,8 +238,21 @@
                             "\n" +
                             "\n" +
                             "        </div>";
+                        console.log("#admission-confim");
                         $("#admission-confim").append(html);
+                    }
 
+                    if (data == 5){
+                        console.log("asdasd")
+                        $("#admission-confim").append("欢迎加入");
+                    }
+
+                    if (data == -1){
+                        $("#admission-confim").append("未通过");
+                    }
+
+                    if (data == -2){
+                        $("#admission-confim").append("已拒绝");
                     }
                 }
 

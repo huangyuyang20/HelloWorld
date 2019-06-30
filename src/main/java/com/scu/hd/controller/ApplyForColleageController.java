@@ -47,18 +47,39 @@ public class ApplyForColleageController {
     @RequestMapping("studentListForCheck")
     public List<StudApplyInformation> studentGetInformation(){return applyForColleageService.studentGetInformation();}
 
-    //学生查询自己的信息 1待审核 2审核中 3未通过 4通过
+    //学生查询自己的信息  1:1号未查看, 2:2号未查看, 3:3号未查看, 4:学生未确认, 5:学生确认, -1:未通过, -2:学生拒绝
     @RequestMapping("getSelfState")
     public  int getMyApplyInformation(String userId){
 
         StudApplyInformation mystudApplyInformation=applyForColleageService.getMyApplyInformation(userId);
         int a1 = mystudApplyInformation.getStuLevel1manager(),a2 = mystudApplyInformation.getStuLevel2manager();
         int a3 = mystudApplyInformation.getStuLevel3manager(),a4 = mystudApplyInformation.getStuSelfcheck();
-        if(a1 == 0 ) return 1;
-        if( (a1&a2) == 1 && (a2&a3) == 1)  return 4;
-        if(a1>=0&&a2>=0&&a3>=0) return 2;
-        else  return 3;
 
+        if (a1 == 0){
+            return 1;
+        } else if (a1 == -1){
+            return -1;
+        } else {
+            if (a2 == 0){
+                return 2;
+            } else if (a2 == -1){
+                return -1;
+            } else {
+                if (a3 == 0){
+                    return 3;
+                } else if (a3 == -1){
+                    return -1;
+                } else {
+                    if (a4 == 0){
+                        return 4;
+                    } else if (a4 == 1){
+                        return 5;
+                    } else {
+                        return -2;
+                    }
+                }
+            }
+        }
     }
 
     //学生最后确定
