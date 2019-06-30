@@ -36,7 +36,11 @@ public class ApplicationController {
     @Autowired
     LoginService loginService;
 
-
+    /**
+     * 修改申请
+     * @param information
+     * @return
+     */
     @PostMapping("/application/edit")
     public AppResponse editApplicationInfo(@RequestBody StudApplyInformation information){
         System.out.println(information);
@@ -51,6 +55,12 @@ public class ApplicationController {
         return resp;
     }
 
+
+    /**
+     * 申请初始返回的数据
+     * @param request
+     * @return
+     */
     @GetMapping("/application/init")
     public UserStudApplyInformationOV getInit(HttpServletRequest request){
         /**
@@ -65,4 +75,5 @@ public class ApplicationController {
 
         return new UserStudApplyInformationOV(principal, studApplyInformation);
     }
+
 }

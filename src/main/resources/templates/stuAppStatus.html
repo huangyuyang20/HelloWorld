@@ -22,7 +22,7 @@
 </head>
 
 <body data-type="generalComponents">
-<%@ include file="leftNav.jsp" %>
+<!--<%@ include file="leftNav.jsp" %>-->
 
 <header class="am-topbar am-topbar-inverse admin-header">
     <div class="am-topbar-brand">
@@ -44,12 +44,12 @@
             <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                    <span class="tpl-header-list-user-nick">Username</span><span class="tpl-header-list-user-ico"> <img src="assets/img/user01.png"></span>
+                    <span class="tpl-header-list-user-nick">Username</span><span class="tpl-header-list-user-ico"> <img src="../assets/img/user01.png"></span>
                 </a>
                 <ul class="am-dropdown-content">
                     <li><a href="#"><span class="am-icon-bell-o"></span>填写表格/Fill Forms</a></li>
                     <li><a href="#"><span class="am-icon-cog"></span>申请状态查询/Application Status</a></li>
-                    <li><a href="signin.jsp"><span class="am-icon-power-off"></span> 退出/Exit</a></li>
+                    <li><a href="../html/signin.jsp"><span class="am-icon-power-off"></span> 退出/Exit</a></li>
                 </ul>
             </li>
             <li><a href="###" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
@@ -122,9 +122,6 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </div>
     <div class="tpl-content-wrapper" id = "admission-confirm">r
@@ -139,21 +136,17 @@
 <script>
     var token = $("meta[name='_csrf']").attr("content");
     var header = $("meta[name='_csrf_header']").attr("content");
-
-    $(document).ready(function () {
+    $(function () {
         var appInfo = sessionStorage.getItem('appInfo');
-
+        console.log(appInfo);
         appInfo= JSON.parse(appInfo);
-        document.getElementById("user_center").innerText=appInfo.username;
-        id = appInfo.id;
-
 
         $.ajax({
             url: 'student/application/status',
             type: 'POST',
             dataType: 'json',
             data: {
-                "id":id
+                "id": appInfo.body
             },
             async: false,//是否异步请求
             beforeSend: function(request) {
@@ -168,10 +161,10 @@
                     var json= JSON.stringify(data);
                     alert(json);
                     document.getElementById("id_no").innerText=data;
-                    document.getElementById("major").innerText=?
+                    // document.getElementById("major").innerText=?
 
 
-                    if(){
+                    if(true){
                         html="";
                         html="<div class=\"tpl-content-page-title\">\n" +
                             "            Admission Confirmation  录取信息确认\n" +

@@ -16,20 +16,23 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 @RequestMapping()
 public class MainController {
+
     @GetMapping("/index")
     public String home(){
         return "home";
     }
+
 
     @GetMapping("/student/application")
     public String application(){
         return "stuAppHome";
     }
 
-    @GetMapping("/admins")
-    public String test(){
-        return "stuAppHome";
-    }
+
+   @GetMapping("/student/appstatus")
+   public String status(){
+        return "stuAppStatus";
+   }
 
     /**
      * 默认跳转

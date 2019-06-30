@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.scu.hd.entity.AppResponse;
+import com.scu.hd.entity.User;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.savedrequest.DefaultSavedRequest;
@@ -13,8 +14,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Enumeration;
 
 
 @Component
@@ -25,6 +24,8 @@ public class IdentityAuthoritySuccessHandler implements AuthenticationSuccessHan
 
         DefaultSavedRequest savedRequest = (DefaultSavedRequest)httpServletRequest.getSession().getAttribute("SPRING_SECURITY_SAVED_REQUEST");
         AppResponse response = new AppResponse();
+        response.setBody(((User)authentication.getPrincipal()).getUsername());
+
         if (savedRequest != null){
             response.setInfo(savedRequest.getRequestURI());
         } else {

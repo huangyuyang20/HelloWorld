@@ -4,6 +4,15 @@ public class AppResponse {
     private int code;
     private String status;
     private String info;
+    private String body;
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
 
     public AppResponse() {
         this.code = 1;
