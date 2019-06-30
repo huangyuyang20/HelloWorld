@@ -41,8 +41,7 @@ public class ApplicationController {
     public AppResponse editApplicationInfo(@RequestBody StudApplyInformation information){
         System.out.println(information);
         AppResponse resp = new AppResponse();
-        try{
-            information.setStuBirthday(null);
+        try {
             loginService.updateStudApplyInformation(information);
         } catch (Exception e){
             resp.setCode(2);
@@ -63,7 +62,6 @@ public class ApplicationController {
 
         User principal = (User)authentication.getPrincipal();
         StudApplyInformation studApplyInformation = loginService.selectStudApplyInformationById(principal.getUsername());
-        System.out.println("=="+studApplyInformation);
 
         return new UserStudApplyInformationOV(principal, studApplyInformation);
     }

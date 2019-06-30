@@ -17,11 +17,4 @@ public class StuApplicationInformationTest {
 
     @Autowired
     LoginMapper loginMapper;
-
-    @Test
-    public void test(){
-        List<StudApplyInformation> informations = loginMapper.
-        System.out.println(informations);
-
-    }
 }

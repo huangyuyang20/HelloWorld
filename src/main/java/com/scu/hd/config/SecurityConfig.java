@@ -64,14 +64,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/student/**").hasRole("STUDENT")
                 .antMatchers("/askEmployee/**").hasRole("EMPLOYEE")
                 .antMatchers("/updateEmployee/**").hasRole("ADMIN")
-                .antMatchers("/check/**").hasRole("LEVEL1")
-                .antMatchers("/check/**").hasRole("LEVEL2")
-                .antMatchers("/check/**").hasRole("LEVEL3")
+                .antMatchers("/check1/**").hasRole("LEVEL1")
+                .antMatchers("/check2/**").hasRole("LEVEL2")
+                .antMatchers("/check3/**").hasRole("LEVEL3")
                 .and()
 
                 .formLogin()                    //基于 post + Form 表单登录验证
                 .loginPage("/login")            // post提交页面
                 .failureUrl("/login-error")     // post校验失败跳转页面
+                .successHandler(new IdentityAuthoritySuccessHandler())
                 .and()
 
 //                .csrf().disable()

@@ -79,13 +79,11 @@
 
 
     <update id="updateStudApplyInformation" parameterType="com.scu.hd.entity.StudApplyInformation" >
-        update stu_apply_information set  stu_name = #{stuName},
-                                          stu_birthday = #{stuBirthday},
+        update stu_apply_information set  stu_birthday = #{stuBirthday},
                                           stu_birthplace = #{stuBirthplace},
                                           stu_email = #{stuEmail},
                                           stu_major = #{stuMajor},
                                           stu_phone = #{stuPhone},
-                                          stu_id_card = #{stuIdCard},
                                           stu_introduction = #{stuIntroduction},
                                           stu_grade = #{stuGrade},
                                           stu_level1manager = #{stuLevel1manager},

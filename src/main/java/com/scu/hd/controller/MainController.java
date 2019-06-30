@@ -45,7 +45,7 @@ public class MainController {
      */
     @GetMapping
     public String gotoInfo(){
-        return "signin";
+        return "home";
     }
 
     /**
@@ -71,4 +71,8 @@ public class MainController {
         return "newsDetail";
     }
 
+    @RequestMapping("/login-error")
+    public String gotoError(){
+        return "signin";
+    }
 }

@@ -101,14 +101,14 @@
                             <div class="am-form-group">
                                 <label  class="am-u-sm-3 am-form-label">申请编号/Application No.</label>
                                 <div class="am-u-sm-9">
-                                    <span id="id" >tes1t</span>
+                                    <span id="id" ></span>
                                 </div>
                             </div>
 
                             <div class="am-form-group">
                                 <label  class="am-u-sm-3 am-form-label">姓名/Name</label>
                                 <div class="am-u-sm-9">
-                                    <span id="name">test2</span>
+                                    <span id="name"></span>
                                 </div>
                             </div>
 
@@ -221,7 +221,6 @@
 <script src="../js/app.js"></script>
 <script>
     $(function () {
-        console.log("开始");
         var token = $("meta[name='_csrf']").attr("content");
         var header = $("meta[name='_csrf_header']").attr("content");
         $.ajax({
@@ -231,8 +230,17 @@
                 request.setRequestHeader(header, token); // 添加  CSRF Token
             },
             success:function(data){
+                console.log(data.studApplyInformation.stuApplyId + ' ' + data.studApplyInformation.stuName + ' ' + data.studApplyInformation.stuEmail);
                 $('#id').text(data.studApplyInformation.stuApplyId);
                 $('#name').text(data.studApplyInformation.stuName);
+                $('#email').val(data.studApplyInformation.stuEmail);
+                $('#id_no').val(data.studApplyInformation.stuIdCard);
+                $('#phone').val(data.studApplyInformation.stuPhone);
+                $("#birthplace").val(data.studApplyInformation.stuBirthplace);
+                $('#undergraduate').val(data.studApplyInformation.stuGrade);
+                $('#address').val(data.studApplyInformation.stuBirthplace);
+                $('#major').val(data.studApplyInformation.stuMajor);
+                $("#user_intro").val(data.studApplyInformation.stuIntroduction);
             },
             error:function(){
                 alert("发生错误");
@@ -241,70 +249,36 @@
     });
 </script>
 <script>
-    $(document).ready(function () {
-        //取出session并显示
-        var appInfo = sessionStorage.getItem('appInfo');
-
-        appInfo= JSON.parse(appInfo);
-        document.getElementById("user_center").innerText=appInfo.username;
-
-        ajax({
-            //当登陆后请求用户已经填写的数据
-            type : "POST",
-            url : '/student/application/init',
-            dataType :'json',
-            data:{
-                //?
-            },
-            async:false,
-            success:function (data) {
-                document.getElementById("id").innerText=data.id;
-                document.getElementById("name").innerText=data.name;
-                //document.getElementById("gender").innerText=data.gender;
-                document.getElementById("email").innerText=data.email;
-                document.getElementById("id_no").innerText = data.id_no;
-                document.getElementById("phone").innerText = data.phone;
-                $("birthdate").datepicker('setDate',date.birthdate);
-                document.getElementById("birthdate").innerText =data.birthdate;
-                document.getElementById("undergraduate").innerText = data.undergraduate;
-                document.getElementById("address").innerText = data.address;
-                document.getElementById("major").innerText = data.major;
-                document.getElementById("user_intro").innerText = data.user_intro;
-            }
-        })
-    });
-
     function save() {
         var token = $("meta[name='_csrf']").attr("content");
         var header = $("meta[name='_csrf_header']").attr("content");
 
-        var id = $('#id')[0].value;
-        var name = $('#name')[0].value;
-        //var gender = $('#username')[0].value;
-        var email = $('#email')[0].value;
-        var id_no = $('#id_no')[0].value;
-        var phone = $('#phone')[0].value;
+        var id = $('#id').text();
+        var name = $('#name').text();
+        var email = $('#email').val();
+        var id_no = $('#id_no').val();
+        var phone = $('#phone').val();
 
-        var undergraduate = $('#undergraduate')[0].value;
-        var address =  $('#address')[0].value;
-        var user_intro = $('#user_intro')[0].value;
+        var undergraduate = $('#undergraduate').val();
+        var address =  $('#address').val();
+        var user_intro = $('#user_intro').val();
 
-        var major =  document.getElementById('major').options[document.getElementById('major').selectedIndex].value;
-        var birthdate = $('#birthdate')[0].value;
+        var major =  document.getElementById('major').options[0].innerText;
+        var birthdate = $('#birthdate').val();
 
-        var group_gender = $("[name='group_gender']").filter(":checked");
-        var gender = group_gender.attr('value');
+        var gender = $("input[type='radio']:checked").val();
         var data ={
             stuGender:gender,
             stuEmail:email,
             stuPhone:phone,
-            undergraduate:undergraduate,
-            address:address,
+            stuGrade:undergraduate,
+            stuBirthplace:address,
             stuIntroduction:user_intro,
             stuMajor:major,
+            stuApplyId:id,
             stuBirthday:birthdate
         };
-        alert(JSON.stringify(data));
+        console.log(JSON.stringify(data));
         $.ajax({
             type:"POST",
             url:"/student/application/edit",
@@ -317,6 +291,7 @@
             success:function(data){
                 if(data.status =="success"){
                     alert("Save successfully!");
+                    window.location.href = "/student/application";
                 }
                 else{
                     alert("发生错误");

@@ -197,12 +197,12 @@
             success: function (data) {
                 //如果请求成功，返回数据。
                 if (data.status == "fail") {
-                    alert(data.msg);
+                    console.log(data.info);
                 }
                 else {
-                    alert(data.status);
+                    console.log(data.status);
                     var json= JSON.stringify(data);
-                    alert(json);
+                    console.log(json);
                     var html ="";
                     for (var i = 0; i < data.pageSize; i++)
                     {
@@ -245,7 +245,6 @@
         //var s = document.getElementById("news");
         localStorage.setItem('urlId',id);
         location.href= "/News/newsDetail";
-
     }
 
 </script>
