@@ -9,8 +9,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/check1")
 public class CheckController {
 
-    @GetMapping
-    public String  check1(){
-        return "check1";
-    }
+
 }

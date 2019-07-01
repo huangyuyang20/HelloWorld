@@ -79,4 +79,16 @@ public class MainController {
         return "signin";
     }
 
+    @GetMapping("/check1")
+    public String  check1(){
+        return "check1";
+    }
+    @GetMapping("/check2")
+    public String  check2(){
+        return "check3";
+    }
+    @GetMapping("/check3")
+    public String  check3(){
+        return "check3";
+    }
 }
