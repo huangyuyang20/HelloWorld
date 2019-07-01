@@ -52,15 +52,15 @@
     </select>
 
     <select id="manager1GetInformation" resultMap="StudApplyInformationMap" >
-        select * from stu_apply_information
+        select * from stu_apply_information where stu_level1manager = 0
     </select>
 
     <select id="manager2GetInformation" resultMap="StudApplyInformationMap" >
-        select * from stu_apply_information where stu_level1manager = 1
+        select * from stu_apply_information where stu_level1manager = 1 and stu_level2manager = 0
     </select>
 
     <select id="manager3GetInformation" resultMap="StudApplyInformationMap" >
-        select * from stu_apply_information where stu_level2manager = 1
+        select * from stu_apply_information where stu_level1manager = 1 and stu_level2manager = 1 and stu_level3manager = 0
     </select>
 
     <select id="studentGetInformation" resultMap="StudApplyInformationMap" >

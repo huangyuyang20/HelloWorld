@@ -26,7 +26,11 @@ public class ApplyForColleageController {
 
     //如果通过stuLevelmanager为1 否则为0
     @RequestMapping("manager1Makesure")
-    public void manager1Makesure(@RequestBody Map<String, Object> map){ applyForColleageService.makesureLevel1((Integer)map.get("stuLevel1manager"), (String)map.get("userId")); }
+    public void manager1Makesure(@RequestBody Map<String, Object> map){
+
+        System.out.println(map);
+        applyForColleageService.makesureLevel1((Integer)map.get("stuLevel1manager"), (String)map.get("userId"));
+    }
 
     //管理员2
     @RequestMapping("manager2GetInformation")

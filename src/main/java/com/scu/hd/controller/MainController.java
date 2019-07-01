@@ -76,17 +76,19 @@ public class MainController {
 
     @RequestMapping("/login-error")
     public String gotoError(){
-        return "signin";
+        return "signin2";
     }
 
     @GetMapping("/check1")
     public String  check1(){
         return "check1";
     }
+
     @GetMapping("/check2")
     public String  check2(){
-        return "check3";
+        return "check2";
     }
+
     @GetMapping("/check3")
     public String  check3(){
         return "check3";

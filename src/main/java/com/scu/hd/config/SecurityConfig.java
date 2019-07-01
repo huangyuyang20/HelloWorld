@@ -61,12 +61,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/css/**", "/js/**", "/fonts/**", "/index").permitAll() // 都可以访问
                 .antMatchers("/login/**").permitAll()
                 .antMatchers("/admins/**").hasRole("ADMIN") // 需要相应的角色才能访问
-                .antMatchers("/student/**").hasRole("STUDENT")
                 .antMatchers("/askEmployee/**").hasRole("EMPLOYEE")
                 .antMatchers("/updateEmployee/**").hasRole("ADMIN")
                 .antMatchers("/check1/**").hasRole("LEVEL1")
                 .antMatchers("/check2/**").hasRole("LEVEL2")
                 .antMatchers("/check3/**").hasRole("LEVEL3")
+                .antMatchers("/student/**").hasRole("STUDENT")
                 .and()
 
                 .formLogin()                    //基于 post + Form 表单登录验证

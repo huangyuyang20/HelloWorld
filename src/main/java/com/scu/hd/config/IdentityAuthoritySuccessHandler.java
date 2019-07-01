@@ -15,7 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
+/**
+ * 权限路由判断
+ */
 @Component
 public class IdentityAuthoritySuccessHandler implements AuthenticationSuccessHandler {
     @Override
@@ -30,19 +32,17 @@ public class IdentityAuthoritySuccessHandler implements AuthenticationSuccessHan
             response.setInfo(savedRequest.getRequestURI());
 
             if (savedRequest.getRequestURI().contains("check")){
-                if (!((User) authentication.getPrincipal()).getUserRole().contains("CHECK")) {
+                System.out.println(((User) authentication.getPrincipal()));
+                if (!((User) authentication.getPrincipal()).getUserRole().contains("LEVEL" + savedRequest.getRequestURI().charAt(savedRequest.getRequestURI().indexOf("check") + 5))) {
                     httpServletRequest.getSession().removeAttribute("SPRING_SECURITY_SAVED_REQUEST");
-                    response.setInfo("/login");
                 }
             } else if (savedRequest.getRequestURI().contains("admin")){
                 if (!((User) authentication.getPrincipal()).getUserRole().contains("ADMIN")) {
                     httpServletRequest.getSession().removeAttribute("SPRING_SECURITY_SAVED_REQUEST");
-                    response.setInfo("/login");
                 }
             } else {
                 if (!((User) authentication.getPrincipal()).getUserRole().contains("STUDENT")) {
                     httpServletRequest.getSession().removeAttribute("SPRING_SECURITY_SAVED_REQUEST");
-                    response.setInfo("/login");
                 }
             }
 
