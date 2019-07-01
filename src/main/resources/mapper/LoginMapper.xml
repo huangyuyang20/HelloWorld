@@ -26,7 +26,6 @@
         <result column="stu_selfcheck" property="stuSelfcheck" jdbcType="INTEGER" />
         <result column="stu_nation" property="stuNation" jdbcType="VARCHAR" />
         <result column="stu_image" property="stuImage" jdbcType="VARCHAR" />
-
         <result column="stu_apply_id" property="stuApplyId" jdbcType="INTEGER" />
         <result column="stu_id_card" property="stuIdCard" jdbcType="VARCHAR" />
     </resultMap>

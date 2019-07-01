@@ -228,7 +228,7 @@
                             "\n" +
                             "                            <div class=\"am-form-group\">\n" +
                             "                                <div class=\"am-u-sm-9 am-u-sm-push-3\">\n" +
-                            "                                    <button type=\"button\" class=\"am-btn am-btn-primary tpl-btn-bg-color-success \" onclick=\"submit()\">提交</button>\n" +
+                            "                                    <button type=\"button\" class=\"am-btn am-btn-primary tpl-btn-bg-color-success \" onclick=\"saveAndSubmit()\">提交</button>\n" +
                             "                                </div>\n" +
                             "                            </div>\n" +
                             "                        </form>\n" +
@@ -264,6 +264,12 @@
             }
         })
     });
+    function saveAndSubmit() {
+        console.log(document.getElementById('option').options[0].innerText);
+        $.ajax({
+
+        });
+    }
 
     function admission_confirm() {
 

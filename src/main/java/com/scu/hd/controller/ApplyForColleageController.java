@@ -55,31 +55,12 @@ public class ApplyForColleageController {
         int a1 = mystudApplyInformation.getStuLevel1manager(),a2 = mystudApplyInformation.getStuLevel2manager();
         int a3 = mystudApplyInformation.getStuLevel3manager(),a4 = mystudApplyInformation.getStuSelfcheck();
 
-        if (a1 == 0){
-            return 1;
-        } else if (a1 == -1){
-            return -1;
-        } else {
-            if (a2 == 0){
-                return 2;
-            } else if (a2 == -1){
-                return -1;
-            } else {
-                if (a3 == 0){
-                    return 3;
-                } else if (a3 == -1){
-                    return -1;
-                } else {
-                    if (a4 == 0){
-                        return 4;
-                    } else if (a4 == 1){
-                        return 5;
-                    } else {
-                        return -2;
-                    }
-                }
-            }
-        }
+        if(a1==-1||a2==-1||a3==-1)  return -1; //未通过
+        if(a4 == -1) return -2; //学生确认不确认
+        int state = (a1<<3)+(a2<<2)+(a3<<1)+a4;
+        int[] arrs = new int[16];
+        arrs[0] = 1;arrs[8]= 2;arrs[12] = 3 ;arrs[14]= 4;arrs[15]= 5;
+        return arrs[state];
     }
 
     //学生最后确定
