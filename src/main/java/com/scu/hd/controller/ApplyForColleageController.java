@@ -3,8 +3,7 @@ package com.scu.hd.controller;
 import com.scu.hd.entity.StudApplyInformation;
 import com.scu.hd.service.ApplyForColleageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -64,8 +63,11 @@ public class ApplyForColleageController {
     }
 
     //学生最后确定
-    @RequestMapping("studnetMakesure")
-    public  void studentMakesure(Integer stuSelfcheck,Integer stuApplyId){ applyForColleageService.makesureSelfCheck(stuSelfcheck, stuApplyId); }
+    @PostMapping("studnetMakesure")
+    public  void studentMakesure(Integer stuSelfcheck, Integer stuApplyId){
+        System.out.println("===" + stuApplyId + " " + stuSelfcheck);
+        applyForColleageService.makesureSelfCheck(stuSelfcheck, stuApplyId);
+    }
 
     //学生录取名单
     @RequestMapping("studentGetInformation")
