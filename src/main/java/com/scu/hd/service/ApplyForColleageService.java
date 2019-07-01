@@ -15,13 +15,13 @@ import java.util.List;
 @Service
 public interface ApplyForColleageService {
     //确认信息
-    void makesureLevel1(Integer stuLevel1manager, Integer stuApplyId);
+    void makesureLevel1(Integer stuLevel1manager, String userId);
 
-    void makesureLevel2(Integer stuLevel2manager, Integer stuApplyId);
+    void makesureLevel2(Integer stuLevel2manager, String userId);
 
-    void makesureLevel3(Integer stuLevel3manager, Integer stuApplyId);
+    void makesureLevel3(Integer stuLevel3manager, String userId);
 
-    void makesureSelfCheck(Integer stuSlefcheck, Integer stuApplyId);
+    void makesureSelfCheck(Integer stuSlefcheck, String userId);
 
     //获取信息
     List<StudApplyInformation> manager1GetInformation();

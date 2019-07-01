@@ -24,7 +24,7 @@ public class ApplyForColleageController {
 
     //如果通过stuLevelmanager为1 否则为0
     @RequestMapping("manager1Makesure")
-    public void manager1Makesure(Integer stuLevel1manager,Integer stuApplyId){ applyForColleageService.makesureLevel1(stuLevel1manager,stuApplyId); }
+    public void manager1Makesure(Integer stuLevel1manager,Integer userId){ applyForColleageService.makesureLevel1(stuLevel1manager,userId); }
 
     //管理员2
     @RequestMapping("manager2GetInformation")
@@ -32,7 +32,7 @@ public class ApplyForColleageController {
 
     //如果通过stuLevel2manager为1，否则为0
     @RequestMapping("manager2Makesure")
-    public  void manager2Makesure(Integer stuLevel2manager,Integer stuApplyId){ applyForColleageService.makesureLevel2(stuLevel2manager,stuApplyId);}
+    public  void manager2Makesure(Integer stuLevel2manager,Integer userId){ applyForColleageService.makesureLevel2(stuLevel2manager,userId);}
 
     //管理员3
     @RequestMapping("manager3GetInformation")
@@ -40,7 +40,7 @@ public class ApplyForColleageController {
 
     //如果通过stuLevel3manager为1，否则为0
     @RequestMapping("manager3Makesure")
-    public  void manager3Makesure(Integer stuLevel3manager,Integer stuApplyId){ applyForColleageService.makesureLevel3(stuLevel3manager,stuApplyId);}
+    public  void manager3Makesure(Integer stuLevel3manager,Integer userId){ applyForColleageService.makesureLevel3(stuLevel3manager,userId);}
 
 
     //所有需要自己确认的学生
@@ -65,7 +65,7 @@ public class ApplyForColleageController {
 
     //学生最后确定
     @RequestMapping("studnetMakesure")
-    public  void studentMakesure(Integer stuSelfcheck,Integer stuApplyId){ applyForColleageService.makesureSelfCheck(stuSelfcheck, stuApplyId); }
+    public  void studentMakesure(Integer stuSelfcheck,String userId){ applyForColleageService.makesureSelfCheck(stuSelfcheck, userId); }
 
     //学生录取名单
     @RequestMapping("studentGetInformation")

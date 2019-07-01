@@ -21,21 +21,21 @@ public class ApplyForColleageServiceImplTest {
 
     @Test
     public void makesureLevel1() {
-        applyForColleageService.makesureLevel1(1,"wbx123450");
+        applyForColleageService.makesureLevel1(0,"wbx123450");
     }
 
     @Test
     public void makesureLevel2() {
-        applyForColleageService.makesureLevel2(1,1);
+        applyForColleageService.makesureLevel2(0,"wbx123450");
     }
 
     @Test
     public void makesureLevel3() {
-        applyForColleageService.makesureLevel3(1,1);
+        applyForColleageService.makesureLevel3(0,"wbx123450");
     }
 
     @Test
     public void makesureSelfCheck() {
-        applyForColleageService.makesureSelfCheck(1,1);
+        applyForColleageService.makesureSelfCheck(0,"wbx123450");
     }
 }
