@@ -79,7 +79,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .rememberMe().key(KEY) // 启用 remember me
                 .and()
 
-                .exceptionHandling().accessDeniedPage("/403");  // 处理异常，拒绝访问就重定向到 403 页面
+                .exceptionHandling().accessDeniedPage("/login-error");  // 处理异常，拒绝访问就重定向到 login-error 页面
     }
 
     @Override
