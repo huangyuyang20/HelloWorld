@@ -28,6 +28,24 @@ public class IdentityAuthoritySuccessHandler implements AuthenticationSuccessHan
 
         if (savedRequest != null){
             response.setInfo(savedRequest.getRequestURI());
+
+            if (savedRequest.getRequestURI().contains("check")){
+                if (!((User) authentication.getPrincipal()).getUserRole().contains("CHECK")) {
+                    httpServletRequest.getSession().removeAttribute("SPRING_SECURITY_SAVED_REQUEST");
+                    response.setInfo("/login");
+                }
+            } else if (savedRequest.getRequestURI().contains("admin")){
+                if (!((User) authentication.getPrincipal()).getUserRole().contains("ADMIN")) {
+                    httpServletRequest.getSession().removeAttribute("SPRING_SECURITY_SAVED_REQUEST");
+                    response.setInfo("/login");
+                }
+            } else {
+                if (!((User) authentication.getPrincipal()).getUserRole().contains("STUDENT")) {
+                    httpServletRequest.getSession().removeAttribute("SPRING_SECURITY_SAVED_REQUEST");
+                    response.setInfo("/login");
+                }
+            }
+
         } else {
             response.setInfo("/index");
         }

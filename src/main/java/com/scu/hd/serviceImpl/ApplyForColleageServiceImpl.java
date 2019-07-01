@@ -23,16 +23,16 @@ public class ApplyForColleageServiceImpl implements ApplyForColleageService {
 
     //确认
     @Override
-    public void makesureLevel1(Integer stuLevel1manager, Integer stuApplyId){ applyForColleageDao.makesureLevel1(stuLevel1manager,stuApplyId);}
+    public void makesureLevel1(Integer stuLevel1manager, String userId){ applyForColleageDao.makesureLevel1(stuLevel1manager,userId);}
 
     @Override
-    public void makesureLevel2(Integer stuLevel2manager, Integer stuApplyId){applyForColleageDao.makesureLevel2(stuLevel2manager,stuApplyId);}
+    public void makesureLevel2(Integer stuLevel2manager, String userId){applyForColleageDao.makesureLevel2(stuLevel2manager,userId);}
 
     @Override
-    public void makesureLevel3(Integer stuLevel3manager, Integer stuApplyId){applyForColleageDao.makesureLevel3(stuLevel3manager,stuApplyId);}
+    public void makesureLevel3(Integer stuLevel3manager, String userId){applyForColleageDao.makesureLevel3(stuLevel3manager,userId);}
 
     @Override
-    public void makesureSelfCheck(Integer stuSlefcheck, Integer stuApplyId){applyForColleageDao.makesureSelfCheck(stuSlefcheck,stuApplyId);}
+    public void makesureSelfCheck(Integer stuSlefcheck, String userId){applyForColleageDao.makesureSelfCheck(stuSlefcheck,userId);}
 
     //获取信息
     @Override

@@ -19,23 +19,4 @@ public class ApplyForColleageServiceImplTest {
     @Autowired
     ApplyForColleageServiceImpl applyForColleageService;
 
-    @Test
-    public void makesureLevel1() {
-        applyForColleageService.makesureLevel1(1,1);
-    }
-
-    @Test
-    public void makesureLevel2() {
-        applyForColleageService.makesureLevel2(1,1);
-    }
-
-    @Test
-    public void makesureLevel3() {
-        applyForColleageService.makesureLevel3(1,1);
-    }
-
-    @Test
-    public void makesureSelfCheck() {
-        applyForColleageService.makesureSelfCheck(1,1);
-    }
 }

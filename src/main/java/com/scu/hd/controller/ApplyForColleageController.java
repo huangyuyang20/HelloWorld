@@ -3,7 +3,9 @@ package com.scu.hd.controller;
 import com.scu.hd.entity.StudApplyInformation;
 import com.scu.hd.service.ApplyForColleageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Map;
@@ -24,7 +26,7 @@ public class ApplyForColleageController {
 
     //如果通过stuLevelmanager为1 否则为0
     @RequestMapping("manager1Makesure")
-    public void manager1Makesure(Integer stuLevel1manager,Integer stuApplyId){ applyForColleageService.makesureLevel1(stuLevel1manager,stuApplyId); }
+    public void manager1Makesure(@RequestBody Map<String, Object> map){ applyForColleageService.makesureLevel1((Integer)map.get("stuLevel1manager"), (String)map.get("userId")); }
 
     //管理员2
     @RequestMapping("manager2GetInformation")
@@ -32,7 +34,7 @@ public class ApplyForColleageController {
 
     //如果通过stuLevel2manager为1，否则为0
     @RequestMapping("manager2Makesure")
-    public  void manager2Makesure(Integer stuLevel2manager,Integer stuApplyId){ applyForColleageService.makesureLevel2(stuLevel2manager,stuApplyId);}
+    public  void manager2Makesure(@RequestBody Map<String, Object> map){ applyForColleageService.makesureLevel2((Integer)map.get("stuLevel2manager"), (String)map.get("userId"));}
 
     //管理员3
     @RequestMapping("manager3GetInformation")
@@ -40,7 +42,7 @@ public class ApplyForColleageController {
 
     //如果通过stuLevel3manager为1，否则为0
     @RequestMapping("manager3Makesure")
-    public  void manager3Makesure(Integer stuLevel3manager,Integer stuApplyId){ applyForColleageService.makesureLevel3(stuLevel3manager,stuApplyId);}
+    public  void manager3Makesure(@RequestBody Map<String, Object> map){ applyForColleageService.makesureLevel3((Integer)map.get("stuLevel3manager"), (String)map.get("userId"));}
 
 
     //所有需要自己确认的学生
@@ -64,9 +66,10 @@ public class ApplyForColleageController {
     }
 
     //学生最后确定
-    @PostMapping("studnetMakesure")
+    @RequestMapping("studnetMakesure")
     public  void studentMakesure(@RequestBody Map<String, Object> map){
-        applyForColleageService.makesureSelfCheck((Integer)map.get("stuSelfcheck"), (Integer) map.get("stuApplyId"));
+        System.out.println(map);
+        applyForColleageService.makesureSelfCheck((Integer) map.get("stuSelfcheck"), (String) map.get("userId"));
     }
 
     //学生录取名单

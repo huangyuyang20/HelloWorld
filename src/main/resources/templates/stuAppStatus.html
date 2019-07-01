@@ -131,7 +131,6 @@
                 }
                 else {
                     var json= JSON.stringify(data);
-                    alert(json);
                     // document.getElementById("id_no").innerText=data;
                     // document.getElementById("major").innerText=?
 
@@ -271,21 +270,22 @@
             console.log(stuSelfcheck);
             stuSelfcheck = -1;
         }
-        console.log();
+        var appInfo = sessionStorage.getItem('appInfo');
+        appInfo= JSON.parse(appInfo);
         $.ajax({
             type: 'POST',
             url: '/applyForColleage/studnetMakesure',
-            dataType:"json",
             contentType: "application/json;charset=UTF-8",
             data: JSON.stringify({
                 stuSelfcheck: stuSelfcheck,
-                stuApplyId: 1
+                userId: appInfo.body
             }),
             beforeSend: function(request) {
                 request.setRequestHeader(header, token); // 添加  CSRF Token
             },
             success:function(data){
                 console.log(data);
+                window.location.href = "/student/appstatus";
             },
             error: function(data){
                 console.log("失败");
