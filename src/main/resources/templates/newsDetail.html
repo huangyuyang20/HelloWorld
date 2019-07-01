@@ -1,0 +1,126 @@
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Title</title>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+
+</head>
+<body data-type="generalComponents">
+
+
+<header class="am-topbar am-topbar-inverse admin-header">
+    <div class="am-topbar-brand">
+        <a href="javascript:" class="tpl-logo">
+            <img src="../assets/img/logo.png" alt="">
+        </a>
+    </div>
+    <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
+
+    </div>
+</header>
+
+<div class="tpl-page-container tpl-page-header-fixed">
+
+
+    <!--<%@ include file="leftNav.jsp" %>-->
+
+    <div class="tpl-content-wrapper">
+        <div class="tpl-content-page-title">
+            四川大学数字化校园建设
+        </div>
+        <ol class="am-breadcrumb">
+            <li><a href="/index" class="am-icon-home">首页</a></li>
+            <li class="am-active">新闻正文</li>
+        </ol>
+        <div class="tpl-content-scope">
+            <h2 id="title">
+                <span class="close" data-close="note"></span>
+            </h2>
+            <div class="note note-info">
+
+                <p>
+                    <span class="label label-danger" >新闻ID/News ID</span>
+                    <span id="id"></span>
+                </p>
+
+                <p>
+                    <span class="label label-success" >新闻来源/News Source</span>
+                    <span id="author"></span>
+                </p>
+
+                <p>
+                    <span class="label label-danger" >发布时间/Published Time</span>
+                    <span id="time"></span>
+                </p>
+
+                <p id = 'txt'></p>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/amazeui.min.js"></script>
+<script src="../assets/js/app.js"></script>
+
+<script src="../js/dataTransfer.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+<script >
+    var token = $("meta[name='_csrf']").attr("content");
+    var header = $("meta[name='_csrf_header']").attr("content");
+
+    // var loc = location.href;
+    //alert(loc)
+    // var n1 = loc.length;//地址的总长度
+    // var n2 = loc.indexOf("?");//取得=号的位置
+    // var id = decodeURI(loc.substr(n2+1, n1-n2));//从=号后面的内容
+
+    var id = localStorage.getItem('urlId');
+    //alert(id);
+
+    $.ajax({
+        url: '/News/newsDetail/'+id,
+        type:'POST',
+        detaType:'json',
+        data:{
+            "titleNum":id
+        },
+        async: false,
+        beforeSend: function(request) {
+            request.setRequestHeader(header, token); // 添加  CSRF Token
+        },
+        success:function (data) {
+            if (null != data) {
+                var title = data.title;
+                var author = data.author;
+                var txt = data.txt;
+                var time = data.time;
+                var id = data.titleNum;
+
+                document.getElementById("title").innerText = title;
+                document.getElementById("author").innerText = author;
+                document.getElementById("txt").innerText = txt;
+                document.getElementById("time").innerText = timeFormat(time);
+                document.getElementById("id").innerText = id;
+            }
+        },
+        error:function (XMLHttpRequest, textStatus, errorThrown) {
+            alert(XMLHttpRequest.status);
+            alert(XMLHttpRequest.readyState);
+            alert(textStatus);
+        }
+    })
+
+</script>
+
+</html>

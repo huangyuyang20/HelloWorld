@@ -21,7 +21,7 @@ public class ApplyForColleageServiceImplTest {
 
     @Test
     public void makesureLevel1() {
-        applyForColleageService.makesureLevel1(1,1);
+        applyForColleageService.makesureLevel1(1,"wbx123450");
     }
 
     @Test

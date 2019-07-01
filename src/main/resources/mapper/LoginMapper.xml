@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.scu.hd.dao.LoginMapper">
+    <resultMap id="BaseResultMap" type="com.scu.hd.entity.User" >
+        <id column="user_id" property="username" jdbcType="VARCHAR" />
+        <result column="user_password" property="password" jdbcType="VARCHAR" />
+        <result column="user_role" property="userRole" jdbcType="VARCHAR" />
+    </resultMap>
+    <resultMap id="StudApplyInformationMap" type="com.scu.hd.entity.StudApplyInformation">
+        <id column="user_id" property="userId" jdbcType="VARCHAR" />
+        <result column="stu_name" property="stuName" jdbcType="VARCHAR" />
+        <result column="stu_birthday" property="stuBirthday" jdbcType="DATE" />
+        <result column="stu_birthplace" property="stuBirthplace" jdbcType="VARCHAR" />
+        <result column="stu_email" property="stuEmail" jdbcType="VARCHAR" />
+        <result column="stu_major" property="stuMajor" jdbcType="VARCHAR" />
+        <result column="stu_phone" property="stuPhone" jdbcType="VARCHAR" />
+        <result column="stu_introduction" property="stuIntroduction" jdbcType="VARCHAR" />
+        <result column="stu_grade" property="stuGrade" jdbcType="INTEGER" />
+        <result column="stu_level1manager" property="stuLevel1manager" jdbcType="INTEGER" />
+        <result column="stu_level2manager" property="stuLevel2manager" jdbcType="INTEGER" />
+        <result column="stu_level3manager" property="stuLevel3manager" jdbcType="INTEGER" />
+        <result column="stu_selfcheck" property="stuSelfcheck" jdbcType="INTEGER" />
+        <result column="stu_nation" property="stuNation" jdbcType="VARCHAR" />
+        <result column="stu_image" property="stuImage" jdbcType="VARCHAR" />
+        <result column="stu_apply_id" property="stuApplyId" jdbcType="INTEGER" />
+        <result column="stu_id_card" property="stuIdCard" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <insert id="insertUser" parameterType="com.scu.hd.entity.User" >
+        insert into user (user_id, user_password, user_role)
+        values (#{username}, #{password}, #{userRole})
+    </insert>
+
+    <insert id="insertStudApplyInformation" parameterType="com.scu.hd.entity.StudApplyInformation" >
+        insert into stu_apply_information (stu_name,stu_id_card,user_id)
+        values (#{stuName}, #{stuIdCard}, #{userId})
+    </insert>
+    <select id="selectUserById" resultMap="BaseResultMap" parameterType="string">
+        select * from user where user_id = #{username}
+    </select>
+
+    <select id="selectStudApplyInformationById" resultMap="StudApplyInformationMap" parameterType="string">
+        select * from stu_apply_information where user_id = #{userId}
+    </select>
+
+    <select id="selectStudApplyInformation" resultMap="StudApplyInformationMap" >
+        select * from stu_apply_information
+    </select>
+
+    <select id="manager1GetInformation" resultMap="StudApplyInformationMap" >
+        select * from stu_apply_information
+    </select>
+
+    <select id="manager2GetInformation" resultMap="StudApplyInformationMap" >
+        select * from stu_apply_information where stu_level1manager = 1
+    </select>
+
+    <select id="manager3GetInformation" resultMap="StudApplyInformationMap" >
+        select * from stu_apply_information where stu_level2manager = 1
+    </select>
+
+    <select id="studentGetInformation" resultMap="StudApplyInformationMap" >
+        select * from stu_apply_information where stu_level3manager = 1
+    </select>
+
+    <select id="getMyApplyInformation" resultMap="StudApplyInformationMap" parameterType="string" >
+        select * from stu_apply_information where user_id = #{userId}
+    </select>
+
+    <select id="finalOutcome" resultMap="StudApplyInformationMap" >
+        select * from stu_apply_information where stu_selfcheck = 1
+    </select>
+
+
+
+    <update id="updateStudApplyInformation" parameterType="com.scu.hd.entity.StudApplyInformation" >
+        update stu_apply_information set  stu_birthday = #{stuBirthday},
+                                          stu_birthplace = #{stuBirthplace},
+                                          stu_email = #{stuEmail},
+                                          stu_major = #{stuMajor},
+                                          stu_phone = #{stuPhone},
+                                          stu_introduction = #{stuIntroduction},
+                                          stu_grade = #{stuGrade},
+                                          stu_level1manager = #{stuLevel1manager},
+                                          stu_level2manager = #{stuLevel2manager},
+                                          stu_level3manager = #{stuLevel3manager},
+                                          stu_selfcheck = #{stuSelfcheck},
+                                          stu_nation = #{stuNation},
+                                          stu_image = #{stuImage}
+        where stu_apply_id = #{stuApplyId}
+    </update>
+</mapper>
