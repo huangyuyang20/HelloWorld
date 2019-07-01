@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author zhong songzhi
@@ -64,9 +65,8 @@ public class ApplyForColleageController {
 
     //学生最后确定
     @PostMapping("studnetMakesure")
-    public  void studentMakesure(Integer stuSelfcheck, Integer stuApplyId){
-        System.out.println("===" + stuApplyId + " " + stuSelfcheck);
-        applyForColleageService.makesureSelfCheck(stuSelfcheck, stuApplyId);
+    public  void studentMakesure(@RequestBody Map<String, Object> map){
+        applyForColleageService.makesureSelfCheck((Integer)map.get("stuSelfcheck"), (Integer) map.get("stuApplyId"));
     }
 
     //学生录取名单

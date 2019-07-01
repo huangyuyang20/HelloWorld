@@ -275,6 +275,8 @@
         $.ajax({
             type: 'POST',
             url: '/applyForColleage/studnetMakesure',
+            dataType:"json",
+            contentType: "application/json;charset=UTF-8",
             data: JSON.stringify({
                 stuSelfcheck: stuSelfcheck,
                 stuApplyId: 1
