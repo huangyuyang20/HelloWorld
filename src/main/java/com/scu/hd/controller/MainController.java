@@ -107,4 +107,9 @@ public class MainController {
     public String schoApply(){
         return "employee";
     }
+
+    @GetMapping("/admins/edit")
+    public String editEmployee(){
+        return "employeeEdit";
+    }
 }
