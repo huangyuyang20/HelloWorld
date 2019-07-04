@@ -47,7 +47,7 @@
             </li>
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" onclick="Jump2()">
-                    <span class="am-icon-comment-o"></span>人事管理
+                    <span class="am-icon-comment-o"></span>添加职工
                 </a>
             </li>
             <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
@@ -308,6 +308,16 @@
         console.log(obj);
         localStorage.setItem('changeId', obj);
         window.location.href = '/admins/edit';
+    }
+
+    function Jump0(){
+        window.location.href = '/check1';
+    }
+    function Jump1（）{
+        window.location.href = '/login';
+    }
+    function Jump2(){
+        window.location.href = '/admins/employeeAdd';
     }
 </script>
 </html>

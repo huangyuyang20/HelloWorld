@@ -210,13 +210,28 @@
                 <div class="am-g">
                     <div class="tpl-form-body tpl-form-line">
                         <form class="am-form tpl-form-line-form">
+                            <div class="am-form-group">
+                                <label  class="am-u-sm-3 am-form-label">职工账号<span
+                                        class="tpl-form-line-small-title">/Scholarship Name</span></label>
+                                <div class="am-u-sm-9">
+                                    <input type="text" class="tpl-form-input" id="emId">
+                                </div>
+                            </div>
 
+                            <div class="am-form-group">
+                                <label  class="am-u-sm-3 am-form-label">账号密码<span
+                                        class="tpl-form-line-small-title">/Year</span></label>
+                                <div class="am-u-sm-9">
+                                    <input type="text" class="tpl-form-input" id="password">
+
+                                </div>
+                            </div>
 
                             <div class="am-form-group">
                                 <label  class="am-u-sm-3 am-form-label">职工姓名<span
                                         class="tpl-form-line-small-title">/Scholarship Name</span></label>
                                 <div class="am-u-sm-9">
-                                    <input type="text" class="tpl-form-input" id="schoName">
+                                    <input type="text" class="tpl-form-input" id="emName">
                                 </div>
                             </div>
 
@@ -224,7 +239,7 @@
                                 <label  class="am-u-sm-3 am-form-label">职工薪资<span
                                         class="tpl-form-line-small-title">/Year</span></label>
                                 <div class="am-u-sm-9">
-                                    <input type="text" class="tpl-form-input" id="schoTime">
+                                    <input type="text" class="tpl-form-input" id="emSalary">
 
                                 </div>
                             </div>
@@ -233,7 +248,7 @@
                                 <label  class="am-u-sm-3 am-form-label">职工手机<span
                                         class="tpl-form-line-small-title">/Account</span></label>
                                 <div class="am-u-sm-9">
-                                    <input type="text" class="tpl-form-input" id="schoMoney">
+                                    <input type="text" class="tpl-form-input" id="emPhone">
                                 </div>
                             </div>
 
@@ -241,14 +256,14 @@
                                 <label  class="am-u-sm-3 am-form-label">职工部门<span
                                         class="tpl-form-line-small-title">/Quantity</span></label>
                                 <div class="am-u-sm-9">
-                                    <input type="text" class="tpl-form-input" id="schoQuota">
+                                    <input type="text" class="tpl-form-input" id="emDepartment">
                                 </div>
                             </div>
 
 
                             <div class="am-form-group">
                                 <div class="am-u-sm-9 am-u-sm-push-3">
-                                    <button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success " onclick="schoSubmit()">确认
+                                    <button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success " onclick="addSubmit()">确认
                                     </button>
                                 </div>
                             </div>
@@ -275,11 +290,39 @@
 <script>
     var token = $("meta[name='_csrf']").attr("content");
     var header = $("meta[name='_csrf_header']").attr("content");
-
-    $(function(){
+    function Jump2(){
+        window.location.href = '/admins/employeeManage';
+    }
+   function addSubmit() {
        $.ajax({
-
+           type: 'POST',
+           url: '/updateEmployee/insert',
+           contentType: "application/json;charset=UTF-8",
+           data: JSON.stringify({
+               user: {
+                   username: $('#emId').val(),
+                   password: $('#password').val(),
+                   userRole: 'ROLE_EMPLOYEE'
+               },
+               employee: {
+                   emId: $('#emId').val(),
+                   emName: $('#emName').val(),
+                   emSalary: $('#emSalary').val(),
+                   emPhone: $('#emPhone').val(),
+                   emDepartment: $('#emDepartment').val(),
+               }
+           }),
+           beforeSend: function (request) {
+               request.setRequestHeader(header, token); // 添加  CSRF Token
+           },
+           success: function (data) {
+               console.log(data);
+               window.location.href = "/admins/employeeAdd";
+           },
+           error: function (data) {
+               console.log("失败");
+           }
        });
-    });
+   }
 </script>
 </html>

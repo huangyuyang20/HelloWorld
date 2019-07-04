@@ -112,4 +112,9 @@ public class MainController {
     public String editEmployee(){
         return "employeeEdit";
     }
+
+    @GetMapping("/admins")
+    public String admins(){
+        return "adminsMain";
+    }
 }
