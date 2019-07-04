@@ -10,9 +10,9 @@
     <meta name="_csrf" th:content="${_csrf.token}"/>
     <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
 
-    <link rel="stylesheet" href="../assets/css/amazeui.min.css"/>
-    <link rel="stylesheet" href="../assets/css/admin.css">
-    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="../static/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="../static/assets/css/admin.css">
+    <link rel="stylesheet" href="../static/assets/css/app.css">
 
 </head>
 <body data-type="generalComponents">
@@ -20,7 +20,7 @@
 <header class="am-topbar am-topbar-inverse admin-header">
     <div class="am-topbar-brand">
         <a href="javascript:;" class="tpl-logo">
-            <img src="../assets/img/logo.png" alt="">
+            <img src="../static/assets/img/logo.png" alt="">
         </a>
     </div>
     <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
@@ -51,15 +51,15 @@
 
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                    <span class="tpl-header-list-user-nick">个人中心</span><span class="tpl-header-list-user-ico"> <img src="../assets/img/user02.png"></span>
+                    <span class="tpl-header-list-user-nick">个人中心</span><span class="tpl-header-list-user-ico"> <img src="../static/assets/img/user02.png"></span>
                 </a>
                 <ul class="am-dropdown-content">
-                    <li><a href="managePersonal.jsp"><span class="am-icon-bell-o"></span> 个人信息</a></li>
-                    <li><a href="manageChangeInfo.jsp"><span class="am-icon-cog"></span> 修改密码</a></li>
-                    <li><a href="signin.jsp"><span class="am-icon-power-off"></span> 退出账户</a></li>
+                    <li><a href="../static/html/managePersonal.jsp"><span class="am-icon-bell-o"></span> 个人信息</a></li>
+                    <li><a href="../static/html/manageChangeInfo.jsp"><span class="am-icon-cog"></span> 修改密码</a></li>
+                    <li><a href="../static/html/signin.jsp"><span class="am-icon-power-off"></span> 退出账户</a></li>
                 </ul>
             </li>
-            <li><a href="signin.jsp" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
+            <li><a href="../static/html/signin.jsp" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
         </ul>
     </div>
 </header>
@@ -74,7 +74,7 @@
         <div class="tpl-left-nav-list">
             <ul class="tpl-left-nav-menu">
                 <li class="tpl-left-nav-item">
-                    <a href="home.jsp" class="nav-link active">
+                    <a href="../static/html/home.jsp" class="nav-link active">
                         <i class="am-icon-home"></i>
                         <span>首页</span>
                     </a>
@@ -184,7 +184,7 @@
             四川大学数字化校园建设(奖学金模块 管理员)
         </div>
         <ol class="am-breadcrumb">
-            <li><a href="userManage.jsp" class="am-icon-home">首页</a></li>
+            <li><a href="../static/html/userManage.jsp" class="am-icon-home">首页</a></li>
 
             <li class="am-active">奖学金管理</li>
         </ol>
@@ -280,15 +280,18 @@
 
 </body>
 
-<script src="../assets/js/jquery.min.js"></script>
-<script src="../assets/js/amazeui.min.js"></script>
-<script src="../assets/js/app.js"></script>
-<script src="../js/dataTransfer.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+<script src="../static/assets/js/jquery.min.js"></script>
+<script src="../static/assets/js/amazeui.min.js"></script>
+<script src="../static/assets/js/app.js"></script>
+<script src="../static/js/dataTransfer.js" type="text/javascript" language="javascript" charset="utf-8"></script>
 
 
 
 
 <script>
+    var token = $("meta[name='_csrf']").attr("content");
+    var header = $("meta[name='_csrf_header']").attr("content");
+
     function Jump0(){
         alert("tiaozhuan");
     }

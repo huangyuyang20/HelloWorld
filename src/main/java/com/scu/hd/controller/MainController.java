@@ -93,4 +93,19 @@ public class MainController {
     public String  check3(){
         return "check3";
     }
+
+    @GetMapping("/admins/schoAdd")
+    public String schoAdd(){
+        return "schoAdd";
+    }
+
+    @GetMapping("/admins/schoManage")
+    public String schoManage(){
+        return "schoManage";
+    }
+
+    @GetMapping("/student/schoApply")
+    public String schoApply(){
+        return "schoApply";
+    }
 }
