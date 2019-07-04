@@ -14,4 +14,6 @@ public interface AskEmployeeService {
 
     Employee QureyById(String employeeId);
 
+    List<Employee> QueryAll();
+
 }

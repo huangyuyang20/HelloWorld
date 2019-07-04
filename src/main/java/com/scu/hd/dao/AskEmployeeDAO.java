@@ -18,5 +18,6 @@ public interface AskEmployeeDAO {
     @Select("select * from employee where em_id = #{employeeId}")
     Employee QureyById(String employeeId);
 
-
+    @Select("select * from employee")
+    List<Employee> QueryAll();
 }

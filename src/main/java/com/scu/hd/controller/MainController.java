@@ -3,7 +3,6 @@ package com.scu.hd.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author:   wbx
@@ -94,18 +93,18 @@ public class MainController {
         return "check3";
     }
 
-    @GetMapping("/admins/schoAdd")
+    @GetMapping("/admins/employeeAdd")
     public String schoAdd(){
-        return "schoAdd";
+        return "employeeAdd";
     }
 
-    @GetMapping("/admins/schoManage")
+    @GetMapping("/admins/employeeManage")
     public String schoManage(){
-        return "schoManage";
+        return "employeeManage";
     }
 
-    @GetMapping("/student/schoApply")
+    @GetMapping("/employee")
     public String schoApply(){
-        return "schoApply";
+        return "employee";
     }
 }

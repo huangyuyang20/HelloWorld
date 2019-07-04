@@ -1,26 +1,24 @@
+
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
+    <meta charset="UTF-8">
     <title>Title</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <%-- Bootstrap --%>
     <%-- Custom styles for this template --%>
-
     <meta name="_csrf" th:content="${_csrf.token}"/>
     <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
-
-    <link rel="stylesheet" href="../static/assets/css/amazeui.min.css"/>
-    <link rel="stylesheet" href="../static/assets/css/admin.css">
-    <link rel="stylesheet" href="../static/assets/css/app.css">
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
 
 </head>
 <body data-type="generalComponents">
-
 <header class="am-topbar am-topbar-inverse admin-header">
     <div class="am-topbar-brand">
         <a href="javascript:;" class="tpl-logo">
-            <img src="../static/assets/img/logo.png" alt="">
+            <img src="../assets/img/logo.png" alt="">
         </a>
     </div>
     <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
@@ -51,15 +49,15 @@
 
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                    <span class="tpl-header-list-user-nick">个人中心</span><span class="tpl-header-list-user-ico"> <img src="../static/assets/img/user02.png"></span>
+                    <span class="tpl-header-list-user-nick">个人中心</span><span class="tpl-header-list-user-ico"> <img src="../assets/img/user02.png"></span>
                 </a>
                 <ul class="am-dropdown-content">
-                    <li><a href="../static/html/managePersonal.jsp"><span class="am-icon-bell-o"></span> 个人信息</a></li>
-                    <li><a href="../static/html/manageChangeInfo.jsp"><span class="am-icon-cog"></span> 修改密码</a></li>
-                    <li><a href="../static/html/signin.jsp"><span class="am-icon-power-off"></span> 退出账户</a></li>
+                    <li><a href="../html/managePersonal.jsp"><span class="am-icon-bell-o"></span> 个人信息</a></li>
+                    <li><a href="../html/manageChangeInfo.jsp"><span class="am-icon-cog"></span> 修改密码</a></li>
+                    <li><a href="../html/signin.jsp"><span class="am-icon-power-off"></span> 退出账户</a></li>
                 </ul>
             </li>
-            <li><a href="../static/html/signin.jsp" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
+            <li><a href="../html/signin.jsp" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
         </ul>
     </div>
 </header>
@@ -74,7 +72,7 @@
         <div class="tpl-left-nav-list">
             <ul class="tpl-left-nav-menu">
                 <li class="tpl-left-nav-item">
-                    <a href="../static/html/home.jsp" class="nav-link active">
+                    <a href="../html/home.jsp" class="nav-link active">
                         <i class="am-icon-home"></i>
                         <span>首页</span>
                     </a>
@@ -177,21 +175,21 @@
         </div>
     </div>
 
-
-
     <div class="tpl-content-wrapper">
         <div class="tpl-content-page-title">
-            四川大学数字化校园建设(奖学金模块 管理员)
+            四川大学数字化校园建设(职工模块 管理员)
         </div>
-        <ol class="am-breadcrumb">
-            <li><a href="../static/html/userManage.jsp" class="am-icon-home">首页</a></li>
 
-            <li class="am-active">奖学金管理</li>
+        <ol class="am-breadcrumb">
+            <li><a href="../html/manageHome.jsp" class="am-icon-home">首页</a></li>
+
+            <li class="am-active">职工管理</li>
         </ol>
+
         <div class="tpl-portlet-components">
             <div class="portlet-title">
                 <div class="caption font-green bold">
-                    <span class="am-icon-code"></span> 添加奖学金
+                    <span class="am-icon-code"></span> 职工显示发布列表
                 </div>
                 <div class="tpl-portlet-input tpl-fz-ml">
                     <div class="portlet-input input-small input-inline">
@@ -203,109 +201,144 @@
 
 
             </div>
-
-
             <div class="tpl-block">
-
                 <div class="am-g">
-                    <div class="tpl-form-body tpl-form-line">
-                        <form class="am-form tpl-form-line-form">
+                    <div class="am-u-sm-12">
 
+                            <table class="am-table am-table-striped am-table-hover table-main">
+                                <thead>
+                                <tr>
+                                    <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
+                                    <th class="table-id">职工姓名</th>
+                                    <th class="table-title">职工薪资</th>
+                                    <th class="table-type">职工手机</th>
+                                    <th class="table-id">职工部门</th>
+                                    <th class="table-set">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody id = "news_list">
+                                </tbody>
+                            </table>
+                            <div class="am-cf">
 
-                            <div class="am-form-group">
-                                <label  class="am-u-sm-3 am-form-label">奖学金名称<span
-                                        class="tpl-form-line-small-title">/Scholarship Name</span></label>
-                                <div class="am-u-sm-9">
-                                    <input type="text" class="tpl-form-input" id="schoName">
+                                <div class="am-fr">
+                                    <ul class="am-pagination tpl-pagination">
+                                        <li class="am-disabled"><a href="#">«</a></li>
+                                        <li class="am-active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">»</a></li>
+                                    </ul>
                                 </div>
                             </div>
-
-                            <div class="am-form-group">
-                                <label  class="am-u-sm-3 am-form-label">奖学金年份<span
-                                        class="tpl-form-line-small-title">/Year</span></label>
-                                <div class="am-u-sm-9">
-                                    <input type="text" class="tpl-form-input" id="schoTime">
-
-                                </div>
-                            </div>
-
-                            <div class="am-form-group">
-                                <label  class="am-u-sm-3 am-form-label">奖学金金额<span
-                                        class="tpl-form-line-small-title">/Account</span></label>
-                                <div class="am-u-sm-9">
-                                    <input type="text" class="tpl-form-input" id="schoMoney">
-                                </div>
-                            </div>
-
-                            <div class="am-form-group">
-                                <label  class="am-u-sm-3 am-form-label">发奖数量<span
-                                        class="tpl-form-line-small-title">/Quantity</span></label>
-                                <div class="am-u-sm-9">
-                                    <input type="text" class="tpl-form-input" id="schoQuota">
-                                </div>
-                            </div>
-
-                            <div class="am-form-group">
-                                <label  class="am-u-sm-3 am-form-label">开始时间<span
-                                        class="tpl-form-line-small-title">/Start</span></label>
-                                <div class="am-u-sm-9">
-                                    <input type="text" class="am-form-field" id="schoStartTime" data-am-datepicker readonly required />
-                                </div>
-                            </div>
-
-                            <div class="am-form-group">
-                                <label  class="am-u-sm-3 am-form-label">截止时间<span
-                                        class="tpl-form-line-small-title">/Deadline</span></label>
-                                <div class="am-u-sm-9">
-                                    <input type="text" class="am-form-field" id="schoDeadline" data-am-datepicker readonly required />
-                                </div>
-                            </div>
-
-
-                            <div class="am-form-group">
-                                <div class="am-u-sm-9 am-u-sm-push-3">
-                                    <button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success " onclick="schoSubmit()">确认
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                            <hr>
 
                     </div>
+
                 </div>
             </div>
+            <div class="tpl-alert"></div>
         </div>
-    </div>
 
+
+    </div>
 </div>
 
 </body>
 
-<script src="../static/assets/js/jquery.min.js"></script>
-<script src="../static/assets/js/amazeui.min.js"></script>
-<script src="../static/assets/js/app.js"></script>
-<script src="../static/js/dataTransfer.js" type="text/javascript" language="javascript" charset="utf-8"></script>
-
-
-
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/amazeui.min.js"></script>
+<script src="../assets/js/app.js"></script>
+<script src="../js/dataTransfer.js" type="text/javascript" language="javascript" charset="utf-8"></script>
 
 <script>
     var token = $("meta[name='_csrf']").attr("content");
     var header = $("meta[name='_csrf_header']").attr("content");
 
-    function Jump0(){
-        alert("tiaozhuan");
+    //如果需要 用于修改
+    //请求ajax 对于返回数据采用 append html加入 参考上面的html
+    $(function(){
+        $.ajax({
+            type: 'GET',
+            url: '/askEmployee/getAll',
+            dataType: 'json',
+            contentType: "application/json;charset=UTF-8",
+            beforeSend: function(request) {
+                request.setRequestHeader(header, token); // 添加  CSRF Token
+            },
+            success:function(data){
+                console.log(data);
+                for (var i = 0; i < data.length; i++){
+                    $('#news_list').append("<tr>\n" +
+                        "                                        <td><input type=\"checkbox\"></td>\n" +
+                        "                                        <td>"+data[i].emName+"</td>\n" +
+                        "                                        <td>"+data[i].emSalary+"</td>\n" +
+                        "                                        <td>"+data[i].emPhone+"</td>\n" +
+                        "                                        <td>"+data[i].emDepartment+"</td>\n" +
+                        "                                        <td>\n" +
+                        "                                            <div class=\"am-btn-toolbar\">\n" +
+                        "                                                <div id =\"schoID\" class=\"am-btn-group am-btn-group-xs\">\n" +
+                        "                                                    <button onclick=\"myEdit("+"'" + data[i].emId + "'"+")\" class=\"am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only\"><span class=\"am-icon-trash-o\"></span> 编辑</button>\n" +
+                        "                                                </div>\n" +
+                        "                                            </div>\n" +
+                        "                                        </td>\n" +
+                        "                                    </tr>" +
+                        "                   <tr  id='"+ data[i].emId + "'></tr>"
+                    );
+                }
+
+            },
+            error: function(data){
+                console.log("失败");
+            }
+        });
+    });
+
+
+</script>
+<script>
+
+    function myDelete(obj){
+
+    }
+</script>
+<script>
+    function myEdit(obj){
+        var str = '#'+obj;
+        console.log(str);
+        var user = $(str);
+        user.append("<th class=\"table-id\">\n" +
+            "                                        <input type=\"text\" class=\"tpl-form-input\" >\n" +
+            "                                    </th>\n" +
+            "                                    <th class=\"table-title\">\n" +
+            "                                        <input type=\"text\" class=\"tpl-form-input\" >\n" +
+            "                                    </th>\n" +
+            "                                    <th class=\"table-type\">\n" +
+            "                                        <input type=\"text\" class=\"tpl-form-input\" >\n" +
+            "                                    </th>\n" +
+            "                                    <th class=\"table-id\">\n" +
+            "                                        <input type=\"text\" class=\"tpl-form-input\" >\n" +
+            "                                    </th>\n" +
+            "                                    <th class=\"table-set\">\n" +
+            "                                        <button onclick=\"myEdit()\" class=\"am-btn am-btn-default am-btn-xs am-text-secondary\">\n" +
+            "                                            <span class=\"am-icon-pencil-square-o\"></span> 确认修改</button>\n" +
+            "                                    <th class=\"table-set\">\n" +
+            "                                        <button onclick=\"myCancel()\" class=\"am-btn am-btn-default am-btn-xs am-text-secondary\">\n" +
+            "                                            <span class=\"am-icon-pencil-square-o\"></span> 修改返回</button>\n" +
+            "                                        <button onclick=\"myDelete()\" class=\"am-btn am-btn-default am-btn-xs am-text-secondary\">\n" +
+            "                                            <span class=\"am-icon-pencil-square-o\"></span> 删除职工</button>\n" +
+            "                                    </th>");
+    }
+</script>
+<script>
+    function myAdd(obj){
+
     }
 
-    function Jump1(){
-        alert("tiaozhuan");
-    }
-
-    function Jump2(){
-        alert("tiaozhuan");
-
-    }
-    function schoSubmit() {
-        //提交
+    function myCancel(){
+        window.location.href = '/admins/employeeManage';
     }
 </script>
 </html>

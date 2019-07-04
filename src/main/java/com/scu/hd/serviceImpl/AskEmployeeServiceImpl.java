@@ -20,4 +20,9 @@ public class AskEmployeeServiceImpl implements AskEmployeeService {
     @Override
     public Employee QureyById(String employeeId){return askEmployeeDAO.QureyById(employeeId);}
 
+    @Override
+    public List<Employee> QueryAll() {
+        return askEmployeeDAO.QueryAll();
+    }
+
 }

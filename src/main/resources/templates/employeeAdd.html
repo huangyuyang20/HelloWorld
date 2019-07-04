@@ -181,12 +181,12 @@
 
     <div class="tpl-content-wrapper">
         <div class="tpl-content-page-title">
-            四川大学数字化校园建设(奖学金申请)
+            四川大学数字化校园建设(奖学金模块 管理员)
         </div>
         <ol class="am-breadcrumb">
-            <li><a href="../static/html/userManage.jsp" class="am-icon-home">首页</a></li>
+            <li><a href="../html/userManage.jsp" class="am-icon-home">首页</a></li>
 
-            <li class="am-active">奖学金申请</li>
+            <li class="am-active">奖学金管理</li>
         </ol>
         <div class="tpl-portlet-components">
             <div class="portlet-title">
@@ -217,6 +217,47 @@
                                         class="tpl-form-line-small-title">/Scholarship Name</span></label>
                                 <div class="am-u-sm-9">
                                     <input type="text" class="tpl-form-input" id="schoName">
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label  class="am-u-sm-3 am-form-label">奖学金年份<span
+                                        class="tpl-form-line-small-title">/Year</span></label>
+                                <div class="am-u-sm-9">
+                                    <input type="text" class="tpl-form-input" id="schoTime">
+
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label  class="am-u-sm-3 am-form-label">奖学金金额<span
+                                        class="tpl-form-line-small-title">/Account</span></label>
+                                <div class="am-u-sm-9">
+                                    <input type="text" class="tpl-form-input" id="schoMoney">
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label  class="am-u-sm-3 am-form-label">发奖数量<span
+                                        class="tpl-form-line-small-title">/Quantity</span></label>
+                                <div class="am-u-sm-9">
+                                    <input type="text" class="tpl-form-input" id="schoQuota">
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label  class="am-u-sm-3 am-form-label">开始时间<span
+                                        class="tpl-form-line-small-title">/Start</span></label>
+                                <div class="am-u-sm-9">
+                                    <input type="text" class="am-form-field" id="schoStartTime" data-am-datepicker readonly required />
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label  class="am-u-sm-3 am-form-label">截止时间<span
+                                        class="tpl-form-line-small-title">/Deadline</span></label>
+                                <div class="am-u-sm-9">
+                                    <input type="text" class="am-form-field" id="schoDeadline" data-am-datepicker readonly required />
                                 </div>
                             </div>
 
@@ -251,20 +292,10 @@
     var token = $("meta[name='_csrf']").attr("content");
     var header = $("meta[name='_csrf_header']").attr("content");
 
-    function Jump0(){
-        alert("tiaozhuan");
-    }
+    $(function(){
+       $.ajax({
 
-    function Jump1(){
-        alert("tiaozhuan");
-    }
-
-    function Jump2(){
-        alert("tiaozhuan");
-
-    }
-    function schoSubmit() {
-        //提交
-    }
+       });
+    });
 </script>
 </html>
