@@ -5,6 +5,7 @@ import com.scu.hd.entity.News;
 import com.scu.hd.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * @author hyy
  * @date 2019/6/26 18:32
  */
+@Transactional
 @Service
 public class NewsServiceImpl implements NewsService {
 

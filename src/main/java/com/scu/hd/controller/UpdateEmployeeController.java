@@ -24,7 +24,7 @@ public class UpdateEmployeeController {
 
     @PostMapping("updateAll")
     void updateAll(@RequestBody Employee employee){
-        System.out.println(employee);
+//        System.out.println(employee);
         updateEmployeeService.updateEmployee(employee);
     }
 

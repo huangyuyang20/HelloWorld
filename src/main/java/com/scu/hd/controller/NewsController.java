@@ -24,7 +24,7 @@ public class NewsController {
     public PageInfo<News> pagehelpergetnews(int pageNum, int pageSize){
         PageHelper.startPage(pageNum,pageSize);
         PageInfo<News> newsPageInfo = new PageInfo<>(newsService.getNews());
-        System.out.println(newsPageInfo.getList());
+//        System.out.println(newsPageInfo.getList());
         return newsPageInfo;
     }
 

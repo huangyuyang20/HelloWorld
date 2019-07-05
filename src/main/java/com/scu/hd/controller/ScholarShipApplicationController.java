@@ -27,7 +27,7 @@ public class ScholarShipApplicationController {
     //用于学生查看自己的申请记录以及状态
     @RequestMapping("/findScholarShipApplicationById")
     public List<ScholarApplicationInformation> findScholarShipApplicationById(@RequestBody Student student){
-        System.out.println("stuID:"+ student.getStuId());
+//        System.out.println("stuID:"+ student.getStuId());
         return scholarShipApplicationService.getApplyScholarInformationByStuId(student.getStuId());
     }
 
@@ -43,7 +43,7 @@ public class ScholarShipApplicationController {
        try {
            scholarShipApplication.setSchoApprovetime(new Date());
            scholarShipApplication.setSchoApprove(0);//0表示管理员未确认，1表示通过申请，2表示申请被否定
-           System.out.println("申请奖学金："+scholarShipApplication.toString());
+//           System.out.println("申请奖学金："+scholarShipApplication.toString());
            int result = scholarShipApplicationService.insertScholarShipApplication(scholarShipApplication);
            //http://localhost:8080/ScholarShipApplication/applyScholar?scholarshipId=5&stuId= 123&schoPersonalstmt="Java是世界上最好的语言"
            if (result>0){
@@ -60,7 +60,7 @@ public class ScholarShipApplicationController {
     //用于奖助学金管理员确认是否同意申请并写入数据库
     @RequestMapping("/affirmOrDeny")
     public String affirmOrDeny(@RequestBody ScholarShipApplication scholarShipApplication){
-        System.out.println("ScholarShipApplication:"+scholarShipApplication.toString());
+//        System.out.println("ScholarShipApplication:"+scholarShipApplication.toString());
         scholarShipApplication.setSchoSubmittime(new Date());
         int result = scholarShipApplicationService.affirmOrDeny(scholarShipApplication);
         if (result>0){

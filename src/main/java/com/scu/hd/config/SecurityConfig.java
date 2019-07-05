@@ -33,10 +33,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String KEY = "wbx.com";
 
     //1. 配置编码
-    @Bean
-    PasswordEncoder getPasswordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
     @Autowired
     private PasswordEncoder passwordEncoder;
 

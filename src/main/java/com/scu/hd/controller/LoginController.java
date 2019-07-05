@@ -54,14 +54,14 @@ public class LoginController {
         AppResponse resp = new AppResponse();
         try {
             md5(user);
-            System.out.println(user.getStudApplyInformation() + " " + user.getUser());
+//            System.out.println(user.getStudApplyInformation() + " " + user.getUser());
             loginService.insertUserStudentOV(user);
         } catch (Exception e){
             resp.setCode(2);
             resp.setStatus("fail");
             resp.setInfo("失败原因: ....");
         }
-        System.out.println(resp);
+//        System.out.println(resp);
         return resp;
     }
 
@@ -74,7 +74,7 @@ public class LoginController {
      */
     @PostMapping
     public AppResponse loginStudent(User user){
-        System.out.println("调用loginStudent");
+//        System.out.println("调用loginStudent");
         log.debug(String.format("login %s", user));
         AppResponse resp = new AppResponse();
         if (user == null || user.getPassword() == null || user.getUsername() == null){
@@ -90,7 +90,7 @@ public class LoginController {
             }
         }
         resp.setInfo("gotoStudentApplication");
-        System.out.println("======"+resp);
+//        System.out.println("======"+resp);
         return resp;
     }
 }

@@ -28,7 +28,6 @@ public class AskEmployeeController {
 
     @GetMapping("getAll")
     public List<Employee> getAll(){
-        System.out.println("======");
         return askEmployeeService.QueryAll();
     }
 

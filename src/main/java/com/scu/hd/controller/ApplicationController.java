@@ -43,7 +43,7 @@ public class ApplicationController {
      */
     @PostMapping("/application/edit")
     public AppResponse editApplicationInfo(@RequestBody StudApplyInformation information){
-        System.out.println(information);
+//        System.out.println(information);
         AppResponse resp = new AppResponse();
         try {
             loginService.updateStudApplyInformation(information);

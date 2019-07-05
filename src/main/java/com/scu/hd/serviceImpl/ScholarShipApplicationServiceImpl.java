@@ -6,6 +6,7 @@ import com.scu.hd.entity.ScholarShipApplication;
 import com.scu.hd.service.ScholarShipApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
  * @author hyy
  * @date 2019/6/27 12:24
  */
-
+@Transactional
 @Service
 public class ScholarShipApplicationServiceImpl implements ScholarShipApplicationService {
 

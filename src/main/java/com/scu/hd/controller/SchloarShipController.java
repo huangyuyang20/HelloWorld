@@ -27,7 +27,7 @@ public class SchloarShipController {
     @RequestMapping("/addScholar")
     public String addSchloar(@RequestBody SchloarShip schloarShip){
 
-        System.out.println("添加的奖学金："+schloarShip.toString());
+//        System.out.println("添加的奖学金："+schloarShip.toString());
         int result = schloarShipService.InsertSchloarShip(schloarShip);
 
         if (result>0)
@@ -54,7 +54,7 @@ public class SchloarShipController {
     //修改奖学金信息
     @RequestMapping("/alertScholar")
     public String alertScholar(@RequestBody SchloarShip schloarShip){
-        System.out.println("奖学金信息："+schloarShip.toString());
+//        System.out.println("奖学金信息："+schloarShip.toString());
         int result = schloarShipService.alterScholarship(schloarShip);
         if (result>0){
             return "修改成功";

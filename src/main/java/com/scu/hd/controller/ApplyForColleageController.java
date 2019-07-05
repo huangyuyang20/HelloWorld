@@ -34,7 +34,7 @@ public class ApplyForColleageController {
     @RequestMapping("manager1Makesure")
     public void manager1Makesure(@RequestBody Map<String, Object> map){
 
-        System.out.println(map);
+//        System.out.println(map);
         applyForColleageService.makesureLevel1((Integer)map.get("stuLevel1manager"), (String)map.get("userId"));
     }
 
@@ -78,11 +78,11 @@ public class ApplyForColleageController {
     //学生最后确定
     @RequestMapping("studnetMakesure")
     public  void studentMakesure(@RequestBody Map<String, Object> map){
-        System.out.println(map);
+//        System.out.println(map);
         applyForColleageService.makesureSelfCheck((Integer) map.get("stuSelfcheck"), (String) map.get("userId"));
         Student student = new Student();
         StudApplyInformation s = applyForColleageService.getMyApplyInformation((String)map.get("userId"));
-        System.out.println("申请信息："+s.toString());
+//        System.out.println("申请信息："+s.toString());
         student.setStuBirthDate(s.getStuBirthday());
         student.setStuEmail(s.getStuEmail());
         student.setStuBirthPlace(s.getStuBirthplace());
@@ -96,7 +96,7 @@ public class ApplyForColleageController {
         student.setStuId(s.getUserId());
         student.setStuGender(s.getStuGender());
 
-        System.out.println("操作结果："+studentService.insertStudent(student));
+//        System.out.println("操作结果："+studentService.insertStudent(student));
 
     }
 

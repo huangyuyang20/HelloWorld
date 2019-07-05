@@ -73,7 +73,6 @@ public class MainController {
 
     @GetMapping("/News/newsDetail")
     public String gotoNews(){
-        System.out.println("==");
         return "newsDetail";
     }
 

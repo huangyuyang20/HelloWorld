@@ -7,11 +7,13 @@ import com.scu.hd.entity.UserEmployeeOV;
 import com.scu.hd.service.UpdateEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author zhong songzhi
  * @create 2019-06-27-16:17
  */
+@Transactional
 @Service
 public class UpdateEmployeeServiceImpl implements UpdateEmployeeService {
     @Autowired
