@@ -13,18 +13,28 @@ public class ScholarApplicationInformation {
 
     private int scholarshipId;//奖项编号
 
-    private int stuId;//学生id
+    private String stuId;//学生id
 
+    private String schoPersonnalStmt;
 
     private int schoApprove;//审核状态
 
     private Date schoApprovetime;//申请时间
 
-    public ScholarApplicationInformation(String schoName, String schoTime, int scholarshipId, int stuId, int schoApprove, Date schoApprovetime) {
+    public String getSchoPersonnalStmt() {
+        return schoPersonnalStmt;
+    }
+
+    public void setSchoPersonnalStmt(String schoPersonnalStmt) {
+        this.schoPersonnalStmt = schoPersonnalStmt;
+    }
+
+    public ScholarApplicationInformation(String schoName, String schoTime, int scholarshipId, String stuId, String schoPersonnalStmt, int schoApprove, Date schoApprovetime) {
         this.schoName = schoName;
         this.schoTime = schoTime;
         this.scholarshipId = scholarshipId;
         this.stuId = stuId;
+        this.schoPersonnalStmt = schoPersonnalStmt;
         this.schoApprove = schoApprove;
         this.schoApprovetime = schoApprovetime;
     }
@@ -38,7 +48,8 @@ public class ScholarApplicationInformation {
                 "schoName='" + schoName + '\'' +
                 ", schoTime='" + schoTime + '\'' +
                 ", scholarshipId=" + scholarshipId +
-                ", stuId=" + stuId +
+                ", stuId='" + stuId + '\'' +
+                ", schoPersonnalStmt='" + schoPersonnalStmt + '\'' +
                 ", schoApprove=" + schoApprove +
                 ", schoApprovetime=" + schoApprovetime +
                 '}';
@@ -68,11 +79,11 @@ public class ScholarApplicationInformation {
         this.scholarshipId = scholarshipId;
     }
 
-    public int getStuId() {
+    public String getStuId() {
         return stuId;
     }
 
-    public void setStuId(int stuId) {
+    public void setStuId(String stuId) {
         this.stuId = stuId;
     }
 

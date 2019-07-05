@@ -1,61 +1,32 @@
 package com.scu.hd.entity;
 
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.util.Date;
 
 /**
  * @author zhong songzhi
- * @create 2019-06-26-17:21
+ * @create 2019-06-27-19:10
  */
 public class SchloarShip {
-
-
-    int scholarshipId;
+    Integer scholarShipId;
 
     String schoName;
 
     String schoTime;
 
-    int schoMoney;
+    Integer schoMoney;
 
-    int schoQuota;
+    Integer schoQuota;
 
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    @JsonFormat(pattern = "yyyy-MM-dd", timezone ="GMT+8")
     Date schoStartTime;
 
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    @JsonFormat(pattern = "yyyy-MM-dd", timezone ="GMT+8")
     Date schoDeadline;
-
-    public SchloarShip(int scholarshipId, String schoName, String schoTime, int schoMoney, int schoQuota, Date schoStartTime, Date schoDeadline) {
-        this.scholarshipId = scholarshipId;
-        this.schoName = schoName;
-        this.schoTime = schoTime;
-        this.schoMoney = schoMoney;
-        this.schoQuota = schoQuota;
-        this.schoStartTime = schoStartTime;
-        this.schoDeadline = schoDeadline;
-    }
-
-    public SchloarShip(String schoName, String schoTime, int schoMoney, int schoQuota, Date schoStartTime, Date schoDeadline) {
-        this.schoName = schoName;
-        this.schoTime = schoTime;
-        this.schoMoney = schoMoney;
-        this.schoQuota = schoQuota;
-        this.schoStartTime = schoStartTime;
-        this.schoDeadline = schoDeadline;
-    }
 
     @Override
     public String toString() {
-        return "SchloarShip{" +
-                "scholarshipId=" + scholarshipId +
-                ", schoName='" + schoName + '\'' +
-                ", schoTime='" + schoTime + '\'' +
+        return "ScholarShip{" +
+                "scholarShipId=" + scholarShipId +
+                ", shoName='" + schoName + '\'' +
+                ", schoTime=" + schoTime +
                 ", schoMoney=" + schoMoney +
                 ", schoQuota=" + schoQuota +
                 ", schoStartTime=" + schoStartTime +
@@ -63,15 +34,22 @@ public class SchloarShip {
                 '}';
     }
 
-    public SchloarShip() {
+
+
+    public String getSchoTime() {
+        return schoTime;
     }
 
-    public int getScholarshipId() {
-        return scholarshipId;
+    public void setSchoTime(String schoTime) {
+        this.schoTime = schoTime;
     }
 
-    public void setScholarshipId(int scholarshipId) {
-        this.scholarshipId = scholarshipId;
+    public Integer getScholarShipId() {
+        return scholarShipId;
+    }
+
+    public void setScholarShipId(Integer scholarShipId) {
+        this.scholarShipId = scholarShipId;
     }
 
     public String getSchoName() {
@@ -82,27 +60,29 @@ public class SchloarShip {
         this.schoName = schoName;
     }
 
-    public String getSchoTime() {
-        return schoTime;
-    }
-
-    public void setSchoTime(String schoTime) {
+    public SchloarShip(Integer scholarShipId, String schoName, String schoTime, Integer schoMoney, Integer schoQuota, Date schoStartTime, Date schoDeadline) {
+        this.scholarShipId = scholarShipId;
+        this.schoName = schoName;
         this.schoTime = schoTime;
+        this.schoMoney = schoMoney;
+        this.schoQuota = schoQuota;
+        this.schoStartTime = schoStartTime;
+        this.schoDeadline = schoDeadline;
     }
 
-    public int getSchoMoney() {
+    public Integer getSchoMoney() {
         return schoMoney;
     }
 
-    public void setSchoMoney(int schoMoney) {
+    public void setSchoMoney(Integer schoMoney) {
         this.schoMoney = schoMoney;
     }
 
-    public int getSchoQuota() {
+    public Integer getSchoQuota() {
         return schoQuota;
     }
 
-    public void setSchoQuota(int schoQuota) {
+    public void setSchoQuota(Integer schoQuota) {
         this.schoQuota = schoQuota;
     }
 

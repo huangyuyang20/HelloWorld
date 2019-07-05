@@ -3,7 +3,6 @@ package com.scu.hd.service;
 import com.scu.hd.entity.ScholarApplicationInformation;
 import com.scu.hd.entity.ScholarShipApplication;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,9 +13,9 @@ public interface ScholarShipApplicationService {
 
     public int insertScholarShipApplication(ScholarShipApplication scholarShipApplication);
 
-    public List<ScholarApplicationInformation> getApplyScholarInformationByStuId(int stu_id);
+    public List<ScholarApplicationInformation> getApplyScholarInformationByStuId(String stu_id);
 
-    public List<ScholarShipApplication> getApplyScholarInformation();
+    public List<ScholarApplicationInformation> getApplyScholarInformation();
 
     public int affirmOrDeny(ScholarShipApplication scholarShipApplication);
 }

@@ -7,7 +7,6 @@ import com.scu.hd.service.ScholarShipApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,13 +28,13 @@ public class ScholarShipApplicationServiceImpl implements ScholarShipApplication
 
     //根据学号查询申请记录
     @Override
-    public List<ScholarApplicationInformation> getApplyScholarInformationByStuId(int stu_id) {
+    public List<ScholarApplicationInformation> getApplyScholarInformationByStuId(String stu_id) {
         return scholarShipApplicationDAO.getApplyScholarInformationByStuId(stu_id);
     }
 
     //获得所有奖学金申请记录
     @Override
-    public List<ScholarShipApplication> getApplyScholarInformation() {
+    public List<ScholarApplicationInformation> getApplyScholarInformation() {
         return scholarShipApplicationDAO.getApplyScholarInformation();
     }
 

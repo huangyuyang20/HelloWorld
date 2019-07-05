@@ -38,7 +38,7 @@ public interface SchloarShipDAO {
 
     //修改奖学金数据，只能够修改学年金额、人数、截止日期
     @Update("update scholarship set scho_time=#{schoTime},scho_money = #{schoMoney},scho_quota=#{schoQuota}" +
-            ",scho_deadline=#{schoDeadline} where scholarship_id=#{scholarshipId}")
+            ",scho_start_time=#{schoStartTime},scho_deadline=#{schoDeadline} where scholarship_id=#{scholarShipId}")
     public int alterScholarship(SchloarShip schloarShip);
 
     //删除奖学金信息
