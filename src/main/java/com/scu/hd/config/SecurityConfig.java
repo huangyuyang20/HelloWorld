@@ -65,6 +65,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/check1/**").hasRole("LEVEL1")
                 .antMatchers("/check2/**").hasRole("LEVEL2")
                 .antMatchers("/check3/**").hasRole("LEVEL3")
+                .antMatchers("/check4/**").hasRole("LEVEL4")
                 .antMatchers("/student/**").hasRole("STUDENT")
                 .and()
 

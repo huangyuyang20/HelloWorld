@@ -145,7 +145,7 @@
                             <div class="am-form-group">
                                 <label  class="am-u-sm-3 am-form-label">证件号码/Identical Document Number</label>
                                 <div class="am-u-sm-9">
-                                    <span id="id_no" >110</span>
+                                    <span id="id_no"></span>
                                 </div>
                             </div>
 
@@ -237,7 +237,7 @@
                 $('#id').text(data.studApplyInformation.stuApplyId);
                 $('#name').text(data.studApplyInformation.stuName);
                 $('#email').val(data.studApplyInformation.stuEmail);
-                $('#id_no').val(data.studApplyInformation.stuIdCard);
+                $('#id_no').text(data.studApplyInformation.stuIdCard);
                 $('#phone').val(data.studApplyInformation.stuPhone);
                 $("#birthplace").val(data.studApplyInformation.stuBirthplace);
                 $('#undergraduate').val(data.studApplyInformation.stuGrade);

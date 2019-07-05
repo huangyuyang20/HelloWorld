@@ -59,7 +59,6 @@ public class IdentityAuthoritySuccessHandler implements AuthenticationSuccessHan
             }else if (((User) authentication.getPrincipal()).getUserRole().equals("ROLE_STUDENT")){
                 System.out.println("用户名"+((User) authentication.getPrincipal()).getUsername());
                  response.setInfo("/student/application");
-
             }else if (((User) authentication.getPrincipal()).getUserRole().equals("ROLE_ADMIN")){
                 System.out.println("用户名"+((User) authentication.getPrincipal()).getUsername());
                 response.setInfo("/admins/employeeManage");

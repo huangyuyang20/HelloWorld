@@ -60,6 +60,9 @@ public class SchloarShip {
         this.schoName = schoName;
     }
 
+    public SchloarShip(){
+
+    }
     public SchloarShip(Integer scholarShipId, String schoName, String schoTime, Integer schoMoney, Integer schoQuota, Date schoStartTime, Date schoDeadline) {
         this.scholarShipId = scholarShipId;
         this.schoName = schoName;

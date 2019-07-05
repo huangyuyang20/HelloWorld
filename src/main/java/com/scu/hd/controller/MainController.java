@@ -143,8 +143,8 @@ public class MainController {
         return "employeeEdit";
     }
 
-    @GetMapping("/admins")
-    public String admins(){
-        return "adminsMain";
-    }
+//    @GetMapping("/admins")
+//    public String admins(){
+//        return "adminsMain";
+//    }
 }
