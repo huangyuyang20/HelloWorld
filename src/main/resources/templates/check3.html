@@ -1,0 +1,360 @@
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+
+</head>
+<body data-type="generalComponents">
+<header class="am-topbar am-topbar-inverse admin-header">
+    <div class="am-topbar-brand">
+        <a href="javascript:;" class="tpl-logo">
+            <img src="../assets/img/logo.png" alt="">
+        </a>
+    </div>
+    <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
+
+    </div>
+
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+    <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+        <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
+    <!--        <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                <a class="am-dropdown-toggle tpl-header-list-link" onclick="Jump0()">
+                    <span class="am-icon-comment-o"></span>奖学金管理
+                </a>
+            </li>-->
+            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                <a class="am-dropdown-toggle tpl-header-list-link" onclick="Jump1()">
+                    <span class="am-icon-calendar"></span>招生管理
+                </a>
+            </li>
+<!--            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                <a class="am-dropdown-toggle tpl-header-list-link" onclick="Jump2()">
+                    <span class="am-icon-comment-o"></span>人事管理
+                </a>
+            </li>-->
+            <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+
+            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+                                       <span class="tpl-header-list-user-nick"  sec:authentication="name">
+                    </span><span class="tpl-header-list-user-ico"> <img src="../assets/img/user02.png"></span></a>
+                <ul class="am-dropdown-content">
+                    <li><a href="#"><span class="am-icon-bell-o"></span> 个人信息</a></li>
+                    <li><a href="#"><span class="am-icon-cog"></span> 修改密码</a></li>
+                    <li><a href="/index"><span class="am-icon-power-off"></span> 退出账户</a></li>
+                </ul>
+            </li>
+           <!-- <li><a href="signin.jsp" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>-->
+        </ul>
+    </div>
+</header>
+
+<div class="tpl-page-container tpl-page-header-fixed">
+
+
+    <div class="tpl-left-nav tpl-left-nav-hover">
+        <div class="tpl-left-nav-title">
+            友情链接
+        </div>
+        <div class="tpl-left-nav-list">
+            <ul class="tpl-left-nav-menu">
+                <li class="tpl-left-nav-item">
+                    <a href="/index" class="nav-link active">
+                        <i class="am-icon-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li class="tpl-left-nav-item">
+                    <a href="http://www.scu.edu.cn" class="nav-link tpl-left-nav-link-list">
+                        <i class="am-icon-bar-chart"></i>
+                        <span>学校官网</span>
+                        <i class="tpl-left-nav-content tpl-badge-danger">
+                            hot
+                        </i>
+                    </a>
+                </li>
+                <li class="tpl-left-nav-item">
+                    <a href="http://jwc.scu.edu.cn" class="nav-link tpl-left-nav-link-list">
+                        <i class="am-icon-bar-chart"></i>
+                        <span>教务处</span>
+                        <i class="tpl-left-nav-content tpl-badge-success">
+                            10+
+                        </i>
+                    </a>
+                </li>
+                <li class="tpl-left-nav-item">
+                    <a href="http://xsc.scu.edu.cn" class="nav-link tpl-left-nav-link-list">
+                        <i class="am-icon-bar-chart"></i>
+                        <span>学工部</span>
+                        <i class="tpl-left-nav-content tpl-badge-primary">
+                            new
+                        </i>
+                    </a>
+                </li>
+                <li class="tpl-left-nav-item">
+                    <a href="http://youth.scu.edu.cn" class="nav-link tpl-left-nav-link-list">
+                        <i class="am-icon-bar-chart"></i>
+                        <span>青春川大</span>
+                        <i class="tpl-left-nav-content tpl-badge-success">
+                            10+
+                        </i>
+                    </a>
+                </li>
+                <li class="tpl-left-nav-item">
+                    <a href="http://gs.scu.edu.cn" class="nav-link tpl-left-nav-link-list">
+                        <i class="am-icon-bar-chart"></i>
+                        <span>研究生网</span>
+                        <i class="tpl-left-nav-content tpl-badge-danger">
+                            hot
+                        </i>
+                    </a>
+                </li>
+                <li class="tpl-left-nav-item">
+                    <a href="http://zhjw.scu.edu.cn" class="nav-link tpl-left-nav-link-list">
+                        <i class="am-icon-bar-chart"></i>
+                        <span>教务系统</span>
+                        <i class="tpl-left-nav-content tpl-badge-danger">
+                            hot
+                        </i>
+                    </a>
+                </li>
+                <li class="tpl-left-nav-item">
+                    <a href="http://mail.scu.edu.cn" class="nav-link tpl-left-nav-link-list">
+                        <i class="am-icon-bar-chart"></i>
+                        <span>邮件系统</span>
+                        <i class="tpl-left-nav-content tpl-badge-primary">
+                            test
+                        </i>
+                    </a>
+                </li>
+
+                <li class="tpl-left-nav-item">
+                    <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                        <i class="am-icon-wpforms"></i>
+                        <span>学院网站</span>
+                        <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                    </a>
+                    <ul class="tpl-left-nav-sub-menu">
+                        <li>
+                            <a href="http://cs.scu.edu.cn">
+                                <i class="am-icon-angle-right"></i>
+                                <span>计算机学院</span>
+                                <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://sw.scu.edu.cn">
+                                <i class="am-icon-angle-right"></i>
+                                <span>软件学院</span>
+                                <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://math.scu.edu.cn">
+                                <i class="am-icon-angle-right"></i>
+                                <span>数学学院</span>
+                                <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tpl-content-wrapper">
+        <div class="tpl-content-page-title">
+            四川大学数字化校园建设(招生三审 管理员)
+        </div>
+
+        <ol class="am-breadcrumb">
+            <li><a href="/index" class="am-icon-home">首页</a></li>
+
+            <li class="am-active">三审管理</li>
+        </ol>
+
+        <div class="tpl-portlet-components">
+            <div class="portlet-title">
+                <div class="caption font-green bold">
+                    <span class="am-icon-code"></span> 三审列表
+                </div>
+                <div class="tpl-portlet-input tpl-fz-ml">
+                    <div class="portlet-input input-small input-inline">
+                       <!-- <div class="input-icon right">
+                            <i class="am-icon-search"></i>
+                            <input type="text" class="form-control form-control-solid" placeholder="搜索..."> </div>-->
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="tpl-block">
+                <div class="am-g">
+                    <div class="am-u-sm-12">
+                        <form class="am-form">
+                            <table class="am-table am-table-striped am-table-hover table-main">
+                                <thead>
+                                <tr>
+                                    <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
+                                    <th class="table-id">学生姓名</th>
+                                    <th class="table-title">学生成绩</th>
+                                    <th class="table-type">学生简介</th>
+                                    <th class="table-id">学生专业</th>
+                                    <th class="table-set">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody id = "news_list">
+                                </tbody>
+                            </table>
+                            <div class="am-cf">
+
+                              <!--  <div class="am-fr">
+                                    <ul class="am-pagination tpl-pagination">
+                                        <li class="am-disabled"><a href="#">«</a></li>
+                                        <li class="am-active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">»</a></li>
+                                    </ul>
+                                </div>-->
+                            </div>
+                            <hr>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="tpl-alert"></div>
+        </div>
+
+
+    </div>
+</div>
+
+</body>
+
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/amazeui.min.js"></script>
+<script src="../assets/js/app.js"></script>
+<script src="../js/dataTransfer.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+
+<script>
+    var token = $("meta[name='_csrf']").attr("content");
+    var header = $("meta[name='_csrf_header']").attr("content");
+
+
+    //如果需要 用于修改
+    //请求ajax 对于返回数据采用 append html加入 参考上面的html
+    $.ajax({
+        type: 'GET',
+        url: '/applyForColleage/manager3GetInformation',
+        dataType: 'json',
+        contentType: "application/json;charset=UTF-8",
+        async : false,
+        beforeSend: function(request) {
+            request.setRequestHeader(header, token); // 添加  CSRF Token
+        },
+        success: function (data) {
+            console.log(data);
+            for (var i = 0; i < data.length; i++){
+                $('#news_list').append("<tr>\n" +
+                    "                                    <td><input type=\"checkbox\"></td>\n" +
+                    "                                    <td>"+ data[i].stuName +"</td>\n" +
+                    "                                    <td>" + data[i].stuGrade +"</td>\n" +
+                    "                                    <td>" + data[i].stuIntroduction + "</td>\n" +
+                    "                                    <td>" + data[i].stuMajor + "</td>\n" +
+                    "                                    <td>\n" +
+                    "                                        <div >\n" +
+                    "                                            <div id =\"schoID\" >\n" +
+                    "                                                <button onclick=\"level3allow("+"'"+data[i].userId+"'" +")\" >" +
+                    "                                                   <span ></span> 拒绝</button>\n" +
+                    "                                                <button onclick=\"level3notallow("+"'"+ data[i].userId +"'"+")\" >" +
+                    "                                                   <span ></span> 通过 </button>\n" +
+                    "                                            </div>\n" +
+                    "                                        </div>\n" +
+                    "                                    </td>\n" +
+                    "                                </tr>");
+            }
+
+        },
+        error: function(data){
+            console.log("失败");
+        }
+    });
+
+</script>
+<script>
+    function level3allow(obj){
+
+
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+        var data = {
+            stuLevel3manager: -1,
+            userId: obj
+        };
+        $.ajax({
+            type: 'POST',
+            url: '/applyForColleage/manager3Makesure',
+            contentType: "application/json;charset=UTF-8",
+            data: JSON.stringify(data),
+            async : false,
+            beforeSend: function(request) {
+                request.setRequestHeader(header, token); // 添加  CSRF Token
+            },
+            success: function (data) {
+                window.parent.location.reload();
+                window.location.href = "/check3";
+            },
+            error: function(data){
+                console.log("失败");
+            }
+        });
+
+        alert("拒绝完成");
+    }
+</script>
+<script>
+    function level3notallow(obj){
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+        var data = {
+            stuLevel3manager: 1,
+            userId: obj
+        };
+        $.ajax({
+            type: 'POST',
+            url: '/applyForColleage/manager3Makesure',
+            contentType: "application/json;charset=UTF-8",
+            data: JSON.stringify(data),
+            async : false,
+            beforeSend: function(request) {
+                request.setRequestHeader(header, token); // 添加  CSRF Token
+            },
+            success: function (data) {
+                window.parent.location.reload();
+                window.location.href = "/check3";
+            },
+            error: function(data){
+                console.log("失败");
+            }
+        });
+
+        alert("通过完成");
+    }
+</script>
+</html>
