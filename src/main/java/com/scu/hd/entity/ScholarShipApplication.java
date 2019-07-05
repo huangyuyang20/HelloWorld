@@ -12,15 +12,15 @@ public class ScholarShipApplication {
 
     private int scholarshipId;//奖项编号
 
-    private int stuId;//学生id
+    private String stuId;//学生id
 
     private String schoPersonalstmt;//个人陈述
 
     private int schoApprove;//审核状态
 
-   private Date schoApprovetime;//申请时间
+    private Date schoApprovetime;//申请时间
 
-   private Date  schoSubmittime;//确认时间
+    private Date  schoSubmittime;//确认时间
 
     @Override
     public String toString() {
@@ -34,7 +34,7 @@ public class ScholarShipApplication {
                 '}';
     }
 
-    public ScholarShipApplication(int scholarshipId, int stuId, String schoPersonalstmt, int schoApprove, Date schoApprovetime, Date schoSubmittime) {
+    public ScholarShipApplication(int scholarshipId, String stuId, String schoPersonalstmt, int schoApprove, Date schoApprovetime, Date schoSubmittime) {
         this.scholarshipId = scholarshipId;
         this.stuId = stuId;
         this.schoPersonalstmt = schoPersonalstmt;
@@ -54,11 +54,11 @@ public class ScholarShipApplication {
         this.scholarshipId = scholarshipId;
     }
 
-    public int getStuId() {
+    public String getStuId() {
         return stuId;
     }
 
-    public void setStuId(int stuId) {
+    public void setStuId(String stuId) {
         this.stuId = stuId;
     }
 

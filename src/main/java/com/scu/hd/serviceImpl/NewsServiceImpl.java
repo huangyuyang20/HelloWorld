@@ -30,6 +30,7 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
+
     public List<News> QueryByTime(String time) {
         return newsDAO.QueryByTime(time);
     }

@@ -1,5 +1,7 @@
 package com.scu.hd.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 /**
@@ -7,10 +9,29 @@ import java.util.Date;
  * @date 2019/6/26 19:03
  */
 public class StudApplyInformation {
+    private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getStuGender() {
+        return stuGender;
+    }
+
+    public void setStuGender(String stuGender) {
+        this.stuGender = stuGender;
+    }
+
     private String stuName;
     private Date stuBirthday;
     private String stuBirthplace;
     private String stuEmail;
+    private String stuGender;
     private String stuMajor;
     private String stuPhone;
     private String stuIdCard;
@@ -158,10 +179,12 @@ public class StudApplyInformation {
     @Override
     public String toString() {
         return "StudApplyInformation{" +
-                "stuName='" + stuName + '\'' +
+                "userId='" + userId + '\'' +
+                ", stuName='" + stuName + '\'' +
                 ", stuBirthday=" + stuBirthday +
                 ", stuBirthplace='" + stuBirthplace + '\'' +
                 ", stuEmail='" + stuEmail + '\'' +
+                ", stuGender='" + stuGender + '\'' +
                 ", stuMajor='" + stuMajor + '\'' +
                 ", stuPhone='" + stuPhone + '\'' +
                 ", stuIdCard='" + stuIdCard + '\'' +

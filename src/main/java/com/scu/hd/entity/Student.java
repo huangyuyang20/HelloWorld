@@ -1,6 +1,5 @@
 package com.scu.hd.entity;
 
-
 import java.util.Date;
 
 /**
@@ -8,7 +7,7 @@ import java.util.Date;
  * @create 2019-06-26-17:39
  */
 public class Student {
-    Integer stuId;
+    String stuId;
 
     String stuName;
 
@@ -22,7 +21,7 @@ public class Student {
 
     String stuPhone;
 
-    Integer stuGender;
+    String stuGender;
 
     String stuEmail;
 
@@ -32,13 +31,32 @@ public class Student {
 
     String stuStatus;
 
-    String stuPassword;
 
-    public Integer getStuId() {
+
+    public Student() {
+    }
+
+    public Student(String stuId, String stuName, String stuCollege, String stuMajor, Date stuBirthDate, String stuBirthPlace, String stuPhone, String stuGender, String stuEmail, Integer stuAccount, Double stuGpa, String stuStatus) {
+        this.stuId = stuId;
+        this.stuName = stuName;
+        this.stuCollege = stuCollege;
+        this.stuMajor = stuMajor;
+        this.stuBirthDate = stuBirthDate;
+        this.stuBirthPlace = stuBirthPlace;
+        this.stuPhone = stuPhone;
+        this.stuGender = stuGender;
+        this.stuEmail = stuEmail;
+        this.stuAccount = stuAccount;
+        this.stuGpa = stuGpa;
+        this.stuStatus = stuStatus;
+
+    }
+
+    public String getStuId() {
         return stuId;
     }
 
-    public void setStuId(Integer stuId) {
+    public void setStuId(String stuId) {
         this.stuId = stuId;
     }
 
@@ -90,11 +108,11 @@ public class Student {
         this.stuPhone = stuPhone;
     }
 
-    public Integer getStuGender() {
+    public String getStuGender() {
         return stuGender;
     }
 
-    public void setStuGender(Integer stuGender) {
+    public void setStuGender(String stuGender) {
         this.stuGender = stuGender;
     }
 
@@ -132,25 +150,6 @@ public class Student {
 
     public String getStuPassword() {
         return stuPassword;
-    }
-
-    public Student() {
-    }
-
-    public Student(Integer stuId, String stuName, String stuCollege, String stuMajor, Date stuBirthDate, String stuBirthPlace, String stuPhone, Integer stuGender, String stuEmail, Integer stuAccount, Double stuGpa, String stuStatus, String stuPassword) {
-        this.stuId = stuId;
-        this.stuName = stuName;
-        this.stuCollege = stuCollege;
-        this.stuMajor = stuMajor;
-        this.stuBirthDate = stuBirthDate;
-        this.stuBirthPlace = stuBirthPlace;
-        this.stuPhone = stuPhone;
-        this.stuGender = stuGender;
-        this.stuEmail = stuEmail;
-        this.stuAccount = stuAccount;
-        this.stuGpa = stuGpa;
-        this.stuStatus = stuStatus;
-        this.stuPassword = stuPassword;
     }
 
     public void setStuPassword(String stuPassword) {
