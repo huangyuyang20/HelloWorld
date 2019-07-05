@@ -316,6 +316,7 @@
                request.setRequestHeader(header, token); // 添加  CSRF Token
            },
            success: function (data) {
+               alert('添加成功');
                console.log(data);
                window.location.href = "/admins/employeeAdd";
            },
@@ -324,5 +325,14 @@
            }
        });
    }
+    function Jump0(){
+        window.location.href = '/login';
+    }
+    function Jump1(){
+        window.location.href = '/login';
+    }
+    function Jump2(){
+        window.location.href = '/admins/employeeManage';
+    }
 </script>
 </html>

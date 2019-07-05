@@ -213,7 +213,7 @@
                             <table class="am-table am-table-striped am-table-hover table-main">
                                 <thead>
                                 <tr>
-                                    <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
+                                    <th class="table-check">-</th>
                                     <th class="table-id">职工姓名</th>
                                     <th class="table-title">职工薪资</th>
                                     <th class="table-type">职工手机</th>
@@ -278,7 +278,7 @@
                 console.log(data);
                 for (var i = 0; i < data.length; i++){
                     $('#news_list').append("<tr>\n" +
-                        "                                        <td><input type=\"checkbox\"></td>\n" +
+                        "                                        <td> </td>\n" +
                         "                                        <td>"+data[i].emName+"</td>\n" +
                         "                                        <td>"+data[i].emSalary+"</td>\n" +
                         "                                        <td>"+data[i].emPhone+"</td>\n" +
@@ -313,7 +313,7 @@
     function Jump0(){
         window.location.href = '/check1';
     }
-    function Jump1（）{
+    function Jump1(){
         window.location.href = '/login';
     }
     function Jump2(){

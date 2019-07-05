@@ -39,7 +39,9 @@ public class Employee {
                 ", emPosition='" + emPosition + '\'' +
                 '}';
     }
+    public Employee(){
 
+    }
     public Employee(String emName, String emId, int emSalary, String emAppraise, Date emBirthday, String emBirthplace, String emPhone, String emEmail, String emIdCard, String emImage, String emNation, String emDepartment, String emPosition) {
         this.emName = emName;
         this.emId = emId;
