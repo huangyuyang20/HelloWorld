@@ -33,32 +33,163 @@
     <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
 
     </div>
-    <!--
-    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
-        <span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span>
-    </button>
-    -->
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
     <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
 
         <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
+            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                <a class="am-dropdown-toggle tpl-header-list-link" onclick="ApplyScholar()">
+                    <span class="am-icon-comment-o"></span>奖学金申请
+                </a>
+            </li>
+            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                <a class="am-dropdown-toggle tpl-header-list-link" onclick="student_applicationstate()" >
+                    <span class="am-icon-calendar"></span>奖学金申请状态查询
+                </a>
+            </li>
+            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                <a class="am-dropdown-toggle tpl-header-list-link" onclick="student_application()" >
+                    <span class="am-icon-calendar"></span>入学申请
+                </a>
+            </li>
+            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                <a class="am-dropdown-toggle tpl-header-list-link" onclick="student_status()">
+                    <span class="am-icon-comment-o"></span>入学申请状态查询
+                </a>
+            </li>
             <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                    <span class="tpl-header-list-user-nick">Username</span><span class="tpl-header-list-user-ico"> <img src="../assets/img/user01.png"></span>
+                    <span class="tpl-header-list-user-nick"  sec:authentication="name">
+                    </span><span class="tpl-header-list-user-ico"> <img src="../assets/img/user01.png"></span>
                 </a>
                 <ul class="am-dropdown-content">
-                    <li><a href="#"><span class="am-icon-bell-o"></span>填写表格/Fill Forms</a></li>
-                    <li><a href="#"><span class="am-icon-cog"></span>申请状态查询/Application Status</a></li>
-                    <li><a href="../html/signin.jsp"><span class="am-icon-power-off"></span> 退出/Exit</a></li>
+                    <li><a href="/student/application"><span class="am-icon-bell-o"></span>填写表格/Fill Forms</a></li>
+                    <li><a href="/student/appstatus"><span class="am-icon-cog"></span>申请状态查询/Application Status</a></li>
+                    <li><a href="/index"><span class="am-icon-power-off"></span> 退出/Exit</a></li>
                 </ul>
             </li>
-            <li><a href="###" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
+           <!-- <li><a href="###" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>-->
         </ul>
     </div>
 </header>
 
 
 <div class="tpl-page-container tpl-page-header-fixed">
+    <div class="tpl-page-container tpl-page-header-fixed">
+
+        <div class="tpl-left-nav tpl-left-nav-hover">
+            <div class="tpl-left-nav-title">
+                友情链接
+            </div>
+            <div class="tpl-left-nav-list">
+                <ul class="tpl-left-nav-menu">
+                    <li class="tpl-left-nav-item">
+                        <a href="/index" class="nav-link active">
+                            <i class="am-icon-home"></i>
+                            <span>首页</span>
+                        </a>
+                    </li>
+                    <li class="tpl-left-nav-item">
+                        <a href="http://www.scu.edu.cn" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-bar-chart"></i>
+                            <span>学校官网</span>
+                            <i class="tpl-left-nav-content tpl-badge-danger">
+                                hot
+                            </i>
+                        </a>
+                    </li>
+                    <li class="tpl-left-nav-item">
+                        <a href="http://jwc.scu.edu.cn" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-bar-chart"></i>
+                            <span>教务处</span>
+                            <i class="tpl-left-nav-content tpl-badge-success">
+                                10+
+                            </i>
+                        </a>
+                    </li>
+                    <li class="tpl-left-nav-item">
+                        <a href="http://xsc.scu.edu.cn" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-bar-chart"></i>
+                            <span>学工部</span>
+                            <i class="tpl-left-nav-content tpl-badge-primary">
+                                new
+                            </i>
+                        </a>
+                    </li>
+                    <li class="tpl-left-nav-item">
+                        <a href="http://youth.scu.edu.cn" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-bar-chart"></i>
+                            <span>青春川大</span>
+                            <i class="tpl-left-nav-content tpl-badge-success">
+                                10+
+                            </i>
+                        </a>
+                    </li>
+                    <li class="tpl-left-nav-item">
+                        <a href="http://gs.scu.edu.cn" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-bar-chart"></i>
+                            <span>研究生网</span>
+                            <i class="tpl-left-nav-content tpl-badge-danger">
+                                hot
+                            </i>
+                        </a>
+                    </li>
+                    <li class="tpl-left-nav-item">
+                        <a href="http://zhjw.scu.edu.cn" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-bar-chart"></i>
+                            <span>教务系统</span>
+                            <i class="tpl-left-nav-content tpl-badge-danger">
+                                hot
+                            </i>
+                        </a>
+                    </li>
+                    <li class="tpl-left-nav-item">
+                        <a href="http://mail.scu.edu.cn" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-bar-chart"></i>
+                            <span>邮件系统</span>
+                            <i class="tpl-left-nav-content tpl-badge-primary">
+                                test
+                            </i>
+                        </a>
+                    </li>
+
+                    <li class="tpl-left-nav-item">
+                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-wpforms"></i>
+                            <span>学院网站</span>
+                            <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                        </a>
+                        <ul class="tpl-left-nav-sub-menu">
+                            <li>
+                                <a href="http://cs.scu.edu.cn">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>计算机学院</span>
+                                    <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://sw.scu.edu.cn">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>软件学院</span>
+                                    <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://math.scu.edu.cn">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>数学学院</span>
+                                    <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
 
 
     <div class="tpl-content-wrapper">
@@ -100,6 +231,7 @@
     </div>
 
 </div>
+</div>
 
 
 <script src="../js/jquery.min.js"></script>
@@ -134,7 +266,7 @@
                     // document.getElementById("id_no").innerText=data;
                     // document.getElementById("major").innerText=?
 
-                    if (data > 1){
+                    if (data >1){
                         var htm1 = "<div class=\"am-u-lg-3 am-u-md-6 am-u-sm-12\" >\n" +
                             "                <div class=\"dashboard-stat red\">\n" +
                             "                    <div class=\"visual\">\n" +
@@ -243,11 +375,31 @@
 
                     if (data == 5){
                         console.log("asdasd")
-                        $("#admission-confim").append("欢迎加入");
+                        $("#admission-confim").append("<div class=\"am-u-lg-3 am-u-md-6 am-u-sm-12\">\n" +
+                            "                <div class=\"dashboard-stat purple\">\n" +
+                            "                    <div class=\"visual\">\n" +
+                            "                        <i class=\"am-icon-android\"></i>\n" +
+                            "                    </div>\n" +
+                            "                    <div class=\"details\">\n" +
+                            "                        <div class=\"number\"> result </div>\n" +
+                            "                        <div class=\"desc\">您已经被录取，欢迎加入我们 </div>\n" +
+                            "                    </div>\n" +
+                            "                </div>\n" +
+                            "            </div>");
                     }
 
                     if (data == -1){
-                        $("#admission-confim").append("未通过");
+                        $("#admission-confim").append("<div class=\"am-u-lg-3 am-u-md-6 am-u-sm-12\">\n" +
+                            "                <div class=\"dashboard-stat purple\">\n" +
+                            "                    <div class=\"visual\">\n" +
+                            "                        <i class=\"am-icon-android\"></i>\n" +
+                            "                    </div>\n" +
+                            "                    <div class=\"details\">\n" +
+                            "                        <div class=\"number\"> result </div>\n" +
+                            "                        <div class=\"desc\">您未被录取，抱歉！ </div>\n" +
+                            "                    </div>\n" +
+                            "                </div>\n" +
+                            "            </div>");
                     }
 
                     if (data == -2){
@@ -341,6 +493,22 @@
 
             })
         }
+    }
+
+
+</script>
+<script type="text/javascript">
+    student_application = function() {
+        window.location.href="/student/application";
+    }
+    student_status = function () {
+        window.location.href="/student/appstatus";
+    }
+    ApplyScholar = function () {
+        window.location.href="/ApplyScholar"
+    }
+    student_applicationstate = function () {
+        window.location.href="/ApplyScholarStatus"
     }
 </script>
 </body>

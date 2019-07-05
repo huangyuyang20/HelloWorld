@@ -61,7 +61,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/css/**", "/js/**", "/fonts/**", "/index").permitAll() // 都可以访问
                 .antMatchers("/login/**").permitAll()
                 .antMatchers("/admins/**").hasRole("ADMIN") // 需要相应的角色才能访问
-                .antMatchers("/employee/**").hasRole("EMPLOYEE")
                 .antMatchers("/updateEmployee/**").hasRole("ADMIN")
                 .antMatchers("/check1/**").hasRole("LEVEL1")
                 .antMatchers("/check2/**").hasRole("LEVEL2")
@@ -79,7 +78,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .rememberMe().key(KEY) // 启用 remember me
                 .and()
 
-                .exceptionHandling().accessDeniedPage("/login-error");  // 处理异常，拒绝访问就重定向到 login-error 页面
+                .exceptionHandling().accessDeniedPage("/login-error")
+        .and().logout().logoutUrl("/logout").clearAuthentication(true).logoutSuccessUrl("/index");
+
     }
 
     @Override

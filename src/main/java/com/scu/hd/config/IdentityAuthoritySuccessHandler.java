@@ -1,10 +1,11 @@
 package com.scu.hd.config;
 
 import com.alibaba.fastjson.JSONObject;
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.scu.hd.dao.ApplyForColleageDao;
 import com.scu.hd.entity.AppResponse;
 import com.scu.hd.entity.User;
+import com.scu.hd.serviceImpl.ApplyForColleageServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.savedrequest.DefaultSavedRequest;
@@ -47,8 +48,28 @@ public class IdentityAuthoritySuccessHandler implements AuthenticationSuccessHan
             }
 
         } else {
-            response.setInfo("/index");
+            if (((User) authentication.getPrincipal()).getUserRole().equals("ROLE_LEVEL1")){
+                response.setInfo("/check1");
+            }else if (((User) authentication.getPrincipal()).getUserRole().equals("ROLE_LEVEL2")){
+                response.setInfo("/check2");
+            }else if (((User) authentication.getPrincipal()).getUserRole().equals("ROLE_LEVEL3")){
+                response.setInfo("/check3");
+            }else if (((User) authentication.getPrincipal()).getUserRole().equals("ROLE_LEVEL4")){
+                response.setInfo("/check4");
+            }else if (((User) authentication.getPrincipal()).getUserRole().equals("ROLE_STUDENT")){
+                System.out.println("用户名"+((User) authentication.getPrincipal()).getUsername());
+                 response.setInfo("/student/application");
+
+            }else if (((User) authentication.getPrincipal()).getUserRole().equals("ROLE_ADMIN")){
+                System.out.println("用户名"+((User) authentication.getPrincipal()).getUsername());
+                response.setInfo("/admins/employeeManage");
+
+            }
+             else  response.setInfo("/index");
+            System.out.println(((User) authentication.getPrincipal()).getUserRole().toString()+"调用response.setInfo");
+
         }
+        System.out.println("返回数据"+JSONObject.toJSON(response).toString());
         httpServletResponse.getWriter().write(JSONObject.toJSON(response).toString());
     }
 }

@@ -48,6 +48,7 @@ public class ApplicationController {
         try {
             loginService.updateStudApplyInformation(information);
         } catch (Exception e){
+            e.printStackTrace();
             resp.setCode(2);
             resp.setStatus("fail");
             resp.setInfo("插入失败");

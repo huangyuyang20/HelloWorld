@@ -28,34 +28,34 @@
     <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
 
         <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
-            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+    <!--        <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" onclick="Jump0()">
                     <span class="am-icon-comment-o"></span>奖学金管理
                 </a>
-            </li>
+            </li>-->
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" onclick="Jump1()">
                     <span class="am-icon-calendar"></span>招生管理
                 </a>
             </li>
-            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+<!--            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" onclick="Jump2()">
                     <span class="am-icon-comment-o"></span>人事管理
                 </a>
-            </li>
+            </li>-->
             <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
 
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                    <span class="tpl-header-list-user-nick">个人中心</span><span class="tpl-header-list-user-ico"> <img src="../assets/img/user02.png"></span>
-                </a>
+                                       <span class="tpl-header-list-user-nick"  sec:authentication="name">
+                    </span><span class="tpl-header-list-user-ico"> <img src="../assets/img/user02.png"></span></a>
                 <ul class="am-dropdown-content">
-                    <li><a href="managePersonal.jsp"><span class="am-icon-bell-o"></span> 个人信息</a></li>
-                    <li><a href="manageChangeInfo.jsp"><span class="am-icon-cog"></span> 修改密码</a></li>
-                    <li><a href="signin.jsp"><span class="am-icon-power-off"></span> 退出账户</a></li>
+                    <li><a href="#"><span class="am-icon-bell-o"></span> 个人信息</a></li>
+                    <li><a href="#"><span class="am-icon-cog"></span> 修改密码</a></li>
+                    <li><a href="/index"><span class="am-icon-power-off"></span> 退出账户</a></li>
                 </ul>
             </li>
-            <li><a href="signin.jsp" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
+           <!-- <li><a href="signin.jsp" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>-->
         </ul>
     </div>
 </header>
@@ -70,7 +70,7 @@
         <div class="tpl-left-nav-list">
             <ul class="tpl-left-nav-menu">
                 <li class="tpl-left-nav-item">
-                    <a href="home.jsp" class="nav-link active">
+                    <a href="/index" class="nav-link active">
                         <i class="am-icon-home"></i>
                         <span>首页</span>
                     </a>
@@ -175,25 +175,25 @@
 
     <div class="tpl-content-wrapper">
         <div class="tpl-content-page-title">
-            四川大学数字化校园建设(招生初审 管理员)
+            四川大学数字化校园建设(招生三审 管理员)
         </div>
 
         <ol class="am-breadcrumb">
-            <li><a href="manageHome.jsp" class="am-icon-home">首页</a></li>
+            <li><a href="/index" class="am-icon-home">首页</a></li>
 
-            <li class="am-active">初审管理</li>
+            <li class="am-active">三审管理</li>
         </ol>
 
         <div class="tpl-portlet-components">
             <div class="portlet-title">
                 <div class="caption font-green bold">
-                    <span class="am-icon-code"></span> 初审列表
+                    <span class="am-icon-code"></span> 三审列表
                 </div>
                 <div class="tpl-portlet-input tpl-fz-ml">
                     <div class="portlet-input input-small input-inline">
-                        <div class="input-icon right">
+                       <!-- <div class="input-icon right">
                             <i class="am-icon-search"></i>
-                            <input type="text" class="form-control form-control-solid" placeholder="搜索..."> </div>
+                            <input type="text" class="form-control form-control-solid" placeholder="搜索..."> </div>-->
                     </div>
                 </div>
 
@@ -219,7 +219,7 @@
                             </table>
                             <div class="am-cf">
 
-                                <div class="am-fr">
+                              <!--  <div class="am-fr">
                                     <ul class="am-pagination tpl-pagination">
                                         <li class="am-disabled"><a href="#">«</a></li>
                                         <li class="am-active"><a href="#">1</a></li>
@@ -229,7 +229,7 @@
                                         <li><a href="#">5</a></li>
                                         <li><a href="#">»</a></li>
                                     </ul>
-                                </div>
+                                </div>-->
                             </div>
                             <hr>
 
@@ -317,6 +317,7 @@
                 request.setRequestHeader(header, token); // 添加  CSRF Token
             },
             success: function (data) {
+                window.parent.location.reload();
                 window.location.href = "/check3";
             },
             error: function(data){
@@ -345,6 +346,7 @@
                 request.setRequestHeader(header, token); // 添加  CSRF Token
             },
             success: function (data) {
+                window.parent.location.reload();
                 window.location.href = "/check3";
             },
             error: function(data){

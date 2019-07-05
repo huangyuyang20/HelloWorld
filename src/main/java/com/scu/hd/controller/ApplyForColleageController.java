@@ -1,7 +1,10 @@
 package com.scu.hd.controller;
 
+
 import com.scu.hd.entity.StudApplyInformation;
+import com.scu.hd.entity.Student;
 import com.scu.hd.service.ApplyForColleageService;
+import com.scu.hd.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +22,9 @@ import java.util.Map;
 public class ApplyForColleageController {
     @Autowired
     ApplyForColleageService applyForColleageService;
+
+    @Autowired
+    StudentService studentService;
 
     //管理员1
     @RequestMapping("manager1GetInformation")
@@ -74,6 +80,24 @@ public class ApplyForColleageController {
     public  void studentMakesure(@RequestBody Map<String, Object> map){
         System.out.println(map);
         applyForColleageService.makesureSelfCheck((Integer) map.get("stuSelfcheck"), (String) map.get("userId"));
+        Student student = new Student();
+        StudApplyInformation s = applyForColleageService.getMyApplyInformation((String)map.get("userId"));
+        System.out.println("申请信息："+s.toString());
+        student.setStuBirthDate(s.getStuBirthday());
+        student.setStuEmail(s.getStuEmail());
+        student.setStuBirthPlace(s.getStuBirthplace());
+        student.setStuMajor(s.getStuMajor());
+        student.setStuName(s.getStuName());
+        student.setStuGpa((double)s.getStuGrade());
+        student.setStuGender(s.getStuGender());
+        student.setStuPhone(s.getStuPhone());
+        student.setStuStatus("在校");
+        student.setStuAccount(0);
+        student.setStuId(s.getUserId());
+        student.setStuGender(s.getStuGender());
+
+        System.out.println("操作结果："+studentService.insertStudent(student));
+
     }
 
     //学生录取名单

@@ -1,0 +1,264 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <title>Students Scholarship Application-SCU</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+
+<body data-type="generalComponents">
+<%@ include file="leftNav.jsp" %>
+
+
+<header class="am-topbar am-topbar-inverse admin-header">
+    <div class="am-topbar-brand">
+        <a href="javascript:" class="tpl-logo">
+            <img src="../assets/img/logo.png" alt="">
+        </a>
+    </div>
+    <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
+
+    </div>
+    <!--
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
+        <span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span>
+    </button>
+    -->
+    <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+        <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
+            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                <a class="am-dropdown-toggle tpl-header-list-link" onclick="ApplyScholar()">
+                    <span class="am-icon-comment-o"></span>奖学金申请
+                </a>
+            </li>
+            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                <a class="am-dropdown-toggle tpl-header-list-link" onclick="student_applicationstate()" >
+                    <span class="am-icon-calendar"></span>奖学金申请状态查询
+                </a>
+            </li>
+            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                <a class="am-dropdown-toggle tpl-header-list-link" onclick="student_application()" >
+                    <span class="am-icon-calendar"></span>入学申请
+                </a>
+            </li>
+            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                <a class="am-dropdown-toggle tpl-header-list-link" onclick="student_status()">
+                    <span class="am-icon-comment-o"></span>入学申请状态查询
+                </a>
+            </li>
+            <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+                    <span class="tpl-header-list-user-nick" id="user_center">
+                        <span class="tpl-header-list-user-nick"  sec:authentication="name">
+                    </span><span class="tpl-header-list-user-ico"> <img src="../assets/img/user01.png"></span>
+                </a>
+                <ul class="am-dropdown-content">
+                    <li><a href="/student/application"><span class="am-icon-bell-o"></span>填写申请奖助学金表格/Fill Forms</a></li>
+                    <li><a href="/student/appstatus"><span class="am-icon-cog"></span>奖助学金申请状态查询/Application Status</a></li>
+                    <li><a href="/index"><span class="am-icon-power-off"></span> 退出/Exit</a></li>
+                </ul>
+            </li>
+            <!--<li><a href="###" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>-->
+        </ul>
+    </div>
+</header>
+
+
+<div class="tpl-page-container tpl-page-header-fixed">
+
+
+
+    <div class="tpl-content-wrapper">
+        <div class="tpl-content-page-title">
+            奖助学金申请人-申请 Applicants-Application
+        </div>
+        <!--
+        <ol class="am-breadcrumb">
+            <li><a href="#" class="am-icon-home">首页</a></li>
+            <li><a href="#">表单</a></li>
+            <li class="am-active">Amaze UI 表单</li>
+        </ol>
+        -->
+        <div class="tpl-portlet-components">
+            <div class="portlet-title">
+                <div class="caption font-green bold">
+                    <span class="am-icon-code"></span> Form #A02
+                </div>
+                <!--
+                <div class="tpl-portlet-input tpl-fz-ml">
+                    <div class="portlet-input input-small input-inline">
+                        <div class="input-icon right">
+                            <i class="am-icon-search"></i>
+                            <input type="text" class="form-control form-control-solid" placeholder="搜索..."> </div>
+                    </div>
+                </div>
+                -->
+
+
+            </div>
+
+
+            <div class="tpl-block">
+
+                <div class="am-g">
+                    <div class="tpl-form-body tpl-form-line">
+                        <form class="am-form tpl-form-line-form">
+
+                            <div class="am-form-group">
+                                <label for="phone" class="am-u-sm-3 am-form-label">电话/Telephone</label>
+                                <div class="am-u-sm-9">
+                                    <input type="tel" id="phone" placeholder="Telephone">
+                                </div>
+                            </div>
+
+
+                            <div class="am-form-group">
+                                <label class="am-u-sm-3 am-form-label">申请奖学金种类</label>
+                                <div class="am-u-sm-9">
+                                    <select id = "scholarshipId">
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="schoPersonalstmt" class="am-u-sm-3 am-form-label">个人说明/Personal Statement</label>
+                                <div class="am-u-sm-9">
+                                    <textarea class="" rows="5" id="schoPersonalstmt" placeholder="Personal Statement"></textarea>
+                                    <small>Introduce yourself with no more than 500 words/用不超过500词介绍自己</small>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <div class="am-u-sm-9 am-u-sm-push-3">
+                                    <button type="button" class="am-btn am-btn-danger" onclick="saveAndSubmit()">提交/Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/amazeui.min.js"></script>
+<script src="../js/app.js"></script>
+<script>
+    $(function () {
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+        var selections = document.getElementById("scholarshipId");
+        var appInfo = sessionStorage.getItem('appInfo');
+        appInfo= JSON.parse(appInfo);
+        $.ajax({
+            type:"post",
+            url:"/scholarShip/findScholar",
+            dataType: 'json',
+            contentType: "application/json;charset=UTF-8",
+            data:JSON.stringify({
+                stuId: appInfo.body
+            }),
+            beforeSend: function(request) {
+                request.setRequestHeader(header, token); // 添加  CSRF Token
+            },
+            success:function(data){
+                if (data.length<1){
+                    alert("您可能还没有被录取！所以无权访问此页面！");
+                    window.location.href="/student/appstatus";
+                }
+
+                for (var i =0;i<data.length;i++){
+                    var option = document.createElement("option");
+                    option.value = data[i].scholarShipId;
+                    option.text= data[i].schoName;
+                    //将option增加到下拉列表中。
+                    selections.options.add(option);
+                }
+            },
+            error:function(){
+                alert("您可能还没有被录取！所以无权访问此页面！");
+                    window.location.href="/student/appstatus";
+
+            }
+        });
+    });
+</script>
+<script>
+    function save() {
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+
+        var appInfo = sessionStorage.getItem('appInfo');
+        appInfo= JSON.parse(appInfo);
+        var schoPersonalstmt = $('#schoPersonalstmt')[0].value;
+
+        var scholarshipId = document.getElementById("scholarshipId").value;
+        console.log(JSON.stringify({stuId: appInfo.body,
+            scholarshipId:scholarshipId,
+            schoPersonalstmt:schoPersonalstmt}));
+        $.ajax({
+            type:"POST",
+            url:"/ScholarShipApplication/applyScholar",
+
+            contentType: "application/json;charset=UTF-8",
+            data: JSON.stringify({
+                stuId: appInfo.body,
+                scholarshipId:scholarshipId,
+                schoPersonalstmt:schoPersonalstmt
+            }),
+            beforeSend: function(request) {
+                request.setRequestHeader(header, token); // 添加  CSRF Token
+            },
+            success:function(data){
+                alert(data);
+
+            },
+            error:function(){
+                alert("发生错误");
+            }
+        })
+    }
+
+    function saveAndSubmit() {
+        save();
+    }
+
+
+</script>
+<script type="text/javascript">
+    student_application = function() {
+        window.location.href="/student/application";
+    }
+    student_status = function () {
+        window.location.href="/student/appstatus";
+    }
+    ApplyScholar = function () {
+        window.location.href="/ApplyScholar"
+    }
+    student_applicationstate = function () {
+        window.location.href="/ApplyScholarStatus"
+    }
+</script>
+</body>
+
+</html>

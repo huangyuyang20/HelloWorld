@@ -1,8 +1,11 @@
 package com.scu.hd.controller;
 
+import com.scu.hd.serviceImpl.StudentServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author:   wbx
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping()
 public class MainController {
+
 
     @GetMapping("/index")
     public String home(){
@@ -91,6 +95,32 @@ public class MainController {
     @GetMapping("/check3")
     public String  check3(){
         return "check3";
+    }
+
+    @GetMapping("/check4")
+    public String check4(){
+        return "schoAdd";
+    }
+
+    @GetMapping("/ScholarManage")
+    public String scholarManage(){
+        return "schoManage";
+    }
+
+    @GetMapping("/ApplyScholar")
+    public String ApplyScholar(){
+
+        return "schoApply";
+    }
+
+    @GetMapping("/ScholarMakeSure")
+    public String ScholarMakeSure(){
+        return "schoApplySure";
+    }
+
+    @GetMapping("/ApplyScholarStatus")
+    public String ApplyScholarStatus(){
+        return "schoApplyStatus";
     }
 
     @GetMapping("/admins/employeeAdd")

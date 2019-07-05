@@ -74,6 +74,7 @@ public class LoginController {
      */
     @PostMapping
     public AppResponse loginStudent(User user){
+        System.out.println("调用loginStudent");
         log.debug(String.format("login %s", user));
         AppResponse resp = new AppResponse();
         if (user == null || user.getPassword() == null || user.getUsername() == null){

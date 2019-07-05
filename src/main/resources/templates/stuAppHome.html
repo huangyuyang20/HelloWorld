@@ -44,15 +44,18 @@
             <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                    <span class="tpl-header-list-user-nick" id="user_center"> </span><span class="tpl-header-list-user-ico"> <img src="../assets/img/user01.png"></span>
+                    <span class="tpl-header-list-user-nick" id="user_center">
+                        <span class="tpl-header-list-user-nick"  sec:authentication="name">
+                    </span><span class="tpl-header-list-user-ico"> <img src="../assets/img/user01.png"></span>
+                    </span>
                 </a>
                 <ul class="am-dropdown-content">
-                    <li><a href="stu_app_home.jsp"><span class="am-icon-bell-o"></span>填写表格/Fill Forms</a></li>
-                    <li><a href="stu_app_status.jsp"><span class="am-icon-cog"></span>申请状态查询/Application Status</a></li>
-                    <li><a href="signin.jsp"><span class="am-icon-power-off"></span> 退出/Exit</a></li>
+                    <li><a href="/student/application"><span class="am-icon-bell-o"></span>填写表格/Fill Forms</a></li>
+                    <li><a href="/student/appstatus"><span class="am-icon-cog"></span>申请状态查询/Application Status</a></li>
+                    <li><a href="/index"><span class="am-icon-power-off"></span> 退出/Exit</a></li>
                 </ul>
             </li>
-            <li><a href="###" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
+            <!--<li><a href="###" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>-->
         </ul>
     </div>
 </header>
@@ -168,9 +171,9 @@
                             </div>
 
                             <div class="am-form-group">
-                                <label class="am-u-sm-3 am-form-label">本科学校/Undergraduate</label>
+                                <label class="am-u-sm-3 am-form-label">考试分数</label>
                                 <div class="am-u-sm-9">
-                                    <input type="text" id="undergraduate" placeholder="本科学校/Undergraduate">
+                                    <input type="text" id="undergraduate" placeholder="考试分数">
                                 </div>
                             </div>
 

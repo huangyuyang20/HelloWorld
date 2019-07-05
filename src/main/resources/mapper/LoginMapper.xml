@@ -12,6 +12,7 @@
     </resultMap>
     <resultMap id="StudApplyInformationMap" type="com.scu.hd.entity.StudApplyInformation">
         <id column="user_id" property="userId" jdbcType="VARCHAR" />
+        <id column="stu_gender" property="stuGender" jdbcType="VARCHAR"/>
         <result column="stu_name" property="stuName" jdbcType="VARCHAR" />
         <result column="stu_birthday" property="stuBirthday" jdbcType="DATE" />
         <result column="stu_birthplace" property="stuBirthplace" jdbcType="VARCHAR" />
@@ -90,7 +91,8 @@
                                           stu_level3manager = #{stuLevel3manager},
                                           stu_selfcheck = #{stuSelfcheck},
                                           stu_nation = #{stuNation},
-                                          stu_image = #{stuImage}
+                                          stu_image = #{stuImage},
+                                          stu_gender = #{stuGender}
         where stu_apply_id = #{stuApplyId}
     </update>
 </mapper>
