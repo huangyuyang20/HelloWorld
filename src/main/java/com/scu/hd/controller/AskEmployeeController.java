@@ -3,10 +3,10 @@ package com.scu.hd.controller;
 import com.scu.hd.entity.Employee;
 import com.scu.hd.service.AskEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author zhong songzhi
@@ -21,8 +21,14 @@ public class AskEmployeeController {
     AskEmployeeService askEmployeeService;
 
     @RequestMapping("getInformation")
-    public Employee getInformation(String employeeId){
+    public Employee getInformation(@RequestBody Map<String, Object> map){
+        String employeeId = (String) map.get("employeeId");
         return askEmployeeService.QureyById(employeeId);
+    }
+
+    @GetMapping("getAll")
+    public List<Employee> getAll(){
+        return askEmployeeService.QueryAll();
     }
 
     @RequestMapping("getSalaryInformation")

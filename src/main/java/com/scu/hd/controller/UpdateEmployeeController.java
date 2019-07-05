@@ -1,10 +1,11 @@
 package com.scu.hd.controller;
 
 import com.scu.hd.entity.Employee;
+import com.scu.hd.entity.UserEmployeeOV;
 import com.scu.hd.service.UpdateEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author zhong songzhi
@@ -18,8 +19,14 @@ public class UpdateEmployeeController {
     @Autowired
     UpdateEmployeeService updateEmployeeService;
 
-    @RequestMapping("updateAll")
-    void updateAll(Employee employee){updateEmployeeService.updateEmployee(employee);}
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
+    @PostMapping("updateAll")
+    void updateAll(@RequestBody Employee employee){
+        System.out.println(employee);
+        updateEmployeeService.updateEmployee(employee);
+    }
 
     @RequestMapping("updateSalary")
     void updateSalary(Integer emSalary,String emId){ updateEmployeeService.updateSalary(emSalary,emId);}
@@ -28,4 +35,12 @@ public class UpdateEmployeeController {
     void updateAppraise(String emAppraise,String emId){ updateEmployeeService.updateAppraise(emAppraise, emId);
 
     }
+
+    @PostMapping("insert")
+    public void insertEmployee(@RequestBody UserEmployeeOV employeeOV){
+        employeeOV.getUser().setPassword(passwordEncoder.encode(employeeOV.getUser().getPassword()));
+        updateEmployeeService.insertEmployee(employeeOV);
+    }
+
+
 }
