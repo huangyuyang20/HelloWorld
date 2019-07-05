@@ -1,4 +1,5 @@
-package com.scu.hd.entity;
+package com.scu.hd.Entity;
+
 
 import java.util.Date;
 
@@ -9,7 +10,7 @@ import java.util.Date;
  * @create 2019-06-26-17:39
  */
 public class Student {
-    String stuId;
+    Integer stuId;
 
     String stuName;
 
@@ -23,7 +24,7 @@ public class Student {
 
     String stuPhone;
 
-    String stuGender;
+    Integer stuGender;
 
     String stuEmail;
 
@@ -33,32 +34,13 @@ public class Student {
 
     String stuStatus;
 
+    String stuPassword;
 
-
-    public Student() {
-    }
-
-    public Student(String stuId, String stuName, String stuCollege, String stuMajor, Date stuBirthDate, String stuBirthPlace, String stuPhone, String stuGender, String stuEmail, Integer stuAccount, Double stuGpa, String stuStatus) {
-        this.stuId = stuId;
-        this.stuName = stuName;
-        this.stuCollege = stuCollege;
-        this.stuMajor = stuMajor;
-        this.stuBirthDate = stuBirthDate;
-        this.stuBirthPlace = stuBirthPlace;
-        this.stuPhone = stuPhone;
-        this.stuGender = stuGender;
-        this.stuEmail = stuEmail;
-        this.stuAccount = stuAccount;
-        this.stuGpa = stuGpa;
-        this.stuStatus = stuStatus;
-
-    }
-
-    public String getStuId() {
+    public Integer getStuId() {
         return stuId;
     }
 
-    public void setStuId(String stuId) {
+    public void setStuId(Integer stuId) {
         this.stuId = stuId;
     }
 
@@ -110,11 +92,11 @@ public class Student {
         this.stuPhone = stuPhone;
     }
 
-    public String getStuGender() {
+    public Integer getStuGender() {
         return stuGender;
     }
 
-    public void setStuGender(String stuGender) {
+    public void setStuGender(Integer stuGender) {
         this.stuGender = stuGender;
     }
 
@@ -150,4 +132,11 @@ public class Student {
         this.stuStatus = stuStatus;
     }
 
+    public String getStuPassword() {
+        return stuPassword;
+    }
+
+    public void setStuPassword(String stuPassword) {
+        this.stuPassword = stuPassword;
+    }
 }
