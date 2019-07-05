@@ -122,4 +122,29 @@ public class MainController {
     public String ApplyScholarStatus(){
         return "schoApplyStatus";
     }
+
+    @GetMapping("/admins/employeeAdd")
+    public String schoAdd(){
+        return "employeeAdd";
+    }
+
+    @GetMapping("/admins/employeeManage")
+    public String schoManage(){
+        return "employeeManage";
+    }
+
+    @GetMapping("/employee")
+    public String schoApply(){
+        return "employee";
+    }
+
+    @GetMapping("/admins/edit")
+    public String editEmployee(){
+        return "employeeEdit";
+    }
+
+    @GetMapping("/admins")
+    public String admins(){
+        return "adminsMain";
+    }
 }
