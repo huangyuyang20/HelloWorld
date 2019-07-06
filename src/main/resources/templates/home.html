@@ -2,7 +2,7 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-    <title>Title</title>
+    <title>首页</title>
     <meta name="_csrf" th:content="${_csrf.token}"/>
     <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
     <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
@@ -40,7 +40,7 @@
         <div class="tpl-left-nav-list">
             <ul class="tpl-left-nav-menu">
                 <li class="tpl-left-nav-item">
-                    <a href="/News/getNews" class="nav-link active">
+                    <a href="/index" class="nav-link active">
                         <i class="am-icon-home"></i>
                         <span>首页</span>
                     </a>

@@ -63,6 +63,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/check3/**").hasRole("LEVEL3")
                 .antMatchers("/check4/**").hasRole("LEVEL4")
                 .antMatchers("/student/**").hasRole("STUDENT")
+                .antMatchers("/ScholarManage").hasRole("LEVEL4")
+                .antMatchers("/ScholarMakeSure").hasRole("LEVEL4")
                 .and()
 
                 .formLogin()                    //基于 post + Form 表单登录验证

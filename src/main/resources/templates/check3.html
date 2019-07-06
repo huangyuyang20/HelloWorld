@@ -4,7 +4,7 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>招生管理终审</title>
     <meta name="_csrf" th:content="${_csrf.token}"/>
     <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
     <link rel="stylesheet" href="../assets/css/amazeui.min.css"/>
@@ -206,7 +206,7 @@
                             <table class="am-table am-table-striped am-table-hover table-main">
                                 <thead>
                                 <tr>
-                                    <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
+
                                     <th class="table-id">学生姓名</th>
                                     <th class="table-title">学生成绩</th>
                                     <th class="table-type">学生简介</th>
@@ -272,7 +272,7 @@
             console.log(data);
             for (var i = 0; i < data.length; i++){
                 $('#news_list').append("<tr>\n" +
-                    "                                    <td><input type=\"checkbox\"></td>\n" +
+
                     "                                    <td>"+ data[i].stuName +"</td>\n" +
                     "                                    <td>" + data[i].stuGrade +"</td>\n" +
                     "                                    <td>" + data[i].stuIntroduction + "</td>\n" +
@@ -295,7 +295,9 @@
             console.log("失败");
         }
     });
-
+Jump1 = function () {
+    window.location.href = "/check3"
+}
 </script>
 <script>
     function level3allow(obj){

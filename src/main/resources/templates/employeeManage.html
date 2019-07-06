@@ -4,7 +4,7 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>职工管理</title>
     <%-- Bootstrap --%>
     <%-- Custom styles for this template --%>
     <meta name="_csrf" th:content="${_csrf.token}"/>
@@ -36,16 +36,6 @@
 
         <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-                <a class="am-dropdown-toggle tpl-header-list-link" onclick="Jump0()">
-                    <span class="am-icon-comment-o"></span>奖学金管理
-                </a>
-            </li>
-            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-                <a class="am-dropdown-toggle tpl-header-list-link" onclick="Jump1()">
-                    <span class="am-icon-calendar"></span>招生管理
-                </a>
-            </li>
-            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" onclick="Jump2()">
                     <span class="am-icon-comment-o"></span>添加职工
                 </a>
@@ -57,12 +47,12 @@
                     <span class="tpl-header-list-user-nick">个人中心</span><span class="tpl-header-list-user-ico"> <img src="../assets/img/user02.png"></span>
                 </a>
                 <ul class="am-dropdown-content">
-                    <li><a href="../html/managePersonal.jsp"><span class="am-icon-bell-o"></span> 个人信息</a></li>
-                    <li><a href="../html/manageChangeInfo.jsp"><span class="am-icon-cog"></span> 修改密码</a></li>
-                    <li><a href="../html/signin.jsp"><span class="am-icon-power-off"></span> 退出账户</a></li>
+                    <li><a href="#"><span class="am-icon-bell-o"></span> 个人信息</a></li>
+                    <li><a href="#"><span class="am-icon-cog"></span> 修改密码</a></li>
+                    <li><a href="/index"><span class="am-icon-power-off"></span> 退出账户</a></li>
                 </ul>
             </li>
-            <li><a href="../html/signin.jsp" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
+            <li><a href="/login" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
         </ul>
     </div>
 </header>
@@ -77,7 +67,7 @@
         <div class="tpl-left-nav-list">
             <ul class="tpl-left-nav-menu">
                 <li class="tpl-left-nav-item">
-                    <a href="../html/home.jsp" class="nav-link active">
+                    <a href="/index" class="nav-link active">
                         <i class="am-icon-home"></i>
                         <span>首页</span>
                     </a>
@@ -186,7 +176,7 @@
         </div>
 
         <ol class="am-breadcrumb">
-            <li><a href="../html/manageHome.jsp" class="am-icon-home">首页</a></li>
+            <li><a href="/index" class="am-icon-home">首页</a></li>
 
             <li class="am-active">职工管理</li>
         </ol>
@@ -213,7 +203,7 @@
                             <table class="am-table am-table-striped am-table-hover table-main">
                                 <thead>
                                 <tr>
-                                    <th class="table-check">-</th>
+
                                     <th class="table-id">职工姓名</th>
                                     <th class="table-title">职工薪资</th>
                                     <th class="table-type">职工手机</th>
@@ -225,20 +215,20 @@
 
                                 </tbody>
                             </table>
-                            <div class="am-cf">
+<!--                            <div class="am-cf">-->
 
-                                <div class="am-fr">
-                                    <ul class="am-pagination tpl-pagination">
-                                        <li class="am-disabled"><a href="#">«</a></li>
-                                        <li class="am-active"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li><a href="#">»</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+<!--                                <div class="am-fr">-->
+<!--                                    <ul class="am-pagination tpl-pagination">-->
+<!--                                        <li class="am-disabled"><a href="#">«</a></li>-->
+<!--                                        <li class="am-active"><a href="#">1</a></li>-->
+<!--                                        <li><a href="#">2</a></li>-->
+<!--                                        <li><a href="#">3</a></li>-->
+<!--                                        <li><a href="#">4</a></li>-->
+<!--                                        <li><a href="#">5</a></li>-->
+<!--                                        <li><a href="#">»</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
                             <hr>
 
                     </div>
@@ -277,8 +267,7 @@
             success:function(data){
                 console.log(data);
                 for (var i = 0; i < data.length; i++){
-                    $('#news_list').append("<tr>\n" +
-                        "                                        <td> </td>\n" +
+                    $('#news_list').append("<tr>\n" + +
                         "                                        <td>"+data[i].emName+"</td>\n" +
                         "                                        <td>"+data[i].emSalary+"</td>\n" +
                         "                                        <td>"+data[i].emPhone+"</td>\n" +
@@ -296,7 +285,7 @@
 
             },
             error: function(data){
-                console.log("失败");
+                alert("失败");
             }
         });
     });
