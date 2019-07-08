@@ -71,7 +71,7 @@
                     <li><a href="/index"><span class="am-icon-power-off"></span> 退出/Exit</a></li>
                 </ul>
             </li>
-           <!-- <li><a href="###" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>-->
+            <!-- <li><a href="###" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>-->
         </ul>
     </div>
 </header>
@@ -192,45 +192,44 @@
         </div>
 
 
-    <div class="tpl-content-wrapper">
-        <div class="tpl-content-page-title">
-            Application-Status 申请-状态
-        </div>
-        <!--
-        <div class="tpl-content-scope">
-            <div class="note note-info">
-                <h3>Explanation 说明
-                    <span class="close" data-close="note"></span>
-                </h3>
-                <p><span class="label label-danger"></span>Please check your application status at any time.请随时查询你的申请状态。</p>
-
+        <div class="tpl-content-wrapper">
+            <div class="tpl-content-page-title">
+                Application-Status 申请-状态
             </div>
-        </div>
-        -->
-        <div class="row">
-            <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
-                <div class="dashboard-stat blue">
-                    <div class="visual">
-                        <i class="am-icon-comments-o"></i>
-                    </div>
-                    <div class="details">
-                        <div class="number"> SUBMITTED </div>
-                        <div class="desc"> 材料状态 </div>
-                    </div>
+            <!--
+            <div class="tpl-content-scope">
+                <div class="note note-info">
+                    <h3>Explanation 说明
+                        <span class="close" data-close="note"></span>
+                    </h3>
+                    <p><span class="label label-danger"></span>Please check your application status at any time.请随时查询你的申请状态。</p>
                 </div>
             </div>
-            <div id="status1">
-            </div>
-            <div id="status2">
-            </div>
-            <div id="status3">
+            -->
+            <div class="row">
+                <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
+                    <div class="dashboard-stat blue">
+                        <div class="visual">
+                            <i class="am-icon-comments-o"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number"> SUBMITTED </div>
+                            <div class="desc"> 材料状态 </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="status1">
+                </div>
+                <div id="status2">
+                </div>
+                <div id="status3">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="tpl-content-wrapper" id = "admission-confim">
-    </div>
+        <div class="tpl-content-wrapper" id = "admission-confim">
+        </div>
 
-</div>
+    </div>
 </div>
 
 
@@ -244,7 +243,6 @@
         var appInfo = sessionStorage.getItem('appInfo');
         console.log(appInfo);
         appInfo= JSON.parse(appInfo);
-
         $.ajax({
             url: '/applyForColleage/getSelfState',
             type: 'POST',
@@ -265,7 +263,6 @@
                     var json= JSON.stringify(data);
                     // document.getElementById("id_no").innerText=data;
                     // document.getElementById("major").innerText=?
-
                     if (data >1){
                         var htm1 = "<div class=\"am-u-lg-3 am-u-md-6 am-u-sm-12\" >\n" +
                             "                <div class=\"dashboard-stat red\">\n" +
@@ -309,7 +306,6 @@
                             "            </div>";
                         $('#status3').append(htm3);
                     }
-
                     if(data == 4){
                         var html="<div class=\"tpl-content-page-title\">\n" +
                             "            Admission Confirmation  录取信息确认\n" +
@@ -372,7 +368,6 @@
                         console.log("#admission-confim");
                         $("#admission-confim").append(html);
                     }
-
                     if (data == 5){
                         console.log("asdasd")
                         $("#admission-confim").append("<div class=\"am-u-lg-3 am-u-md-6 am-u-sm-12\">\n" +
@@ -387,7 +382,6 @@
                             "                </div>\n" +
                             "            </div>");
                     }
-
                     if (data == -1){
                         $("#admission-confim").append("<div class=\"am-u-lg-3 am-u-md-6 am-u-sm-12\">\n" +
                             "                <div class=\"dashboard-stat purple\">\n" +
@@ -401,12 +395,10 @@
                             "                </div>\n" +
                             "            </div>");
                     }
-
                     if (data == -2){
                         $("#admission-confim").append("已拒绝");
                     }
                 }
-
             },
             error: function (XMLHttpRequrest, textStatus) {
                 alert(XMLHttpRequest.status);
@@ -442,13 +434,9 @@
             error: function(data){
                 console.log("失败");
             }
-
-
         });
     }
-
     function admission_confirm() {
-
         var username = $('#username')[0].value;
         var name = $('#name')[0].value;
         var password = $('#password')[0].value;
@@ -490,12 +478,9 @@
                 error: function(data){
                     console.log("失败");
                 }
-
             })
         }
     }
-
-
 </script>
 <script type="text/javascript">
     student_application = function() {

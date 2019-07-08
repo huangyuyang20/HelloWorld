@@ -35,7 +35,17 @@
             </li>-->
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" onclick="Jump1()">
-                    <span class="am-icon-calendar"></span>招生管理
+                    <span class="am-icon-comment-o"></span>学生信息管理
+                </a>
+            </li>
+            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                <a class="am-dropdown-toggle tpl-header-list-link" onclick="Jump3()">
+                    <span class="am-icon-comment-o"></span>就业管理
+                </a>
+            </li>
+            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                <a class="am-dropdown-toggle tpl-header-list-link" onclick="Jump2()">
+                    <span class="am-icon-comment-o"></span>入学审核
                 </a>
             </li>
 <!--            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
@@ -357,6 +367,15 @@ Jump1 = function () {
         });
 
         alert("通过完成");
+    }
+    Jump1 = function () {
+        window.location.href="/studentInfo"//学生管理页面
+    };
+    Jump2 = function () {
+        window.location.href="/check3"//学生入学申请审核
+    };
+    Jump3 = function () {
+        window.location.href="/studentEmployInformation"//学生就业信息
     }
 </script>
 </html>

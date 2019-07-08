@@ -33,12 +33,22 @@ public class Student {
 
     String stuStatus;
 
+    String employmentInformation;
+
 
 
     public Student() {
     }
 
-    public Student(String stuId, String stuName, String stuCollege, String stuMajor, Date stuBirthDate, String stuBirthPlace, String stuPhone, String stuGender, String stuEmail, Integer stuAccount, Double stuGpa, String stuStatus) {
+    public String getEmploymentInformation() {
+        return employmentInformation;
+    }
+
+    public void setEmploymentInformation(String employmentInformation) {
+        this.employmentInformation = employmentInformation;
+    }
+
+    public Student(String stuId, String stuName, String stuCollege, String stuMajor, Date stuBirthDate, String stuBirthPlace, String stuPhone, String stuGender, String stuEmail, Integer stuAccount, Double stuGpa, String stuStatus, String employmentInformation) {
         this.stuId = stuId;
         this.stuName = stuName;
         this.stuCollege = stuCollege;
@@ -51,7 +61,7 @@ public class Student {
         this.stuAccount = stuAccount;
         this.stuGpa = stuGpa;
         this.stuStatus = stuStatus;
-
+        this.employmentInformation = employmentInformation;
     }
 
     public String getStuId() {

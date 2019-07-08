@@ -1,10 +1,10 @@
 package com.scu.hd.dao;
 
 import com.scu.hd.entity.Student;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @author hyy
@@ -18,6 +18,17 @@ public interface StudentDAO {
             "values(#{stuId},#{stuName},#{stuCollege},#{stuMajor},#{stuBirthDate},#{stuBirthPlace},#{stuPhone}," +
             "#{stuGender},#{stuEmail},#{stuAccount},#{stuGpa},#{stuStatus})")
     public int insertStudent(Student student);
+
     @Select("select * from student where stu_id = #{stuId}")
     public Student selectStudentById(String stuId);
+
+    @Update("update student set stu_phone=#{stuPhone},stu_email=#{stuEmail},employment_information=#{employmentInformation} where stu_id=#{stuId}")
+    public int UpdateStudentInformation(Student student);
+
+    @Select("select * from student")
+    public List<Student> getAllStudent();
+
+    @Delete("delete from student where stu_id=#{stuId}")
+    public int deleteStudent(Student student);
+
 }

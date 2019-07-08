@@ -95,8 +95,8 @@ public class ApplyForColleageController {
         student.setStuAccount(0);
         student.setStuId(s.getUserId());
         student.setStuGender(s.getStuGender());
-
-//        System.out.println("操作结果："+studentService.insertStudent(student));
+        studentService.insertStudent(student);
+//        System.out.println("操作结果："+);
 
     }
 

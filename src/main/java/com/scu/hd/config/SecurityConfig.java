@@ -1,6 +1,7 @@
 package com.scu.hd.config;
 
 
+import com.scu.hd.service.StudentService;
 import com.scu.hd.service.UserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -40,6 +41,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserDetailService userDetailService;
 
+
+
     @Bean
     AuthenticationProvider getAuthenticationProvider(){
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
@@ -61,10 +64,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/check1/**").hasRole("LEVEL1")
                 .antMatchers("/check2/**").hasRole("LEVEL2")
                 .antMatchers("/check3/**").hasRole("LEVEL3")
-                .antMatchers("/check4/**").hasRole("LEVEL4")
+                .antMatchers("/StudentManage/**").hasRole("LEVEL3")
+                .antMatchers("/studentInfo").hasRole("LEVEL3")
+                .antMatchers("/studentEmployInformation").hasRole("LEVEL3")
                 .antMatchers("/student/**").hasRole("STUDENT")
-                .antMatchers("/ScholarManage").hasRole("LEVEL4")
-                .antMatchers("/ScholarMakeSure").hasRole("LEVEL4")
+                .antMatchers("/check4/**","/ScholarManage","/ScholarMakeSure").hasRole("LEVEL4")
+                .antMatchers("/ApplyScholar").hasRole("STUDENT")
                 .and()
 
                 .formLogin()                    //基于 post + Form 表单登录验证

@@ -1,9 +1,11 @@
 package com.scu.hd.controller;
 
+import com.scu.hd.service.StudentService;
 import com.scu.hd.serviceImpl.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MainController {
 
 
+
     @GetMapping("/index")
     public String home(){
         return "home";
@@ -32,8 +35,10 @@ public class MainController {
     }
 
 
+
    @GetMapping("/student/appstatus")
    public String status(){
+       System.out.println("调用/student/appstatus");
         return "stuAppStatus";
    }
 
@@ -140,6 +145,16 @@ public class MainController {
     @GetMapping("/admins/edit")
     public String editEmployee(){
         return "employeeEdit";
+    }
+
+    @GetMapping("/studentInfo")
+    public String stuInfo(){
+        return "StudentInformation";
+    }
+
+    @GetMapping("/studentEmployInformation")
+    public String studnetEmployInformation(){
+        return "studentEmployInfo";
     }
 
 //    @GetMapping("/admins")

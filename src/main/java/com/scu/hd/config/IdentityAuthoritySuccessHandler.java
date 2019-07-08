@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.scu.hd.dao.ApplyForColleageDao;
 import com.scu.hd.entity.AppResponse;
 import com.scu.hd.entity.User;
+import com.scu.hd.service.StudentService;
 import com.scu.hd.serviceImpl.ApplyForColleageServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -21,6 +22,8 @@ import java.io.IOException;
  */
 @Component
 public class IdentityAuthoritySuccessHandler implements AuthenticationSuccessHandler {
+    @Autowired
+    StudentService studentService;
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
         httpServletResponse.setContentType("application/json;charset=UTF-8");
